@@ -3,12 +3,14 @@ import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import { InfoCreditLayout } from '../../layout/info/InfoCreditLayout'
 import { InfoFontLayout } from '../../layout/info/InfoFontLayout'
+import { InfoHeaderLayout } from '../../layout/info/InfoHeaderLayout'
 import { InfoHowLayout } from '../../layout/info/InfoHowLayout'
 import { InfowwwLayout } from '../../layout/info/InfowwwLayout'
 
 export const Info = () => {
   return (
     <Background>
+      <InfoHeaderLayout />
       <Routes>
         <Route path="/www" element={<InfowwwLayout />} />
         <Route path="/how" element={<InfoHowLayout />} />
