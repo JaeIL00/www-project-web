@@ -1,12 +1,8 @@
 import React from 'react'
+import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 
 const App = () => {
-  return (
-    <ul>
-      {/* 라우트 */}
-      <li>hishadfihasidfh</li>
-    </ul>
-  )
+  return <GlobalHeader />
 }
 
 export default App
