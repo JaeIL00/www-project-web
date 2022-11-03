@@ -2,9 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const HomeClickBanner = () => {
+/* eslint-disable */
+interface GlobalHeaderProps {
+  textColorHandler: (page: string) => void
+}
+/* eslint-enable */
+
+export const HomeClickBanner = ({ textColorHandler }: GlobalHeaderProps) => {
   return (
-    <BannerContainer to="/">
+    <BannerContainer to="/" onClick={() => textColorHandler('main')}>
       <TextBox>
         <Text>
           &nbsp;wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww main home click here!

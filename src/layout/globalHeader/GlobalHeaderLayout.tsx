@@ -2,17 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const GlobalHeaderLayout = () => {
+/* eslint-disable */
+interface GlobalHeaderProps {
+  isInfo: boolean
+  isArtwork: boolean
+  isArtist: boolean
+  textColorHandler: (page: string) => void
+}
+/* eslint-enable */
+
+export const GlobalHeaderLayout = ({ isInfo, isArtwork, isArtist, textColorHandler }: GlobalHeaderProps) => {
   return (
     <HeaderContainer>
-      <Link to="/">
-        <Text>INFO</Text>
+      <Link to="/" onClick={() => textColorHandler('info')}>
+        <Text color={isInfo ? '#5D6DFF' : '#fff'}>INFO</Text>
       </Link>
-      <Link to="/">
-        <Text>ARTWORK</Text>
+      <Link to="/" onClick={() => textColorHandler('artwork')}>
+        <Text color={isArtwork ? '#5D6DFF' : '#fff'}>ARTWORK</Text>
       </Link>
-      <Link to="/">
-        <Text>ARTIST</Text>
+      <Link to="/" onClick={() => textColorHandler('artist')}>
+        <Text color={isArtist ? '#5D6DFF' : '#fff'}>ARTIST</Text>
       </Link>
     </HeaderContainer>
   )
@@ -26,6 +35,6 @@ const HeaderContainer = styled.div`
   align-items: center;
   padding: 0 3.12rem;
 `
-const Text = styled.span`
-  color: #fff;
+const Text = styled.span<{ color: string }>`
+  color: ${({ color }) => color};
 `
