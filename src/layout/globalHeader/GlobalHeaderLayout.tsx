@@ -14,13 +14,13 @@ interface GlobalHeaderProps {
 export const GlobalHeaderLayout = ({ isInfo, isArtwork, isArtist, textColorHandler }: GlobalHeaderProps) => {
   return (
     <HeaderContainer>
-      <Link to="/" onClick={() => textColorHandler('info')}>
+      <Link to="/info/www" onClick={() => textColorHandler('info')}>
         <Text color={isInfo ? '#5D6DFF' : '#fff'}>INFO</Text>
       </Link>
-      <Link to="/" onClick={() => textColorHandler('artwork')}>
+      <Link to="/artwork" onClick={() => textColorHandler('artwork')}>
         <Text color={isArtwork ? '#5D6DFF' : '#fff'}>ARTWORK</Text>
       </Link>
-      <Link to="/" onClick={() => textColorHandler('artist')}>
+      <Link to="/artist" onClick={() => textColorHandler('artist')}>
         <Text color={isArtist ? '#5D6DFF' : '#fff'}>ARTIST</Text>
       </Link>
     </HeaderContainer>
