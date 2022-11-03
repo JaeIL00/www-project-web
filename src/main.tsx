@@ -2,12 +2,31 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import { Reset } from 'styled-reset'
+import reset from 'styled-reset'
 import { BrowserRouter } from 'react-router-dom'
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyles = createGlobalStyle`
+  ${reset};
+  body {
+    font-family: Pretendard;
+    user-select: none;
+  }
+  
+  a {
+    color: #242528;
+    text-decoration: none;
+  }
+  
+  span {
+    letter-spacing: -0.02rem;
+    color: #5b5d6c;
+  }
+`
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
-    <Reset />
+    <GlobalStyles />
     <App />
   </BrowserRouter>
 )
