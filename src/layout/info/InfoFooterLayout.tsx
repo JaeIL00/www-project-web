@@ -5,9 +5,9 @@ import logoGray from '/assets/logoGray.svg'
 export const InfoFooterLayout = () => {
   return (
     <FootContainer>
-      <span> WWW Exhibition market 온라인, 오프라인, 사람은 연결되어 있다</span>
+      <Text> WWW Exhibition market 온라인, 오프라인, 사람은 연결되어 있다</Text>
       <Logo src={logoGray} alt="회색로고" />
-      <span>Copyrightⓒ2022.WWW. All rights reserved.</span>
+      <Text>Copyrightⓒ2022.WWW. All rights reserved.</Text>
     </FootContainer>
   )
 }
@@ -22,4 +22,9 @@ const FootContainer = styled.div`
 `
 const Logo = styled.img`
   width: 4.06rem;
+`
+const Text = styled.span`
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-weight: 500;
 `

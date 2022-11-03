@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Medium.woff2') format('woff2'),
+    url('/fonts/Pretendard-Medium.woff') format('woff'),
+    url('/fonts/Pretendard-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Bold.woff2') format('woff2'), url('/fonts/Pretendard-Bold.woff') format('woff'),
+    url('/fonts/Pretendard-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'www';
+  src: url('/fonts/www.woff2') format('woff2'), url('/public/fonts/www.woff') format('woff'),
+    url('/fonts/www.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   user-select: none;
 }
@@ -8,9 +34,6 @@ a {
 }
 
 span {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.18rem;
   letter-spacing: -0.02rem;
   color: #5b5d6c;
 }
