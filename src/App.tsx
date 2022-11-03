@@ -12,7 +12,7 @@ const App = () => {
       <GlobalHeader />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/info" element={<InfoPage />} />
+        <Route path="/info/*" element={<InfoPage />} />
         <Route path="/artwork" element={<ArtworkPage />} />
         <Route path="/artist" element={<ArtistPage />} />
       </Routes>
