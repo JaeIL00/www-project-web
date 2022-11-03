@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import { InfoCreditLayout } from '../../layout/info/InfoCreditLayout'
 import { InfoFontLayout } from '../../layout/info/InfoFontLayout'
+import { InfoFooterLayout } from '../../layout/info/InfoFooterLayout'
 import { InfoHeaderLayout } from '../../layout/info/InfoHeaderLayout'
 import { InfoHowLayout } from '../../layout/info/InfoHowLayout'
 import { InfowwwLayout } from '../../layout/info/InfowwwLayout'
@@ -47,15 +48,18 @@ export const Info = () => {
     /* eslint-enable */
   }
   return (
-    <Background>
-      <InfoHeaderLayout textColor={textColor} textColorHandler={textColorHandler} />
-      <Routes>
-        <Route path="/www" element={<InfowwwLayout />} />
-        <Route path="/how" element={<InfoHowLayout />} />
-        <Route path="/credit" element={<InfoCreditLayout />} />
-        <Route path="/font" element={<InfoFontLayout />} />
-      </Routes>
-    </Background>
+    <>
+      <Background>
+        <InfoHeaderLayout textColor={textColor} textColorHandler={textColorHandler} />
+        <Routes>
+          <Route path="/www" element={<InfowwwLayout />} />
+          <Route path="/how" element={<InfoHowLayout />} />
+          <Route path="/credit" element={<InfoCreditLayout />} />
+          <Route path="/font" element={<InfoFontLayout />} />
+        </Routes>
+      </Background>
+      <InfoFooterLayout />
+    </>
   )
 }
 
