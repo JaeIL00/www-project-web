@@ -3,43 +3,45 @@ import { GlobalHeaderLayout } from '../../layout/globalHeader/GlobalHeaderLayout
 import { HomeClickBanner } from '../../layout/globalHeader/HomeClickBanner'
 
 export const GlobalHeader = () => {
-  const [isInfo, setIsInfo] = useState(false)
-  const [isArtwork, setIsArtwork] = useState(false)
-  const [isArtist, setIsArtist] = useState(false)
+  const [textColor, setTextColor] = useState([false, false, false])
 
   const textColorHandler = (page: string) => {
+    /* eslint-disable */
     switch (page) {
-      case 'info':
-        setIsInfo(true)
-        setIsArtwork(false)
-        setIsArtist(false)
+      case 'info' || '/info':
+        setTextColor((prev) => {
+          const next = prev.map((item) => (item = false))
+          next[0] = true
+          return next
+        })
         break
-      case 'artwork':
-        setIsInfo(false)
-        setIsArtwork(true)
-        setIsArtist(false)
+      case 'artwork' || '/artwork':
+        setTextColor((prev) => {
+          const next = prev.map((item) => (item = false))
+          next[1] = true
+          return next
+        })
         break
-      case 'artist':
-        setIsInfo(false)
-        setIsArtwork(false)
-        setIsArtist(true)
+      case 'artist' || '/artist':
+        setTextColor((prev) => {
+          const next = prev.map((item) => (item = false))
+          next[2] = true
+          return next
+        })
         break
       default:
-        setIsInfo(false)
-        setIsArtwork(false)
-        setIsArtist(false)
+        setTextColor((prev) => {
+          const next = prev.map((item) => (item = false))
+          return next
+        })
     }
+    /* eslint-enable */
   }
 
   return (
     <>
       <HomeClickBanner textColorHandler={textColorHandler} />
-      <GlobalHeaderLayout
-        isInfo={isInfo}
-        isArtwork={isArtwork}
-        isArtist={isArtist}
-        textColorHandler={textColorHandler}
-      />
+      <GlobalHeaderLayout textColor={textColor} textColorHandler={textColorHandler} />
     </>
   )
 }

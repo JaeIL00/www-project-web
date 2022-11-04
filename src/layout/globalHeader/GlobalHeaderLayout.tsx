@@ -4,24 +4,22 @@ import styled from 'styled-components'
 
 /* eslint-disable */
 interface GlobalHeaderProps {
-  isInfo: boolean
-  isArtwork: boolean
-  isArtist: boolean
+  textColor: boolean[]
   textColorHandler: (page: string) => void
 }
 /* eslint-enable */
 
-export const GlobalHeaderLayout = ({ isInfo, isArtwork, isArtist, textColorHandler }: GlobalHeaderProps) => {
+export const GlobalHeaderLayout = ({ textColor, textColorHandler }: GlobalHeaderProps) => {
   return (
     <HeaderContainer>
       <Link to="/info/www" onClick={() => textColorHandler('info')}>
-        <Text color={isInfo ? '#5D6DFF' : '#fff'}>INFO</Text>
+        <Text color={textColor[0] ? '#5D6DFF' : '#fff'}>INFO</Text>
       </Link>
       <Link to="/artwork" onClick={() => textColorHandler('artwork')}>
-        <Text color={isArtwork ? '#5D6DFF' : '#fff'}>ARTWORK</Text>
+        <Text color={textColor[1] ? '#5D6DFF' : '#fff'}>ARTWORK</Text>
       </Link>
       <Link to="/artist" onClick={() => textColorHandler('artist')}>
-        <Text color={isArtist ? '#5D6DFF' : '#fff'}>ARTIST</Text>
+        <Text color={textColor[2] ? '#5D6DFF' : '#fff'}>ARTIST</Text>
       </Link>
     </HeaderContainer>
   )
