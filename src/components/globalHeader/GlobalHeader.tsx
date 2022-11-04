@@ -1,28 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { GlobalHeaderLayout } from '../../layout/globalHeader/GlobalHeaderLayout'
 import { HomeClickBanner } from '../../layout/globalHeader/HomeClickBanner'
 
 export const GlobalHeader = () => {
   const [textColor, setTextColor] = useState([false, false, false])
+  const { pathname } = useLocation()
+  useEffect(() => {
+    const page = pathname.slice(1)
+    textColorHandler(page)
+  }, [])
 
   const textColorHandler = (page: string) => {
     /* eslint-disable */
     switch (page) {
-      case 'info' || '/info':
+      case 'info':
         setTextColor((prev) => {
           const next = prev.map((item) => (item = false))
           next[0] = true
           return next
         })
         break
-      case 'artwork' || '/artwork':
+      case 'artwork':
         setTextColor((prev) => {
           const next = prev.map((item) => (item = false))
           next[1] = true
           return next
         })
         break
-      case 'artist' || '/artist':
+      case 'artist':
         setTextColor((prev) => {
           const next = prev.map((item) => (item = false))
           next[2] = true
