@@ -18,6 +18,10 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
   
+  strong {
+    font-family: www;
+  }
+
   span {
     letter-spacing: -0.02rem;
     color: #5b5d6c;
