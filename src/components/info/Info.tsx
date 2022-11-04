@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { InfoCreditLayout } from '../../layout/info/InfoCreditLayout'
 import { InfoFontLayout } from '../../layout/info/InfoFontLayout'
@@ -9,6 +9,12 @@ import { InfoHowLayout } from '../../layout/info/InfoHowLayout'
 import { InfowwwLayout } from '../../layout/info/InfowwwLayout'
 
 export const Info = () => {
+  // 텍스트 색 초기 값 설정
+  const { pathname } = useLocation()
+  useEffect(() => {
+    const page = pathname.slice(6)
+    textColorHandler(page)
+  }, [])
   // 헤더 텍스트 컬러 변경
   const [textColor, setTextColor] = useState([true, false, false, false])
   const textColorHandler = (page: string) => {
