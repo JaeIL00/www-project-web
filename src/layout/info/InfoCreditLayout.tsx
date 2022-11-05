@@ -7,12 +7,18 @@ const role = {
   green: '#28AD1D'
 }
 const team = [
-  { title: 'Project manager', lead: 'DISP', serve: 'Management All', assist: 'Artist All' },
-  { title: 'Brand design', lead: 'DISP' },
-  { title: '3D Graphic design', lead: 'Mery', serve: 'kwonasart' },
-  { title: '2D Graphic design', lead: 'Si yeon', serve: 'yu jin' },
-  { title: 'Motion design', lead: 'YANZI', serve: 'Mery' },
-  { title: 'Editorial design', lead: 'yu jin', serve: 'Si yeon' }
+  {
+    title: 'Project manager',
+    lead: 'DISP',
+    serve: 'Management All',
+    assist: 'Artist All',
+    margin: '6.12rem'
+  },
+  { title: 'Brand design', lead: 'DISP', margin: '6rem' },
+  { title: '3D Graphic design', lead: 'Mery', serve: 'kwonasart', margin: '7.18rem' },
+  { title: '2D Graphic design', lead: 'Si yeon', serve: 'yu jin', margin: '7.12rem' },
+  { title: 'Motion design', lead: 'YANZI', serve: 'Mery', margin: '7.93rem' },
+  { title: 'Editorial design', lead: 'yu jin', serve: 'Si yeon', margin: '0' }
 ]
 
 export const InfoCreditLayout = () => {
@@ -53,7 +59,7 @@ export const InfoCreditLayout = () => {
           </DirectorBox>
           <TeamsBox>
             {team.map((item) => (
-              <div key={item.title}>
+              <TeamList key={item.title} marginRight={item.margin}>
                 <Text color="#707070" marginBottom="2.25rem">
                   {item.title}
                 </Text>
@@ -73,11 +79,11 @@ export const InfoCreditLayout = () => {
                     <Text marginLeft="1.12rem">{item.assist}</Text>
                   </RoleList>
                 )}
-              </div>
+              </TeamList>
             ))}
           </TeamsBox>
           <TeamsBox>
-            <div>
+            <TeamList marginRight="6.12rem">
               <Text color="#707070" marginBottom="2.25rem">
                 VMD
               </Text>
@@ -89,8 +95,8 @@ export const InfoCreditLayout = () => {
                 <Square backColor={role.blue}></Square>
                 <Text marginLeft="1.12rem">Management All</Text>
               </RoleList>
-            </div>
-            <div>
+            </TeamList>
+            <TeamList marginRight="7.37rem">
               <Text color="#707070" marginBottom="2.25rem">
                 MD
               </Text>
@@ -98,8 +104,8 @@ export const InfoCreditLayout = () => {
                 <Square backColor={role.orange}></Square>
                 <Text marginLeft="1.12rem">DISP</Text>
               </RoleList>
-            </div>
-            <div>
+            </TeamList>
+            <TeamList marginRight="3.25rem">
               <Text color="#707070" marginBottom="2.25rem">
                 UIUX
               </Text>
@@ -117,8 +123,8 @@ export const InfoCreditLayout = () => {
                   Web
                 </Text>
               </RoleList>
-            </div>
-            <div>
+            </TeamList>
+            <TeamList marginRight="5.31rem">
               <Text color="#707070" marginBottom="2.25rem">
                 Frontend
               </Text>
@@ -134,8 +140,8 @@ export const InfoCreditLayout = () => {
                 <Square backColor={role.blue}></Square>
                 <Text marginLeft="1.12rem">Jae IL</Text>
               </RoleList>
-            </div>
-            <div>
+            </TeamList>
+            <TeamList marginRight="4.93rem">
               <Text color="#707070" marginBottom="2.25rem">
                 Backend
               </Text>
@@ -147,8 +153,8 @@ export const InfoCreditLayout = () => {
                 <Square backColor={role.blue}></Square>
                 <Text marginLeft="1.12rem">ash</Text>
               </RoleList>
-            </div>
-            <div>
+            </TeamList>
+            <TeamList>
               <Text color="#707070" marginBottom="2.25rem">
                 Staff
               </Text>
@@ -156,7 +162,7 @@ export const InfoCreditLayout = () => {
                 <Square backColor={role.orange}></Square>
                 <Text marginLeft="1.12rem">All</Text>
               </RoleList>
-            </div>
+            </TeamList>
           </TeamsBox>
         </MembersBox>
         <ContentsInnerBox>
@@ -178,6 +184,7 @@ export const InfoCreditLayout = () => {
 interface StyleProps {
   backColor?: string
   display?: string
+  marginRight?: string
   marginLeft?: string
   marginBottom?: string
   weight?: string
@@ -222,10 +229,12 @@ const DirectorBox = styled.div<StyleProps>`
 `
 const TeamsBox = styled.div`
   display: flex;
-  justify-content: space-between;
   margin: 0 8.12rem;
   padding: 3.56rem 2rem 3.43rem;
   border-top: 1px solid #a4abbe;
+`
+const TeamList = styled.div<StyleProps>`
+  margin-right: ${({ marginRight }) => marginRight};
 `
 const Text = styled.span<StyleProps>`
   display: ${({ display }) => (display ? display : 'block')};
