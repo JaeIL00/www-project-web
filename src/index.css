@@ -23,17 +23,3 @@
   font-style: normal;
   font-display: swap;
 }
-
-body {
-  user-select: none;
-}
-
-a {
-  color: #242528;
-  text-decoration: none;
-}
-
-span {
-  letter-spacing: -0.02rem;
-  color: #5b5d6c;
-}
