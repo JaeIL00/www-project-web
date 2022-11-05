@@ -20,9 +20,11 @@ const GlobalStyles = createGlobalStyle`
   
   strong {
     font-family: www;
+    color: #242528;
   }
 
   span {
+    line-height: 1.18rem;
     letter-spacing: -0.02rem;
     color: #5b5d6c;
   }
