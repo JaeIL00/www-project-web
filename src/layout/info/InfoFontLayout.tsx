@@ -123,6 +123,9 @@ const Button = styled.button<StyleProps>`
   display: flex;
   align-items: center;
   padding: 0.87rem 3.12rem 0.87rem 1.37rem;
+  &:hover {
+    background-color: #64e269;
+  }
 `
 const Link = styled.a`
   margin-right: 2.25rem;
