@@ -4,13 +4,13 @@ import styled from 'styled-components'
 
 /* eslint-disable */
 interface GlobalHeaderProps {
-  textColorHandler: (page: string) => void
+  setActive: React.Dispatch<React.SetStateAction<string>>
 }
 /* eslint-enable */
 
-export const HomeClickBanner = ({ textColorHandler }: GlobalHeaderProps) => {
+export const HomeClickBanner = ({ setActive }: GlobalHeaderProps) => {
   return (
-    <BannerContainer to="/" onClick={() => textColorHandler('main')}>
+    <BannerContainer to="/" onClick={() => setActive('MAIN')}>
       <TextBox>
         <Text>
           &nbsp;wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww main home click here!

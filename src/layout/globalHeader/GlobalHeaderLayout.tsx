@@ -4,23 +4,23 @@ import styled from 'styled-components'
 
 /* eslint-disable */
 interface GlobalHeaderProps {
-  textColor: boolean[]
-  textColorHandler: (page: string) => void
+  urlPath: {
+    path: string
+    title: string
+  }[]
+  active: string
+  setActive: React.Dispatch<React.SetStateAction<string>>
 }
 /* eslint-enable */
 
-export const GlobalHeaderLayout = ({ textColor, textColorHandler }: GlobalHeaderProps) => {
+export const GlobalHeaderLayout = ({ urlPath, active, setActive }: GlobalHeaderProps) => {
   return (
     <HeaderContainer>
-      <Link to="/info/www" onClick={() => textColorHandler('info')}>
-        <Text color={textColor[0] ? '#5D6DFF' : '#fff'}>INFO</Text>
-      </Link>
-      <Link to="/artwork" onClick={() => textColorHandler('artwork')}>
-        <Text color={textColor[1] ? '#5D6DFF' : '#fff'}>ARTWORK</Text>
-      </Link>
-      <Link to="/artist" onClick={() => textColorHandler('artist')}>
-        <Text color={textColor[2] ? '#5D6DFF' : '#fff'}>ARTIST</Text>
-      </Link>
+      {urlPath.map((item) => (
+        <Link key={item.title} to={item.path} onClick={() => setActive(item.title)}>
+          <Text color={item.title === active ? '#5D6DFF' : '#fff'}>{item.title}</Text>
+        </Link>
+      ))}
     </HeaderContainer>
   )
 }

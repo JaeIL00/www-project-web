@@ -4,50 +4,33 @@ import { GlobalHeaderLayout } from '../../layout/globalHeader/GlobalHeaderLayout
 import { HomeClickBanner } from '../../layout/globalHeader/HomeClickBanner'
 
 export const GlobalHeader = () => {
-  const [textColor, setTextColor] = useState([false, false, false])
+  const urlPath = [
+    {
+      path: '/www',
+      title: 'INFO'
+    },
+    {
+      path: '/artwork',
+      title: 'ARTWORK'
+    },
+    {
+      path: '/artist',
+      title: 'ARTIST'
+    }
+  ]
+  const [active, setActive] = useState('MAIN')
+
   const { pathname } = useLocation()
   useEffect(() => {
-    const page = pathname.split('/')
-    textColorHandler(page[1])
+    const isWherePage = pathname.split('/')
+    if (isWherePage[1] === 'www') return setActive('INFO')
+    setActive(isWherePage[1].toUpperCase())
   }, [])
-
-  const textColorHandler = (page: string) => {
-    /* eslint-disable */
-    switch (page) {
-      case 'info':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[0] = true
-          return next
-        })
-        break
-      case 'artwork':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[1] = true
-          return next
-        })
-        break
-      case 'artist':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[2] = true
-          return next
-        })
-        break
-      default:
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          return next
-        })
-    }
-    /* eslint-enable */
-  }
 
   return (
     <>
-      <HomeClickBanner textColorHandler={textColorHandler} />
-      <GlobalHeaderLayout textColor={textColor} textColorHandler={textColorHandler} />
+      <HomeClickBanner setActive={setActive} />
+      <GlobalHeaderLayout urlPath={urlPath} active={active} setActive={setActive} />
     </>
   )
 }
