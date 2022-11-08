@@ -7,8 +7,8 @@ export const GlobalHeader = () => {
   const [textColor, setTextColor] = useState([false, false, false])
   const { pathname } = useLocation()
   useEffect(() => {
-    const page = pathname.slice(1)
-    textColorHandler(page)
+    const page = pathname.split('/')
+    textColorHandler(page[1])
   }, [])
 
   const textColorHandler = (page: string) => {
