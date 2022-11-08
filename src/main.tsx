@@ -28,6 +28,11 @@ const GlobalStyles = createGlobalStyle`
     letter-spacing: -0.02rem;
     color: #5b5d6c;
   }
+
+  button {
+    border: none;
+    cursor: pointer;
+  }
 `
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
