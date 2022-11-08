@@ -13,7 +13,7 @@ export const InfoHeaderLayout = ({ textColor, textColorHandler }: InfoHeaderProp
   return (
     <HeaderContainer>
       <LinkBox>
-        <Text to="www" color={textColor[0] ? '#64E269' : '#242528'} onClick={() => textColorHandler('www')}>
+        <Text to="/www" color={textColor[0] ? '#64E269' : '#242528'} onClick={() => textColorHandler('www')}>
           www
         </Text>
       </LinkBox>
