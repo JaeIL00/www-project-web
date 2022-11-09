@@ -1,11 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const role = {
-  orange: '#FF7F00',
-  blue: '#00A7FF',
-  green: '#28AD1D'
-}
 const team = [
   {
     title: 'Project manager',
@@ -30,19 +25,19 @@ export const InfoCreditLayout = () => {
       <ContentsBox>
         <ContentsInnerBox>
           <RoleList marginBottom="1.06rem">
-            <Square backColor={role.orange}></Square>
+            <Square backColor="var(--lead-orange)"></Square>
             <Text marginLeft="1.87rem" color="#707070">
               Lead
             </Text>
           </RoleList>
           <RoleList marginBottom="1.06rem">
-            <Square backColor={role.blue}></Square>
+            <Square backColor="var(--serve-blue)"></Square>
             <Text marginLeft="1.87rem" color="#707070">
               Serve
             </Text>
           </RoleList>
           <RoleList marginBottom="1.06rem">
-            <Square backColor={role.green}></Square>
+            <Square backColor="var(--assist-green)"></Square>
             <Text marginLeft="1.87rem" color="#707070">
               Assist
             </Text>
@@ -64,18 +59,18 @@ export const InfoCreditLayout = () => {
                   {item.title}
                 </Text>
                 <RoleList marginBottom="1.87rem">
-                  <Square backColor={role.orange}></Square>
+                  <Square backColor="var(--lead-orange)"></Square>
                   <Text marginLeft="1.12rem">{item.lead}</Text>
                 </RoleList>
                 {item.serve && (
                   <RoleList marginBottom="1.87rem">
-                    <Square backColor={role.blue}></Square>
+                    <Square backColor="var(--serve-blue)"></Square>
                     <Text marginLeft="1.12rem">{item.serve}</Text>
                   </RoleList>
                 )}
                 {item.assist && (
                   <RoleList>
-                    <Square backColor={role.green}></Square>
+                    <Square backColor="var(--assist-green)"></Square>
                     <Text marginLeft="1.12rem">{item.assist}</Text>
                   </RoleList>
                 )}
@@ -88,11 +83,11 @@ export const InfoCreditLayout = () => {
                 VMD
               </Text>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">Nam Yeonwoo</Text>
               </RoleList>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.blue}></Square>
+                <Square backColor="var(--serve-blue)"></Square>
                 <Text marginLeft="1.12rem">Management All</Text>
               </RoleList>
             </TeamList>
@@ -101,7 +96,7 @@ export const InfoCreditLayout = () => {
                 MD
               </Text>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">DISP</Text>
               </RoleList>
             </TeamList>
@@ -110,16 +105,16 @@ export const InfoCreditLayout = () => {
                 UIUX
               </Text>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">kwonasart</Text>
-                <Text display="inline" marginLeft="2.06rem" color="#A4ABBE">
+                <Text display="inline" marginLeft="2.06rem" color="var(--black-100)">
                   Mobile
                 </Text>
               </RoleList>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">DISP</Text>
-                <Text display="inline" marginLeft="4.62rem" color="#A4ABBE">
+                <Text display="inline" marginLeft="4.62rem" color="var(--black-100)">
                   Web
                 </Text>
               </RoleList>
@@ -129,15 +124,15 @@ export const InfoCreditLayout = () => {
                 Frontend
               </Text>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">Ryn</Text>
               </RoleList>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.blue}></Square>
+                <Square backColor="var(--serve-blue)"></Square>
                 <Text marginLeft="1.12rem">SeungHun Byeon</Text>
               </RoleList>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.blue}></Square>
+                <Square backColor="var(--serve-blue)"></Square>
                 <Text marginLeft="1.12rem">Jae IL</Text>
               </RoleList>
             </TeamList>
@@ -146,11 +141,11 @@ export const InfoCreditLayout = () => {
                 Backend
               </Text>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">Jaecheol Jeong</Text>
               </RoleList>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.blue}></Square>
+                <Square backColor="var(--serve-blue)"></Square>
                 <Text marginLeft="1.12rem">ash</Text>
               </RoleList>
             </TeamList>
@@ -159,14 +154,14 @@ export const InfoCreditLayout = () => {
                 Staff
               </Text>
               <RoleList marginBottom="1.87rem">
-                <Square backColor={role.orange}></Square>
+                <Square backColor="var(--lead-orange)"></Square>
                 <Text marginLeft="1.12rem">All</Text>
               </RoleList>
             </TeamList>
           </TeamsBox>
         </MembersBox>
         <ContentsInnerBox>
-          <Text color="#5B5D6C">
+          <Text color="var(--black-200)">
             WWW
             <br />
             <br />
@@ -231,7 +226,7 @@ const TeamsBox = styled.div`
   display: flex;
   margin: 0 8.12rem;
   padding: 3.56rem 2rem 3.43rem;
-  border-top: 1px solid #a4abbe;
+  border-top: 1px solid var(--black-100);
 `
 const TeamList = styled.div<StyleProps>`
   margin-right: ${({ marginRight }) => marginRight};

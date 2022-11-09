@@ -18,7 +18,7 @@ export const InfoHeaderLayout = ({ urlPath, active, setActive }: InfoHeaderProps
         <LinkBox key={item.title}>
           <Text
             to={item.path}
-            color={item.title === active ? '#64E269' : '#242528'}
+            color={item.title === active ? 'var(--main2-green)' : 'var(--black-300)'}
             onClick={() => setActive(item.title)}
           >
             {item.title}

@@ -15,12 +15,12 @@ export const InfowwwLayout = () => {
           <Image src={demo} alt="" />
         </ImgBox>
         <TextBox>
-          <SubTitle color="#1635F4">
+          <SubTitle color="var(--main1-blue)">
             HELLO
             <br />
             OUR TEAM WWW
           </SubTitle>
-          <SubTitle marginTop="1.68rem" color="#5B5D6C">
+          <SubTitle marginTop="1.68rem" color="var(--black-200)">
             WE WANT WORTH
             <br />
             IN WORLDWID WEB

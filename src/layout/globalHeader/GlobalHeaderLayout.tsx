@@ -18,7 +18,7 @@ export const GlobalHeaderLayout = ({ urlPath, active, setActive }: GlobalHeaderP
     <HeaderContainer>
       {urlPath.map((item) => (
         <Link key={item.title} to={item.path} onClick={() => setActive(item.title)}>
-          <Text color={item.title === active ? '#5D6DFF' : '#fff'}>{item.title}</Text>
+          <Text color={item.title === active ? 'var(--main1-lightBlue)' : 'var(--white)'}>{item.title}</Text>
         </Link>
       ))}
     </HeaderContainer>
@@ -26,7 +26,7 @@ export const GlobalHeaderLayout = ({ urlPath, active, setActive }: GlobalHeaderP
 }
 
 const HeaderContainer = styled.div`
-  background-color: #242528;
+  background-color: var(--black-300);
   height: 3.12rem;
   display: flex;
   justify-content: space-between;

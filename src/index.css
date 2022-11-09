@@ -1,3 +1,20 @@
+.root,
+#root,
+#docs-root {
+  --main1-blue: #1635f4;
+  --main1-lightBlue: #5d6dff;
+  --main2-green: #64e269;
+  --main2-lightGreen: #a7ff9a;
+  --sub-blue: #e9ecf8;
+  --black-400: #121820;
+  --black-300: #242528;
+  --black-200: #5b5d6c;
+  --black-100: #a4abbe;
+  --white: #ffffff;
+  --lead-orange: #ff7f00;
+  --serve-blue: #00a7ff;
+  --assist-green: #28ad1d;
+}
 @font-face {
   font-family: 'Pretendard';
   src: url('/fonts/Pretendard-Medium.woff2') format('woff2'),

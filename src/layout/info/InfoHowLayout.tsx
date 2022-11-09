@@ -10,7 +10,7 @@ export const InfoHowLayout = () => {
       <ContentsBox>
         <ImgBox></ImgBox>
         <TextBox>
-          <WhBox border="1px solid #a4abbe">
+          <WhBox border="1px solid var(--black-100)">
             <SubTitleBox>
               <SubTitle>WHEN</SubTitle>
             </SubTitleBox>
@@ -33,7 +33,7 @@ export const InfoHowLayout = () => {
               </div>
             </InnerTextBox>
           </WhBox>
-          <WhBox marginTop="2.81rem" border="1px solid #a4abbe">
+          <WhBox marginTop="2.81rem" border="1px solid var(--black-100)">
             <SubTitleBox>
               <SubTitle>WHERE</SubTitle>
             </SubTitleBox>
@@ -54,7 +54,7 @@ export const InfoHowLayout = () => {
               </UsingBox>
             </InnerTextBox>
           </WhBox>
-          <WhBox marginTop="2.81rem" border="1px solid #a4abbe">
+          <WhBox marginTop="2.81rem" border="1px solid var(--black-100)">
             <SubTitleBox>
               <SubTitle>WHO</SubTitle>
             </SubTitleBox>
@@ -151,7 +151,7 @@ const SubTitleBox = styled.div`
 `
 const SubTitle = styled.strong`
   font-size: 2.12rem;
-  color: #5b5d6c;
+  color: var(--black-200);
 `
 const InnerTextBox = styled.div`
   display: flex;
@@ -166,7 +166,7 @@ const List = styled.div<StyleProps>`
   margin-bottom: ${({ marginBottom }) => marginBottom};
 `
 const Dot = styled.div`
-  background-color: #5b5d6c;
+  background-color: var(--black-200);
   width: 0.25rem;
   height: 0.25rem;
   margin-right: 0.8rem;

@@ -30,7 +30,7 @@ export const HomeClickBanner = ({ setActive }: GlobalHeaderProps) => {
 }
 
 const BannerContainer = styled(Link)`
-  background-color: #1635f4;
+  background-color: var(--main1-blue);
   height: 3.12rem;
   display: block;
 `
@@ -48,7 +48,7 @@ const TextBox = styled.div`
 `
 const Text = styled.span`
   font-size: 1rem;
-  color: #fff;
+  color: var(--white);
 
   animation: marquee 40s linear infinite;
 `

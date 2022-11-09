@@ -14,19 +14,19 @@ const GlobalStyles = createGlobalStyle`
   }
   
   a {
-    color: #242528;
+    color: var(--black-300);
     text-decoration: none;
   }
   
   strong {
     font-family: www;
-    color: #242528;
+    color: var(--black-300);
   }
 
   span {
     line-height: 1.18rem;
     letter-spacing: -0.02rem;
-    color: #5b5d6c;
+    color: var(--black-200);
   }
 
   button {
