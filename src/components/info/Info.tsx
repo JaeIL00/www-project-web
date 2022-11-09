@@ -6,54 +6,37 @@ import { InfoFooterLayout } from '../../layout/info/InfoFooterLayout'
 import { InfoHeaderLayout } from '../../layout/info/InfoHeaderLayout'
 
 export const Info = () => {
-  // 텍스트 색 초기 값 설정
+  const urlPath = [
+    {
+      path: '',
+      title: 'www'
+    },
+    {
+      path: 'how',
+      title: 'HOW'
+    },
+    {
+      path: 'credit',
+      title: 'CREDIT'
+    },
+    {
+      path: 'font',
+      title: 'FONT'
+    }
+  ]
+  const [active, setActive] = useState('www')
+
   const { pathname } = useLocation()
   useEffect(() => {
-    const page = pathname.slice(6)
-    textColorHandler(page)
+    const isWherePage = pathname.split('/')
+    if (!isWherePage[2]) return setActive('www')
+    setActive(isWherePage[2].toUpperCase())
   }, [])
-  // 헤더 텍스트 컬러 변경
-  const [textColor, setTextColor] = useState([true, false, false, false])
-  const textColorHandler = (page: string) => {
-    /* eslint-disable */
-    switch (page) {
-      case 'www':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[0] = true
-          return next
-        })
-        break
-      case 'how':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[1] = true
-          return next
-        })
-        break
-      case 'credit':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[2] = true
-          return next
-        })
-        break
-      case 'font':
-        setTextColor((prev) => {
-          const next = prev.map((item) => (item = false))
-          next[3] = true
-          return next
-        })
-        break
-      default:
-        return
-    }
-    /* eslint-enable */
-  }
+
   return (
     <>
       <Background>
-        <InfoHeaderLayout textColor={textColor} textColorHandler={textColorHandler} />
+        <InfoHeaderLayout urlPath={urlPath} active={active} setActive={setActive} />
         <Outlet />
       </Background>
       <InfoFooterLayout />

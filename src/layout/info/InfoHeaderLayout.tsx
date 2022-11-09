@@ -2,40 +2,29 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-/* eslint-disable */
 interface InfoHeaderProps {
-  textColor: boolean[]
-  textColorHandler: (page: string) => void
+  urlPath: {
+    path: string
+    title: string
+  }[]
+  active: string
+  setActive: React.Dispatch<React.SetStateAction<string>>
 }
-/* eslint-enable */
 
-export const InfoHeaderLayout = ({ textColor, textColorHandler }: InfoHeaderProps) => {
+export const InfoHeaderLayout = ({ urlPath, active, setActive }: InfoHeaderProps) => {
   return (
     <HeaderContainer>
-      <LinkBox>
-        <Text to="/www" color={textColor[0] ? '#64E269' : '#242528'} onClick={() => textColorHandler('www')}>
-          www
-        </Text>
-      </LinkBox>
-      <LinkBox>
-        <Text to="how" color={textColor[1] ? '#64E269' : '#242528'} onClick={() => textColorHandler('how')}>
-          HOW
-        </Text>
-      </LinkBox>
-      <LinkBox>
-        <Text
-          to="credit"
-          color={textColor[2] ? '#64E269' : '#242528'}
-          onClick={() => textColorHandler('credit')}
-        >
-          CREDIT
-        </Text>
-      </LinkBox>
-      <LinkBox>
-        <Text to="font" color={textColor[3] ? '#64E269' : '#242528'} onClick={() => textColorHandler('font')}>
-          FONT
-        </Text>
-      </LinkBox>
+      {urlPath.map((item) => (
+        <LinkBox key={item.title}>
+          <Text
+            to={item.path}
+            color={item.title === active ? '#64E269' : '#242528'}
+            onClick={() => setActive(item.title)}
+          >
+            {item.title}
+          </Text>
+        </LinkBox>
+      ))}
     </HeaderContainer>
   )
 }
