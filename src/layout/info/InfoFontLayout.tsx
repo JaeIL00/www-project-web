@@ -10,7 +10,7 @@ export const InfoFontLayout = () => {
       </TitleBox>
       <ContentsBox>
         <ExampleBox>
-          <ExampleFont marginBottom="6.68rem" color="#1635F4">
+          <ExampleFont marginBottom="6.68rem" color="var(--main1-blue)">
             ABCDEFGHIJKLMN
             <br />
             <br />
@@ -24,7 +24,7 @@ export const InfoFontLayout = () => {
           </ExampleFont>
         </ExampleBox>
         <TextBox>
-          <SubTitle color="#5B5D6C">
+          <SubTitle color="var(--black-200)">
             WWW FONT
             <br />
             FREE DOWNLOAD
@@ -41,13 +41,13 @@ export const InfoFontLayout = () => {
           </Text>
           <Text weight="700">FontCopyrightⓒDISP</Text>
           <DownloadBox>
-            <Button backColor="#242528">
+            <Button backColor="var(--black-300)">
               <Link href="" download>
                 WWW TTF
               </Link>
               <img src={arrow} alt="오른쪽화살아이콘" style={{ margin: 'auto 0' }} />
             </Button>
-            <Button backColor="#1635F4">
+            <Button backColor="var(--main1-blue)">
               <Link href="" download>
                 WWW OTF
               </Link>
@@ -124,12 +124,12 @@ const Button = styled.button<StyleProps>`
   align-items: center;
   padding: 0.87rem 3.12rem 0.87rem 1.37rem;
   &:hover {
-    background-color: #64e269;
+    background-color: var(--main2-green);
   }
 `
 const Link = styled.a`
   margin-right: 2.25rem;
   font-family: Pretendard;
   font-size: 1.87rem;
-  color: #fff;
+  color: var(--white);
 `
