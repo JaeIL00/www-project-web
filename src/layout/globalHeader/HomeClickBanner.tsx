@@ -2,15 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-/* eslint-disable */
-interface GlobalHeaderProps {
-  setActive: React.Dispatch<React.SetStateAction<string>>
-}
-/* eslint-enable */
-
-export const HomeClickBanner = ({ setActive }: GlobalHeaderProps) => {
+export const HomeClickBanner = () => {
   return (
-    <BannerContainer to="/" onClick={() => setActive('MAIN')}>
+    <BannerLink to="/">
       <TextBox>
         <Text>
           &nbsp;wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww main home click here!
@@ -25,11 +19,11 @@ export const HomeClickBanner = ({ setActive }: GlobalHeaderProps) => {
           &nbsp;wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww main home click here!
         </Text>
       </TextBox>
-    </BannerContainer>
+    </BannerLink>
   )
 }
 
-const BannerContainer = styled(Link)`
+const BannerLink = styled(Link)`
   background-color: var(--main1-blue);
   height: 3.12rem;
   display: block;

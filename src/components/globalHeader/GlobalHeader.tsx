@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import React from 'react'
 import { GlobalHeaderLayout } from '../../layout/globalHeader/GlobalHeaderLayout'
 import { HomeClickBanner } from '../../layout/globalHeader/HomeClickBanner'
 
@@ -18,19 +17,11 @@ export const GlobalHeader = () => {
       title: 'ARTIST'
     }
   ]
-  const [active, setActive] = useState('MAIN')
-
-  const { pathname } = useLocation()
-  useEffect(() => {
-    const isWherePage = pathname.split('/')
-    if (isWherePage[1] === 'www') return setActive('INFO')
-    setActive(isWherePage[1].toUpperCase())
-  }, [])
 
   return (
     <>
-      <HomeClickBanner setActive={setActive} />
-      <GlobalHeaderLayout urlPath={urlPath} active={active} setActive={setActive} />
+      <HomeClickBanner />
+      <GlobalHeaderLayout urlPath={urlPath} />
     </>
   )
 }
