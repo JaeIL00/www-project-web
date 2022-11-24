@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NaverMap } from '../../components/info/NaverMap'
 
 export const InfoHowLayout = () => {
   return (
@@ -8,7 +9,9 @@ export const InfoHowLayout = () => {
         <TitleText>HOW</TitleText>
       </TitleBox>
       <ContentsBox>
-        <ImgBox></ImgBox>
+        <ImgBox>
+          <NaverMap />
+        </ImgBox>
         <TextBox>
           <WhBox border="1px solid var(--black-100)">
             <SubTitleBox>
@@ -134,7 +137,8 @@ const ContentsBox = styled.div`
 `
 const ImgBox = styled.div`
   width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 `
 const TextBox = styled.div`
   width: 50%;
