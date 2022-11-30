@@ -8,19 +8,19 @@ import { InfoHeaderLayout } from '../../layout/info/InfoHeaderLayout'
 export const Info = () => {
   const urlPath = [
     {
-      path: '',
+      path: '/',
       title: 'www'
     },
     {
-      path: 'how',
+      path: '/how',
       title: 'HOW'
     },
     {
-      path: 'credit',
+      path: '/credit',
       title: 'CREDIT'
     },
     {
-      path: 'font',
+      path: '/font',
       title: 'FONT'
     }
   ]

@@ -1,27 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GlobalHeaderLayout } from '../../layout/globalHeader/GlobalHeaderLayout'
 import { HomeClickBanner } from '../../layout/globalHeader/HomeClickBanner'
 
 export const GlobalHeader = () => {
   const urlPath = [
     {
-      path: '/www',
+      path: '/www/',
       title: 'INFO'
     },
     {
-      path: '/artwork',
+      path: '/artwork/',
       title: 'ARTWORK'
     },
     {
-      path: '/artist',
+      path: '/artist/',
       title: 'ARTIST'
     }
   ]
 
+  const [active, setActive] = useState('main')
+
   return (
     <>
       <HomeClickBanner />
-      <GlobalHeaderLayout urlPath={urlPath} />
+      <GlobalHeaderLayout urlPath={urlPath} active={active} setActive={setActive} />
     </>
   )
 }
