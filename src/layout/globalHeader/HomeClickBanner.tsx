@@ -25,12 +25,12 @@ export const HomeClickBanner = () => {
 
 const BannerLink = styled(Link)`
   background-color: var(--main1-blue);
-  height: 3.12rem;
   display: block;
 `
 const TextBox = styled.div`
+  height: 3.12rem;
   display: flex;
-  padding-top: 1.06rem;
+  align-items: center;
   overflow: hidden;
   white-space: nowrap;
 
