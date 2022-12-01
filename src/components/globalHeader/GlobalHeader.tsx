@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { GlobalHeaderLayout } from '../../layout/globalHeader/GlobalHeaderLayout'
 import { HomeClickBanner } from '../../layout/globalHeader/HomeClickBanner'
 
@@ -18,12 +19,16 @@ export const GlobalHeader = () => {
     }
   ]
 
-  const [active, setActive] = useState('main')
+  const [active, setActive] = useState('')
+  const { pathname } = useLocation()
+  useMemo(() => {
+    setActive(pathname.split('/')[1])
+  }, [pathname.split('/')[1]])
 
   return (
     <>
       <HomeClickBanner />
-      <GlobalHeaderLayout urlPath={urlPath} active={active} setActive={setActive} />
+      <GlobalHeaderLayout urlPath={urlPath} active={active} />
     </>
   )
 }

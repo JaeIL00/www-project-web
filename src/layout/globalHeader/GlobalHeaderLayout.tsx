@@ -9,19 +9,17 @@ interface GlobalHeaderProps {
     title: string
   }[]
   active: string
-  setActive: React.Dispatch<React.SetStateAction<string>>
 }
 /* eslint-enable */
 
-export const GlobalHeaderLayout = ({ urlPath, active, setActive }: GlobalHeaderProps) => {
+export const GlobalHeaderLayout = ({ urlPath, active }: GlobalHeaderProps) => {
   return (
     <HeaderContainer>
       {urlPath.map(({ path, title }) => (
         <LinkText
           key={title}
           to={path}
-          color={title === active ? 'var(--main1-lightBlue)' : 'var(--white)'}
-          onClick={() => setActive(title)}
+          color={path.split('/')[1] === active ? 'var(--main1-lightBlue)' : 'var(--white)'}
         >
           {title}
         </LinkText>
