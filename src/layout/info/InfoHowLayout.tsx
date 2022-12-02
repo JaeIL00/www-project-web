@@ -36,7 +36,7 @@ export const InfoHowLayout = () => {
               </div>
             </InnerTextBox>
           </WhBox>
-          <WhBox marginTop="2.81rem" border="1px solid var(--black-100)">
+          <WhBox marginTop="calc(100vh * 3.42 / 100)" border="1px solid var(--black-100)">
             <SubTitleBox>
               <SubTitle>WHERE</SubTitle>
             </SubTitleBox>
@@ -47,17 +47,15 @@ export const InfoHowLayout = () => {
                 </Text>
                 <Text marginBottom="1.3rem">서울 성동구 성수일로 56</Text>
                 <List marginBottom="0.8rem">
-                  <Dot></Dot>
-                  <Text>뚝섬역 5번 출구 / 성수역 3번 출구 도보 10분 거리에 있습니다.</Text>
+                  <Text>• &nbsp;뚝섬역 5번 출구 / 성수역 3번 출구 도보 10분 거리에 있습니다.</Text>
                 </List>
                 <List>
-                  <Dot></Dot>
-                  <Text>전시장 주차공간이 없사오니 대중교통을 이용해주세요.</Text>
+                  <Text>• &nbsp;전시장 주차공간이 없사오니 대중교통을 이용해주세요.</Text>
                 </List>
               </UsingBox>
             </InnerTextBox>
           </WhBox>
-          <WhBox marginTop="2.81rem" border="1px solid var(--black-100)">
+          <WhBox marginTop="calc(100vh * 3.42 / 100)" border="1px solid var(--black-100)">
             <SubTitleBox>
               <SubTitle>WHO</SubTitle>
             </SubTitleBox>
@@ -80,30 +78,28 @@ export const InfoHowLayout = () => {
               </div>
             </InnerTextBox>
           </WhBox>
-          <WhBox marginTop="2.81rem">
+          <WhBox marginTop="calc(100vh * 3.42 / 100)">
             <SubTitleBox>
               <SubTitle>WHAT</SubTitle>
             </SubTitleBox>
             <InnerTextBox>
               <UsingBox>
                 <List marginBottom="0.8rem">
-                  <Dot></Dot>
-                  <Text>별도의 사전 예약이 없으며 무료 입장입니다.</Text>
+                  <Text>• &nbsp;별도의 사전 예약이 없으며 무료 입장입니다.</Text>
                 </List>
                 <List marginBottom="0.8rem">
-                  <Dot></Dot>
-                  <Text>행사장 내부에서는 마스크를 상시 착용해야 합니다.</Text>
+                  <Text>• &nbsp;행사장 내부에서는 마스크를 상시 착용해야 합니다.</Text>
                 </List>
                 <List marginBottom="0.8rem">
-                  <Dot></Dot>
                   <Text>
-                    외부 음식물 반입 금지이며, 전시장 내에서 모브무브 카페의 식음료만 취식이 가능합니다.
+                    • &nbsp;외부 음식물 반입 금지이며, 전시장 내에서 모브무브 카페의 식음료만 취식이
+                    가능합니다.
                   </Text>
                 </List>
                 <List marginBottom="0.8rem">
-                  <Dot></Dot>
                   <Text>
-                    현장 스태프와 전시 작가는 명찰을 착용하고 있습니다. 문의 사항은 스태프에게 말씀해주세요.
+                    • &nbsp;현장 스태프와 전시 작가는 명찰을 착용하고 있습니다. 문의 사항은 스태프에게
+                    말씀해주세요.
                   </Text>
                 </List>
               </UsingBox>
@@ -125,7 +121,7 @@ interface StyleProps {
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: 2.37rem 0;
+  padding: calc(100vh * 4.81 / 100) 0;
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
@@ -133,7 +129,7 @@ const TitleText = styled.strong`
 `
 const ContentsBox = styled.div`
   display: flex;
-  padding: 5rem 0;
+  padding: calc(100vh * 7.4 / 100) 0;
 `
 const ImgBox = styled.div`
   width: 50%;
@@ -151,7 +147,7 @@ const WhBox = styled.div<StyleProps>`
 `
 const SubTitleBox = styled.div`
   width: 14.37rem;
-  margin-right: 5.62rem;
+  margin-right: calc(100vw * 4.68 / 100);
 `
 const SubTitle = styled.strong`
   font-size: 2.12rem;
@@ -162,19 +158,12 @@ const InnerTextBox = styled.div`
 `
 const UsingBox = styled.div<StyleProps>`
   margin-right: ${({ marginRight }) => marginRight};
-  padding-bottom: 2.31rem;
+  padding-bottom: calc(100vh * 3.42 / 100);
 `
 const List = styled.div<StyleProps>`
   display: flex;
   align-items: center;
   margin-bottom: ${({ marginBottom }) => marginBottom};
-`
-const Dot = styled.div`
-  background-color: var(--black-200);
-  width: 0.25rem;
-  height: 0.25rem;
-  margin-right: 0.8rem;
-  border-radius: 50%;
 `
 const Text = styled.span<StyleProps>`
   display: block;
