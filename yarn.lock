@@ -587,13 +587,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/geojson@npm:*":
-  version: 7946.0.10
-  resolution: "@types/geojson@npm:7946.0.10"
-  checksum: 12c407c2dc93ecb26c08af533ee732f1506a9b29456616ba7ba1d525df96206c28ddf44a528f6a5415d7d22893e9d967420940a9c095ee5e539c1eba5fefc1f4
-  languageName: node
-  linkType: hard
-
 "@types/hoist-non-react-statics@npm:*":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -608,15 +601,6 @@ __metadata:
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d
-  languageName: node
-  linkType: hard
-
-"@types/navermaps@npm:^3.6.1":
-  version: 3.6.1
-  resolution: "@types/navermaps@npm:3.6.1"
-  dependencies:
-    "@types/geojson": "*"
-  checksum: 0026cba49ad2c86e2c58f1a00ae6ec092fabbf7457f7faa3565f2e4c1805e585e287ab5b7cd2f7a770393464eae329e3cd41141805da7dc8486636ec9411975b
   languageName: node
   linkType: hard
 
@@ -2806,6 +2790,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kakao.maps.d.ts@npm:^0.1.33":
+  version: 0.1.33
+  resolution: "kakao.maps.d.ts@npm:0.1.33"
+  checksum: 50908b7ff8324530744625669eea01695e2137230fc9ffea300506cc995c7a1c011b8a3d3cad0c982b5a23ccab24417984ad9ccc228da9f9841c5c42e937e200
+  languageName: node
+  linkType: hard
+
 "levn@npm:^0.4.1":
   version: 0.4.1
   resolution: "levn@npm:0.4.1"
@@ -4291,7 +4282,6 @@ __metadata:
   dependencies:
     "@reduxjs/toolkit": ^1.8.6
     "@types/eslint": ^8
-    "@types/navermaps": ^3.6.1
     "@types/node": ^18.11.9
     "@types/prettier": ^2
     "@types/react": ^18.0.22
@@ -4302,6 +4292,7 @@ __metadata:
     "@vitejs/plugin-react": ^2.2.0
     eslint: ^8.26.0
     eslint-plugin-react: latest
+    kakao.maps.d.ts: ^0.1.33
     prettier: ^2.7.1
     react: ^18.2.0
     react-dom: ^18.2.0

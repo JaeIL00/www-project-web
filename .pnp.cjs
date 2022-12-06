@@ -30,7 +30,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@reduxjs/toolkit", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:1.8.6"],\
             ["@types/eslint", "npm:8.4.9"],\
-            ["@types/navermaps", "npm:3.6.1"],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/prettier", "npm:2.7.1"],\
             ["@types/react", "npm:18.0.24"],\
@@ -41,6 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:2.2.0"],\
             ["eslint", "npm:8.26.0"],\
             ["eslint-plugin-react", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:7.31.10"],\
+            ["kakao.maps.d.ts", "npm:0.1.33"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:18.2.0"],\
@@ -790,15 +790,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@types/geojson", [\
-        ["npm:7946.0.10", {\
-          "packageLocation": "./.yarn/cache/@types-geojson-npm-7946.0.10-deca8d1263-12c407c2dc.zip/node_modules/@types/geojson/",\
-          "packageDependencies": [\
-            ["@types/geojson", "npm:7946.0.10"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@types/hoist-non-react-statics", [\
         ["npm:3.3.1", {\
           "packageLocation": "./.yarn/cache/@types-hoist-non-react-statics-npm-3.3.1-c0081332b2-2c0778570d.zip/node_modules/@types/hoist-non-react-statics/",\
@@ -815,16 +806,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json-schema-npm-7.0.11-79462ae5ca-527bddfe62.zip/node_modules/@types/json-schema/",\
           "packageDependencies": [\
             ["@types/json-schema", "npm:7.0.11"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/navermaps", [\
-        ["npm:3.6.1", {\
-          "packageLocation": "./.yarn/cache/@types-navermaps-npm-3.6.1-c39cc51cf3-0026cba49a.zip/node_modules/@types/navermaps/",\
-          "packageDependencies": [\
-            ["@types/navermaps", "npm:3.6.1"],\
-            ["@types/geojson", "npm:7946.0.10"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3404,6 +3385,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["kakao.maps.d.ts", [\
+        ["npm:0.1.33", {\
+          "packageLocation": "./.yarn/cache/kakao.maps.d.ts-npm-0.1.33-58a98ec649-50908b7ff8.zip/node_modules/kakao.maps.d.ts/",\
+          "packageDependencies": [\
+            ["kakao.maps.d.ts", "npm:0.1.33"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["levn", [\
         ["npm:0.4.1", {\
           "packageLocation": "./.yarn/cache/levn-npm-0.4.1-d183b2d7bb-12c5021c85.zip/node_modules/levn/",\
@@ -5154,7 +5144,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["www-web", "workspace:."],\
             ["@reduxjs/toolkit", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:1.8.6"],\
             ["@types/eslint", "npm:8.4.9"],\
-            ["@types/navermaps", "npm:3.6.1"],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/prettier", "npm:2.7.1"],\
             ["@types/react", "npm:18.0.24"],\
@@ -5165,6 +5154,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:2.2.0"],\
             ["eslint", "npm:8.26.0"],\
             ["eslint-plugin-react", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:7.31.10"],\
+            ["kakao.maps.d.ts", "npm:0.1.33"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:18.2.0"],\

@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
         minify: true,
         inject: {
           data: {
-            naverClientId: env.VITE_NAVER_MAP_CLIENT_ID
+            kakaoAppKey: env.VITE_KAKAO_MAP_APP_KEY
           }
         }
       })

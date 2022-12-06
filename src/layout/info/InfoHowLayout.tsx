@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NaverMap } from '../../components/info/NaverMap'
+import { KakaoMap } from '../../components/info/KakaoMap'
 
 export const InfoHowLayout = () => {
   return (
@@ -10,7 +10,7 @@ export const InfoHowLayout = () => {
       </TitleBox>
       <ContentsBox>
         <ImgBox>
-          <NaverMap />
+          <KakaoMap />
         </ImgBox>
         <TextBox>
           <WhBox border="1px solid var(--black-100)">
