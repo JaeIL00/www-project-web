@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 /* eslint-disable */
@@ -8,22 +8,21 @@ interface GlobalHeaderProps {
     path: string
     title: string
   }[]
+  active: string
 }
 /* eslint-enable */
 
-export const GlobalHeaderLayout = ({ urlPath }: GlobalHeaderProps) => {
+export const GlobalHeaderLayout = ({ urlPath, active }: GlobalHeaderProps) => {
   return (
     <HeaderContainer>
       {urlPath.map(({ path, title }) => (
-        <NavLink
+        <LinkText
           key={title}
           to={path}
-          style={({ isActive }) => ({
-            color: isActive ? 'var(--main1-lightBlue)' : 'var(--white)'
-          })}
+          color={path.split('/')[1] === active ? 'var(--main1-lightBlue)' : 'var(--white)'}
         >
           {title}
-        </NavLink>
+        </LinkText>
       ))}
     </HeaderContainer>
   )
@@ -36,4 +35,7 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 3.12rem;
+`
+const LinkText = styled(Link)`
+  color: ${({ color }) => color};
 `

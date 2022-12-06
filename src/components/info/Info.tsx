@@ -8,19 +8,19 @@ import { InfoHeaderLayout } from '../../layout/info/InfoHeaderLayout'
 export const Info = () => {
   const urlPath = [
     {
-      path: '',
+      path: '/',
       title: 'www'
     },
     {
-      path: 'how',
+      path: '/how',
       title: 'HOW'
     },
     {
-      path: 'credit',
+      path: '/credit',
       title: 'CREDIT'
     },
     {
-      path: 'font',
+      path: '/font',
       title: 'FONT'
     }
   ]
@@ -38,5 +38,5 @@ export const Info = () => {
 
 const Background = styled.div`
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(22, 53, 244, 0.1) 100%);
-  height: calc(100vh - 6.24rem);
+  min-height: calc(100vh - 6.24rem);
 `

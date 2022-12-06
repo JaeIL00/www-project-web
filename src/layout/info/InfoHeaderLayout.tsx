@@ -15,7 +15,7 @@ export const InfoHeaderLayout = ({ urlPath }: InfoHeaderProps) => {
       {urlPath.map(({ path, title }) => (
         <LinkBox key={title}>
           <NavLink
-            to={`/www/${path}`}
+            to={`/www${path}`}
             style={({ isActive }) => ({ color: isActive ? 'var(--main2-green)' : 'var(--black-300)' })}
           >
             {title}

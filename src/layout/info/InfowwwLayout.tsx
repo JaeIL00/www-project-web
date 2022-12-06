@@ -23,15 +23,15 @@ export const InfowwwLayout = () => {
           <SubTitle marginTop="1.68rem" color="var(--black-200)">
             WE WANT WORTH
             <br />
-            IN WORLDWID WEB
+            IN WORLDWIDE WEB
           </SubTitle>
 
-          <Text weight="700" marginTop="5.37rem">
+          <Text weight="700" marginTop="calc(100vh * 6 / 100)">
             WWW : 월드 와이드 웹
             <br />
             온라인으로만 존재하던 그들의 작품이, WWW 버그로 오프라인에 출현하다.
           </Text>
-          <Text marginTop="2rem">
+          <Text marginTop="calc(100vh * 2.22 / 100)">
             COVID19로 온라인으로 졸업전시를 해야했던 디자인 대학생들은
             <br />
             어느새 작가가 되어 그들의 작품을 오프라인으로 출현시킵니다.
@@ -56,7 +56,7 @@ interface StyleProps {
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: 2.37rem 0;
+  padding: calc(100vh * 4.81 / 100) 0;
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
@@ -65,14 +65,14 @@ const TitleText = styled.strong`
 `
 const ContentsBox = styled.div`
   display: flex;
-  padding: 5rem 0;
+  padding: calc(100vh * 7.4 / 100) 0;
 `
 const ImgBox = styled.div`
   width: 50%;
   text-align: center;
 `
 const Image = styled.img`
-  width: 28.75rem;
+  height: calc(100vh * 55.83 / 100);
 `
 const TextBox = styled.div`
   width: 50%;
@@ -89,5 +89,5 @@ const Text = styled.span<StyleProps>`
   margin-top: ${({ marginTop }) => marginTop};
   font-size: 1rem;
   font-weight: ${({ weight }) => weight};
-  line-height: 2.2rem;
+  line-height: calc(100vh * 3.24 / 100);
 `

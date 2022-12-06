@@ -30,7 +30,7 @@ export const InfoFontLayout = () => {
             FREE DOWNLOAD
           </SubTitle>
           <Text weight="700" marginTop="5.37rem">
-            전시 기념 자체제작 폰트 www를 부료 배포합니다
+            전시 기념 자체제작 폰트 www를 무료 배포합니다
           </Text>
           <Text marginTop="2.4rem">
             www는 픽셀아트 느낌을 최소화 하고 대담한 무드를 강조한 폰트입니다.
@@ -42,15 +42,15 @@ export const InfoFontLayout = () => {
           <Text weight="700">FontCopyrightⓒDISP</Text>
           <DownloadBox>
             <Button backColor="var(--black-300)">
-              <Link href="" download>
+              <DownloadLink href="" download>
                 WWW TTF
-              </Link>
+              </DownloadLink>
               <img src={arrow} alt="오른쪽화살아이콘" style={{ margin: 'auto 0' }} />
             </Button>
             <Button backColor="var(--main1-blue)">
-              <Link href="" download>
+              <DownloadLink href="" download>
                 WWW OTF
-              </Link>
+              </DownloadLink>
               <img src={arrow} alt="오른쪽화살아이콘" />
             </Button>
           </DownloadBox>
@@ -68,13 +68,13 @@ interface StyleProps {
   color?: string
 }
 const FontContainer = styled.div`
-  height: calc(100vh - 10.43rem);
+heigh: calc(100% - 3.12rem)
   position: relative;
 `
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: 2.37rem 0;
+  padding: calc(100vh * 4.81 / 100) 0;
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
@@ -83,7 +83,7 @@ const TitleText = styled.strong`
 `
 const ContentsBox = styled.div`
   display: flex;
-  padding: 5rem 0;
+  padding: calc(100vh * 7.4 / 100) 0;
 `
 const ExampleBox = styled.div`
   width: 50%;
@@ -100,7 +100,7 @@ const TextBox = styled.div`
 `
 const SubTitle = styled.strong<StyleProps>`
   display: block;
-  margin-bottom: 10.31rem;
+  margin-bottom: calc(100vh * 15.27 / 100);
   font-size: 2.12rem;
   line-height: 2.81rem;
   color: ${({ color }) => color};
@@ -115,7 +115,7 @@ const Text = styled.span<StyleProps>`
 const DownloadBox = styled.div`
   display: flex;
   position: absolute;
-  bottom: 5.62rem;
+  bottom: calc(100vh * 8.33 / 100);
   right: 0;
 `
 const Button = styled.button<StyleProps>`
@@ -127,9 +127,9 @@ const Button = styled.button<StyleProps>`
     background-color: var(--main2-green);
   }
 `
-const Link = styled.a`
+const DownloadLink = styled.a`
   margin-right: 2.25rem;
   font-family: Pretendard;
-  font-size: 1.87rem;
+  font-size: calc(100vh * 2.77 / 100);
   color: var(--white);
 `
