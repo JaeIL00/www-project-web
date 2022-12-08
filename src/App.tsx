@@ -4,7 +4,7 @@ import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 import { ArtistPage } from './pages/ArtistPage'
 import { ArtworkPage } from './pages/ArtworkPage'
 import { InfoPage } from './pages/InfoPage'
-import { MainPage } from './pages/MainPage'
+import { HomePage } from './pages/HomePage'
 import { InfoHowLayout } from './layout/info/InfoHowLayout'
 import { InfowwwLayout } from './layout/info/InfowwwLayout'
 import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
@@ -15,7 +15,7 @@ const App = () => {
     <>
       <GlobalHeader />
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/www" element={<InfoPage />}>
           <Route path="" element={<InfowwwLayout />} />
           <Route path="how" element={<InfoHowLayout />} />
