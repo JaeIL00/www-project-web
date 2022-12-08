@@ -1,31 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
 import { DownloadModalLayout } from './DownloadModalLayout'
+import { HomeFooterLayout } from './HomeFooterLayout'
 import logoWhite from '/assets/logo-white.svg'
 
 export const HomeLayout = () => {
   return (
-    <Container>
-      <VideoContainer>
-        <VideoPlayer src="" autoPlay loop muted />
-      </VideoContainer>
-      <BookContainer>
-        <BookTitle>
-          <img src={logoWhite} alt="로고 이미지" style={{ height: 'calc(100vh * 3.98 / 100)' }} /> <br />
-          EXHIBITION <br />
-          MARKET
-        </BookTitle>
-        <DownloadButton>Book download +</DownloadButton>
-      </BookContainer>
-      {/* <DownloadModalLayout />
+    <>
+      <Container>
+        <VideoContainer>
+          <VideoPlayer src="" autoPlay loop muted />
+        </VideoContainer>
+        <BookContainer>
+          <BookTitle>
+            <img src={logoWhite} alt="로고 이미지" style={{ height: 'calc(100vh * 3.98 / 100)' }} /> <br />
+            EXHIBITION <br />
+            MARKET
+          </BookTitle>
+          <DownloadButton>Book download +</DownloadButton>
+        </BookContainer>
+        {/* <DownloadModalLayout />
       <Background /> */}
-    </Container>
+      </Container>
+      <HomeFooterLayout />
+    </>
   )
 }
 
 const Container = styled.div`
-  width: 100vw;
-  height: calc(100vh - 6.24rem);
+  min-height: calc(100vh - 6.24rem);
   display: flex;
   position: relative;
 `
@@ -40,19 +43,19 @@ const Background = styled.div`
 const VideoContainer = styled.div`
   background-color: var(--black-300);
   width: calc(100vw * 79.58 / 100);
-  padding: calc(100vh * 7.77 / 100) calc(100vw * 2.65 / 100);
+  padding: calc(100vh * 7.68 / 100) calc(100vw * 2.6 / 100);
 `
 const VideoPlayer = styled.video`
-  width: calc(100vw * 74.21 / 100);
+  width: 100%;
+  height: calc(100vh * 75.18 / 100);
 `
 const BookContainer = styled.div`
   background-color: var(--main1-blue);
-  width: calc(100vw * 20.41 / 100 - 6.24rem);
-  height: calc(100vh - 6.24rem);
+  width: calc(100vw * 15.14 / 100);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 3.12rem;
+  padding: 0 calc(100vw * 2.6 / 100);
 `
 const BookTitle = styled.strong`
   margin-top: calc(100vh * 17.77 / 100);
