@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logoGray from '/assets/logoGray.svg'
+import logoGray from '/assets/logo-gray.svg'
 
 export const InfoFooterLayout = () => {
   return (

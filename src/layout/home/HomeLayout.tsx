@@ -1,23 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { DownloadModalLayout } from './DownloadModalLayout'
+import logoWhite from '/assets/logo-white.svg'
 
 export const HomeLayout = () => {
   return (
     <Container>
-      <div>
-        <div></div>
-      </div>
+      <VideoContainer>
+        <VideoPlayer src="" autoPlay loop muted />
+      </VideoContainer>
       <BookContainer>
         <BookTitle>
-          WWW <br />
+          <img src={logoWhite} alt="로고 이미지" style={{ height: 'calc(100vh * 3.98 / 100)' }} /> <br />
           EXHIBITION <br />
           MARKET
         </BookTitle>
         <DownloadButton>Book download +</DownloadButton>
       </BookContainer>
-      <DownloadModalLayout />
-      <Background />
+      {/* <DownloadModalLayout />
+      <Background /> */}
     </Container>
   )
 }
@@ -25,6 +26,7 @@ export const HomeLayout = () => {
 const Container = styled.div`
   width: 100vw;
   height: calc(100vh - 6.24rem);
+  display: flex;
   position: relative;
 `
 const Background = styled.div`
@@ -34,6 +36,14 @@ const Background = styled.div`
   position: absolute;
   top: 0;
   opacity: 0.5;
+`
+const VideoContainer = styled.div`
+  background-color: var(--black-300);
+  width: calc(100vw * 79.58 / 100);
+  padding: calc(100vh * 7.77 / 100) calc(100vw * 2.65 / 100);
+`
+const VideoPlayer = styled.video`
+  width: calc(100vw * 74.21 / 100);
 `
 const BookContainer = styled.div`
   background-color: var(--main1-blue);
