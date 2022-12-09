@@ -2,43 +2,55 @@ import React from 'react'
 import styled from 'styled-components'
 import warningIcon from '/assets/icon-warning.svg'
 
-export const DownloadModalLayout = () => {
+interface DownloadProps {
+  setBookButton: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const DownloadModalLayout = ({ setBookButton }: DownloadProps) => {
   return (
-    <Container>
-      <Topbox>
-        <Dot backColor="#FF5F57"></Dot>
-        <Dot backColor="#FEBC2E" marginLeft="calc(100vw * 0.41 / 100)"></Dot>
-        <Dot backColor="#28C840" marginLeft="calc(100vw * 0.41 / 100)"></Dot>
-      </Topbox>
-      <Bottombox>
-        <Contentbox>
-          <img src={warningIcon} alt="warning-icon" />
-          <Textbox>
-            <Text fontSize="calc(100vh * 1.48 / 100)" marginBottom="calc(100vh * 0.78 / 100)">
-              This is not an error.
-            </Text>
-            <Text fontSize="calc(100vh * 2.22 / 100)">Do you want www exhibition Book?</Text>
-          </Textbox>
-        </Contentbox>
-        <Innerbox>
-          <Circle>
-            <Text fontSize="calc(100vh * 2.22 / 100)" fontWeight="500">
-              ?
-            </Text>
-          </Circle>
-          <div>
-            <Button backColor="var(--white)" color="#252525" border="1px solid #c8c8c8">
-              Cancel
-            </Button>
-            <Button backColor="linear-gradient(0deg, #258BFA 0%, #67AFF7 100%)" color="var(--white)">
-              <a href="" download>
-                Download
-              </a>
-            </Button>
-          </div>
-        </Innerbox>
-      </Bottombox>
-    </Container>
+    <>
+      <Container>
+        <Topbox>
+          <Dot backColor="#FF5F57"></Dot>
+          <Dot backColor="#FEBC2E" marginLeft="calc(100vw * 0.41 / 100)"></Dot>
+          <Dot backColor="#28C840" marginLeft="calc(100vw * 0.41 / 100)"></Dot>
+        </Topbox>
+        <Bottombox>
+          <Contentbox>
+            <img src={warningIcon} alt="warning-icon" />
+            <Textbox>
+              <Text fontSize="calc(100vh * 1.48 / 100)" marginBottom="calc(100vh * 0.78 / 100)">
+                This is not an error.
+              </Text>
+              <Text fontSize="calc(100vh * 2.22 / 100)">Do you want www exhibition Book?</Text>
+            </Textbox>
+          </Contentbox>
+          <Innerbox>
+            <Circle>
+              <Text fontSize="calc(100vh * 2.22 / 100)" fontWeight="500">
+                ?
+              </Text>
+            </Circle>
+            <div>
+              <Button
+                onClick={() => setBookButton(false)}
+                backColor="var(--white)"
+                color="#252525"
+                border="1px solid #c8c8c8"
+              >
+                Cancel
+              </Button>
+              <Button backColor="linear-gradient(0deg, #258BFA 0%, #67AFF7 100%)" color="var(--white)">
+                <a href="" download>
+                  Download
+                </a>
+              </Button>
+            </div>
+          </Innerbox>
+        </Bottombox>
+      </Container>
+      <Background />
+    </>
   )
 }
 
@@ -53,10 +65,9 @@ interface styleType {
 }
 const Container = styled.div`
   width: calc(100vw * 34.34 / 100);
-  height: calc(100vh * 24.72 / 100);
   position: absolute;
-  left: calc(100vw * 33.42 / 100);
-  bottom: calc(100vh * 34.16 / 100);
+  top: calc((100vh - 11.24rem) * 38.67 / 100);
+  left: calc(100vw * 33.43 / 100);
   z-index: 1;
 `
 const Text = styled.span<styleType>`
@@ -123,4 +134,12 @@ const Button = styled.button<styleType>`
   &:last-child {
     margin-left: calc(100vh * 1.94 / 100);
   }
+`
+const Background = styled.div`
+  background-color: #000;
+  width: 100%;
+  height: calc(100vh - 6.24rem);
+  position: absolute;
+  top: 0;
+  opacity: 0.5;
 `

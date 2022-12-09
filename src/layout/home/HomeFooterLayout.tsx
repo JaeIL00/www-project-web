@@ -6,7 +6,9 @@ export const HomeFooterLayout = () => {
   return (
     <FootContainer>
       <Text> WWW Exhibition market 온라인, 오프라인, 사람은 연결되어 있다</Text>
-      <Logo src={logoWhite} alt="로고 이미지" />
+      <div style={{ width: 'calc(100vw - 6.24rem)', position: 'absolute', textAlign: 'center' }}>
+        <Logo src={logoWhite} alt="로고 이미지" />
+      </div>
       <Text>Copyrightⓒ2022.WWW. All rights reserved.</Text>
     </FootContainer>
   )
