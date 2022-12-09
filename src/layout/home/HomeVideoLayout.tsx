@@ -9,7 +9,7 @@ interface HomeVideoProps {
 export const HomeVideoLayout = ({ videoSrc, videoHandler }: HomeVideoProps) => {
   return (
     <VideoContainer>
-      <VideoPlayer src={videoSrc} autoPlay controls muted onEnded={videoHandler} />
+      <VideoPlayer src={videoSrc} autoPlay muted onEnded={videoHandler} />
     </VideoContainer>
   )
 }
