@@ -5,6 +5,8 @@ import './index.css'
 import reset from 'styled-reset'
 import { BrowserRouter } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
+import { Provider } from 'react-redux'
+import { Store } from './store/Store'
 
 const GlobalStyles = createGlobalStyle`
   ${reset};
@@ -36,8 +38,10 @@ const GlobalStyles = createGlobalStyle`
 `
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <BrowserRouter>
-    <GlobalStyles />
-    <App />
-  </BrowserRouter>
+  <Provider store={Store}>
+    <BrowserRouter>
+      <GlobalStyles />
+      <App />
+    </BrowserRouter>
+  </Provider>
 )
