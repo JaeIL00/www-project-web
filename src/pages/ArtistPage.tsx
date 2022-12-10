@@ -1,5 +1,6 @@
 import React from 'react'
+import { Artist } from '../components/artist/Artist'
 
 export const ArtistPage = () => {
-  return <div>ArtistPage</div>
+  return <Artist />
 }
