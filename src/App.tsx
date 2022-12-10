@@ -1,21 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 import { ArtistPage } from './pages/ArtistPage'
 import { ArtworkPage } from './pages/ArtworkPage'
 import { InfoPage } from './pages/InfoPage'
-import { MainPage } from './pages/MainPage'
+import { HomePage } from './pages/HomePage'
 import { InfoHowLayout } from './layout/info/InfoHowLayout'
 import { InfowwwLayout } from './layout/info/InfowwwLayout'
 import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
 import { InfoFontLayout } from './layout/info/InfoFontLayout'
 
 const App = () => {
+  const [loading, setLoading] = useState(true)
+  setTimeout(() => {
+    setLoading(false)
+  }, 4000)
+  const [render, setRender] = useState(false)
+  setTimeout(() => {
+    setRender(true)
+  }, 3990)
+
   return (
     <>
       <GlobalHeader />
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<HomePage loading={loading} render={render} />} />
         <Route path="/www" element={<InfoPage />}>
           <Route path="" element={<InfowwwLayout />} />
           <Route path="how" element={<InfoHowLayout />} />
