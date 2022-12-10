@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 import { ArtistPage } from './pages/ArtistPage'
@@ -11,11 +11,20 @@ import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
 import { InfoFontLayout } from './layout/info/InfoFontLayout'
 
 const App = () => {
+  const [loading, setLoading] = useState(true)
+  setTimeout(() => {
+    setLoading(false)
+  }, 4000)
+  const [render, setRender] = useState(false)
+  setTimeout(() => {
+    setRender(true)
+  }, 3990)
+
   return (
     <>
       <GlobalHeader />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage loading={loading} render={render} />} />
         <Route path="/www" element={<InfoPage />}>
           <Route path="" element={<InfowwwLayout />} />
           <Route path="how" element={<InfoHowLayout />} />

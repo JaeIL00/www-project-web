@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from '/assets/logo.svg'
 
-export const HomeLoadingLayout = () => {
+export const LoadingLayout = () => {
   return (
     <Container>
       <Contents>
         <img src={logo} alt="로고 이미지" style={{ width: 'calc(100vw * 8.43 / 100)' }} />
         <Loadingbox>
-          <Bar width="70%"></Bar>
+          <Bar></Bar>
         </Loadingbox>
       </Contents>
     </Container>
@@ -38,9 +38,19 @@ const Loadingbox = styled.div`
   height: 8px;
   position: relative;
   margin-top: calc(100vh * 4.75 / 100);
+
+  @keyframes loading-animation {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 `
-const Bar = styled.div<{ width: string }>`
+const Bar = styled.div`
   background-color: var(--main1-blue);
-  width: ${({ width }) => width};
+
   height: inherit;
+  animation: loading-animation 4s linear;
 `

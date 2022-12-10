@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Home } from '../components/home/Home'
-import { HomeLoadingLayout } from '../layout/home/HomeLoadingLayout'
+import { LoadingLayout } from '../layout/LoadingLayout'
 
-export const HomePage = () => {
-  const [loading, setLoading] = useState(true)
+interface HomeProps {
+  loading: boolean
+  render: boolean
+}
 
-  return <div style={{ position: 'relative' }}>{loading ? <HomeLoadingLayout /> : <Home />}</div>
+export const HomePage = ({ loading, render }: HomeProps) => {
+  return (
+    <div style={{ position: 'relative' }}>
+      {loading ? <LoadingLayout /> : null}
+      {render ? <Home /> : null}
+    </div>
+  )
 }
