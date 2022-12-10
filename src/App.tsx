@@ -9,6 +9,8 @@ import { InfoHowLayout } from './layout/info/InfoHowLayout'
 import { InfowwwLayout } from './layout/info/InfowwwLayout'
 import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
 import { InfoFontLayout } from './layout/info/InfoFontLayout'
+import { ArtistList } from './components/artist/ArtistList'
+import { ArtistDetail } from './components/artist/ArtistDetail'
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -32,7 +34,10 @@ const App = () => {
           <Route path="font" element={<InfoFontLayout />} />
         </Route>
         <Route path="/artwork" element={<ArtworkPage />} />
-        <Route path="/artist" element={<ArtistPage />} />
+        <Route path="/artist" element={<ArtistPage />}>
+          <Route index element={<ArtistList />} />
+          <Route path=":artistId" element={<ArtistDetail />} />
+        </Route>
       </Routes>
     </>
   )

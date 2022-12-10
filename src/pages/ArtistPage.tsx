@@ -1,6 +1,10 @@
 import React from 'react'
-import { Artist } from '../components/artist/Artist'
+import { Outlet } from 'react-router-dom'
 
 export const ArtistPage = () => {
-  return <Artist />
+  return (
+    <div style={{ position: 'relative' }}>
+      <Outlet />
+    </div>
+  )
 }
