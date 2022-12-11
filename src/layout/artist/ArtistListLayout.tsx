@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from '/assets/logo.svg'
+import { ArtistTypes } from '../../components/artist/ArtistList'
 
-export const ArtistListLayout = () => {
+export const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) => {
   return (
     <Container>
       <TitleBox>
@@ -11,18 +12,18 @@ export const ArtistListLayout = () => {
         <TitleText>ARTIST</TitleText>
       </TitleBox>
       <ArtistContainer>
-        {/* {dummy.map(({ image, about, name }) => (
-          <Artistbox key={name} to="">
-            <Image src={image} alt="작가 프로필 이미지" />
+        {allArtist.map(({ id, genre, name }) => (
+          <Artistbox key={name} to={id + ''}>
+            {/* <Image src={image} alt="작가 프로필 이미지" /> */}
             <HoverElement className="HoverCover">
               <Cover />
               <Infobox>
-                <Genre>{about}</Genre>
+                <Genre>{genre}</Genre>
                 <Name>{name}</Name>
               </Infobox>
             </HoverElement>
           </Artistbox>
-        ))} */}
+        ))}
       </ArtistContainer>
     </Container>
   )
@@ -60,7 +61,6 @@ const Artistbox = styled(Link)`
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  // 제대로된 이미지 받으면 커서속성 지워
   object-fit: cover;
 `
 const HoverElement = styled.div`

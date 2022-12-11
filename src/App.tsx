@@ -12,7 +12,11 @@ import { InfoFontLayout } from './layout/info/InfoFontLayout'
 import { ArtistList } from './components/artist/ArtistList'
 import { ArtistDetail } from './components/artist/ArtistDetail'
 
+import { useArtistListQuery } from './api/UseApi'
+
 const App = () => {
+  // 캐싱하기
+  const { data: allArtist } = useArtistListQuery()
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)
