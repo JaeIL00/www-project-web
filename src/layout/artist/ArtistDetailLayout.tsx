@@ -4,31 +4,29 @@ import xIcon from '/assets/icon-x.png'
 import shareWhite from '/assets/icon-share-white.png'
 import arrow from '/assets/arrowRight.svg'
 import { Link } from 'react-router-dom'
+import { ArtistDetailTypes } from '../../components/artist/ArtistDetail'
 
-export const ArtistDetailLayout = () => {
+export const ArtistDetailLayout = ({ detail }: { detail: ArtistDetailTypes[] }) => {
   return (
     <Container>
       <InnerContainer>
         <Profilebox>
           <Image src={''} alt="작가 프로필 이미지" />
           <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="700" marginBottom="0.87rem">
-            Visual
+            {detail[0].genre}
           </Text>
           <br />
           <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="500">
-            신재일
+            {detail[0].nickname}
           </Text>
         </Profilebox>
         <div>
           <Text fontSize="calc(100vw * 1.66 / 100)" fontWeight="700" marginBottom="2.62rem">
-            디자인하는 신재일입니다
+            디자인하는 {detail[0].nickname}입니다
           </Text>
           <br />
           <Text fontSize="calc(100vw * 0.83 / 100)" fontWeight="500">
-            오늘을 그리는 것, 음을 짓는 것, 몸의 움직임으로 음악을 시각화하는 것, 생각을 옷으로 입고, 형태로 담아내는
-            것을 좋아한다. 형상화되지 않은 것들에서 온 영감으로 컨셉을 잡고, 무의식에서 공상하며 디자인 스케치를
-            시작한다. 그렇기에 주로 정형화되지 않은 작업물들이 많다. 우리가 살아가는데 필요한 물음과 가치를 전하고자
-            디자인한다.
+            {detail[0].description}
           </Text>
         </div>
         <Buttonbox>

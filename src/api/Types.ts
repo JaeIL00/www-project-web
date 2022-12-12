@@ -12,3 +12,17 @@ export interface resArtistListTypes {
     }
   ]
 }
+export interface resArtistDetailTypes {
+  data: [
+    {
+      id: number
+      genre: string
+      name: string
+      nickname: string
+      email: string
+      contact: string
+      description: string
+      bio: string
+    }
+  ]
+}
