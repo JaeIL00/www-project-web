@@ -6,7 +6,13 @@ import arrow from '/assets/arrowRight.svg'
 import { Link } from 'react-router-dom'
 import { ArtistDetailTypes } from '../../components/artist/ArtistDetail'
 
-export const ArtistDetailLayout = ({ detail }: { detail: ArtistDetailTypes[] }) => {
+interface ArtistDetailProps {
+  detail: ArtistDetailTypes[]
+  shareHandler: () => void
+  isCopy: boolean
+}
+
+export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetailProps) => {
   return (
     <Container>
       <InnerContainer>
@@ -59,9 +65,15 @@ export const ArtistDetailLayout = ({ detail }: { detail: ArtistDetailTypes[] }) 
         top="calc(100vh * 9.35 / 100)"
         left="calc(100vw * 2.6 / 100)"
         position="absolute"
+        onClick={shareHandler}
       >
         <img src={shareWhite} alt="페이지 공유하기 버튼" />
       </Button>
+      <ClipBoardText animationName={isCopy ? 'clipboard-up' : 'clipboard-down'}>
+        <Text fontSize="0.9rem" color="var(--white)">
+          링크를 클립보드에 복사했습니다.
+        </Text>
+      </ClipBoardText>
       <Button top="calc(100vh * 9.53 / 100)" right="calc(100vw * 2.7 / 100)" position="absolute">
         <img src={xIcon} alt="이전 페이지 이동 버튼" style={{ width: 'calc(100vw * 1.3 / 100)' }} />
       </Button>
@@ -72,6 +84,7 @@ interface styleTypes {
   backColor?: string
   width?: string
   height?: string
+  display?: string
   position?: string
   top?: string
   bottom?: string
@@ -81,7 +94,9 @@ interface styleTypes {
   padding?: string
   fontSize?: string
   fontWeight?: string
+  color?: string
   hover?: string
+  animationName?: string
 }
 const Container = styled.div`
   background: var(--sub-blue);
@@ -91,6 +106,23 @@ const Container = styled.div`
   align-items: center;
   position: absolute;
   top: -6.24rem;
+
+  @keyframes clipboard-down {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -5rem;
+    }
+  }
+  @keyframes clipboard-up {
+    0% {
+      bottom: -5rem;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
 `
 const InnerContainer = styled.div`
   position: relative;
@@ -115,6 +147,7 @@ const Text = styled.span<styleTypes>`
   margin-bottom: ${({ marginBottom }) => marginBottom};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: ${({ fontWeight }) => fontWeight};
+  color: ${({ color }) => color};
 `
 const Button = styled.button<styleTypes>`
   background-color: ${({ backColor }) => (backColor ? backColor : 'transparent')};
@@ -132,6 +165,18 @@ const Button = styled.button<styleTypes>`
   &:hover {
     background-color: ${({ hover }) => hover};
   }
+`
+const ClipBoardText = styled.div<styleTypes>`
+  background-color: #181818;
+  width: 15.75rem;
+  display: ${({ display }) => display};
+  position: absolute;
+  bottom: -5rem;
+  margin: 20px;
+  padding: 12px;
+  border-radius: 10px;
+
+  animation: ${({ animationName }) => animationName} 0.6s ease-in-out forwards;
 `
 const LinkText = styled(Link)`
   margin-right: 2.25rem;

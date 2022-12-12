@@ -32,5 +32,15 @@ export const ArtistDetail = () => {
   useEffect(() => {
     if (data) setDetail(data.data)
   }, [])
-  return <ArtistDetailLayout detail={detail} />
+
+  const [isCopy, setIsCopy] = useState(false)
+  const shareHandler = () => {
+    navigator.clipboard.writeText(window.location.href)
+    setIsCopy(true)
+    setTimeout(() => {
+      setIsCopy(false)
+    }, 3000)
+  }
+
+  return <ArtistDetailLayout detail={detail} shareHandler={shareHandler} isCopy={isCopy} />
 }
