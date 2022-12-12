@@ -69,7 +69,7 @@ export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetai
       >
         <img src={shareWhite} alt="페이지 공유하기 버튼" />
       </Button>
-      <ClipBoardText animationName={isCopy ? 'clipboard-up' : 'clipboard-down'}>
+      <ClipBoardText animationName={isCopy ? 'clipboard-up' : ''} display={isCopy ? 'block' : 'none'}>
         <Text fontSize="0.9rem" color="var(--white)">
           링크를 클립보드에 복사했습니다.
         </Text>
@@ -106,21 +106,20 @@ const Container = styled.div`
   align-items: center;
   position: absolute;
   top: -6.24rem;
+  overflow: hidden;
 
-  @keyframes clipboard-down {
-    0% {
-      bottom: 0;
-    }
-    100% {
-      bottom: -5rem;
-    }
-  }
   @keyframes clipboard-up {
     0% {
       bottom: -5rem;
     }
-    100% {
+    20% {
       bottom: 0;
+    }
+    80% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -5rem;
     }
   }
 `
@@ -176,7 +175,7 @@ const ClipBoardText = styled.div<styleTypes>`
   padding: 12px;
   border-radius: 10px;
 
-  animation: ${({ animationName }) => animationName} 0.6s ease-in-out forwards;
+  animation: ${({ animationName }) => animationName} 3s ease-in-out forwards;
 `
 const LinkText = styled(Link)`
   margin-right: 2.25rem;
