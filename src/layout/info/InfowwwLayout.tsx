@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '/assets/logo.svg'
-import demo from '/assets/demoPoster.svg'
 
 export const InfowwwLayout = () => {
   return (
-    <>
+    <Container>
       <TitleBox>
         <img src={logo} alt="로고" style={{ width: '7.25rem' }} />
         <TitleText>EXHIBITION MARKET</TitleText>
       </TitleBox>
       <ContentsBox>
         <ImgBox>
-          <Image src={demo} alt="" />
+          <Image
+            src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/www%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%E1%84%90%E1%85%A5_%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A9%E1%86%BC.jpg"
+            alt="메인 포스터"
+          />
         </ImgBox>
         <TextBox>
           <SubTitle color="var(--main1-blue)">
@@ -44,7 +46,7 @@ export const InfowwwLayout = () => {
           </Text>
         </TextBox>
       </ContentsBox>
-    </>
+    </Container>
   )
 }
 
@@ -53,6 +55,10 @@ interface StyleProps {
   weight?: string
   color?: string
 }
+
+const Container = styled.div`
+  padding: 0 calc(100vw * 2.6 / 100);
+`
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
