@@ -3,12 +3,8 @@ export interface resArtistListTypes {
     {
       id: number
       genre: string
-      name: string
       nickname: string
-      email: string
-      contact: string
-      description: string
-      bio: string
+      profileImage: string
     }
   ]
 }

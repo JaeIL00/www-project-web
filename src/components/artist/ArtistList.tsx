@@ -5,12 +5,8 @@ import { ArtistListLayout } from '../../layout/artist/ArtistListLayout'
 export interface ArtistTypes {
   id: number
   genre: string
-  name: string
   nickname: string
-  email: string
-  contact: string
-  description: string
-  bio: string
+  profileImage: string
 }
 
 export const ArtistList = () => {
@@ -19,12 +15,8 @@ export const ArtistList = () => {
     {
       id: 0,
       genre: '',
-      name: '',
       nickname: '',
-      email: '',
-      contact: '',
-      description: '',
-      bio: ''
+      profileImage: ''
     }
   ])
   useEffect(() => {

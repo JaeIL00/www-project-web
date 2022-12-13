@@ -16,7 +16,7 @@ import { useArtistListQuery } from './api/UseApi'
 
 const App = () => {
   // 캐싱하기
-  const { data: allArtist } = useArtistListQuery()
+  const { data } = useArtistListQuery()
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)

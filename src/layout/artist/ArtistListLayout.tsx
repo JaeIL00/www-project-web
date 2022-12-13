@@ -12,14 +12,14 @@ export const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) =>
         <TitleText>ARTIST</TitleText>
       </TitleBox>
       <ArtistContainer>
-        {allArtist.map(({ id, genre, name }) => (
-          <Artistbox key={name} to={id + ''}>
-            {/* <Image src={image} alt="작가 프로필 이미지" /> */}
+        {allArtist.map(({ id, genre, nickname, profileImage }) => (
+          <Artistbox key={id} to={id + ''}>
+            <Image src={profileImage} alt="작가 프로필 이미지" />
             <HoverElement className="HoverCover">
               <Cover />
               <Infobox>
                 <Genre>{genre}</Genre>
-                <Name>{name}</Name>
+                <Name>{nickname}</Name>
               </Infobox>
             </HoverElement>
           </Artistbox>
