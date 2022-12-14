@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["kakao.maps.d.ts", "npm:0.1.33"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
+            ["react-device-detect", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:2.2.2"],\
             ["react-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:18.2.0"],\
             ["react-router-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:6.4.3"],\
             ["sass", "npm:1.56.1"],\
@@ -4119,6 +4120,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-device-detect", [\
+        ["npm:2.2.2", {\
+          "packageLocation": "./.yarn/cache/react-device-detect-npm-2.2.2-1848521a19-d9245cf5a1.zip/node_modules/react-device-detect/",\
+          "packageDependencies": [\
+            ["react-device-detect", "npm:2.2.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:2.2.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-device-detect-virtual-ae58cc722c/0/cache/react-device-detect-npm-2.2.2-1848521a19-d9245cf5a1.zip/node_modules/react-device-detect/",\
+          "packageDependencies": [\
+            ["react-device-detect", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:2.2.2"],\
+            ["@types/react", "npm:18.0.24"],\
+            ["@types/react-dom", "npm:18.0.8"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:18.2.0"],\
+            ["ua-parser-js", "npm:1.0.32"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-dom", [\
         ["npm:18.2.0", {\
           "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
@@ -4923,6 +4951,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["ua-parser-js", [\
+        ["npm:1.0.32", {\
+          "packageLocation": "./.yarn/cache/ua-parser-js-npm-1.0.32-95b0b6a78d-79a80efd9c.zip/node_modules/ua-parser-js/",\
+          "packageDependencies": [\
+            ["ua-parser-js", "npm:1.0.32"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["unbox-primitive", [\
         ["npm:1.0.2", {\
           "packageLocation": "./.yarn/cache/unbox-primitive-npm-1.0.2-cb56a05066-b7a1cf5862.zip/node_modules/unbox-primitive/",\
@@ -5157,6 +5194,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["kakao.maps.d.ts", "npm:0.1.33"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
+            ["react-device-detect", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:2.2.2"],\
             ["react-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:18.2.0"],\
             ["react-router-dom", "virtual:2c5d6067fbb49a3f05200cd5592864208b5eb4a9d30c24465b4a9e9e2ca502c6547505cc2c74d0def75bce41b04799cf7f16ec221b2d3e2c5543005be7ba2510#npm:6.4.3"],\
             ["sass", "npm:1.56.1"],\

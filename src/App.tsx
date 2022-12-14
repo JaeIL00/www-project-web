@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 import { ArtistPage } from './pages/ArtistPage'
 import { ArtworkPage } from './pages/ArtworkPage'
@@ -10,8 +10,10 @@ import { InfowwwLayout } from './layout/info/InfowwwLayout'
 import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
 import { InfoFontLayout } from './layout/info/InfoFontLayout'
 import { ComingSoon } from './layout/ComingSoon'
+import { isMobile } from 'react-device-detect'
 
 const App = () => {
+  if (isMobile) window.location.href = 'https://m.wwweb.kr'
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)
