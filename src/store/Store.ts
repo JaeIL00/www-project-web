@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import { UseApi } from '../api/UseApi'
 import { infoReducer } from './InfoSlice'
 
 export const Store = configureStore({
   reducer: {
+    [UseApi.reducerPath]: UseApi.reducer,
     info: infoReducer
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(UseApi.middleware)
 })
 
 setupListeners(Store.dispatch)

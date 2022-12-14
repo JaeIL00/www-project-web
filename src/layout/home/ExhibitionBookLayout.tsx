@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import logoWhite from '/assets/logo-white.svg'
 
-interface bookProps {
+interface BookProps {
   setBookButton: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const ExhibitionBookLayout = ({ setBookButton }: bookProps) => {
+export const ExhibitionBookLayout = ({ setBookButton }: BookProps) => {
   return (
     <BookContainer>
       <BookTitle>
