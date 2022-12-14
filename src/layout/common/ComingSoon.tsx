@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import logo from '/assets/logo.svg'
 import logoGray from '/assets/logo-gray.svg'
-import useInterval from '../components/hooks/useInterval'
+import useInterval from '../../components/hooks/useInterval'
 
 export const ComingSoon = () => {
   const [isRunning, setIsRunning] = useState(true)

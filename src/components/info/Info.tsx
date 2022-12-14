@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
-
+import { TextCopySnackLayout } from '../../layout/common/TextCopySnackLayout'
 import { InfoFooterLayout } from '../../layout/info/InfoFooterLayout'
 import { InfoHeaderLayout } from '../../layout/info/InfoHeaderLayout'
+import { useAppSelector } from '../../store/Store'
 
 export const Info = () => {
   const urlPath = [
@@ -25,11 +26,18 @@ export const Info = () => {
     }
   ]
 
+  const { isCopyState } = useAppSelector((state) => state.info)
+  useEffect(() => {
+    setIsCopy(isCopyState)
+  }, [isCopyState])
+  const [isCopy, setIsCopy] = useState(false)
+
   return (
     <>
       <Background>
         <InfoHeaderLayout urlPath={urlPath} />
         <Outlet />
+        <TextCopySnackLayout isCopy={isCopy} word="이메일을" />
       </Background>
       <InfoFooterLayout />
     </>

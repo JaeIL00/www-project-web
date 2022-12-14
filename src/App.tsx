@@ -9,7 +9,7 @@ import { InfoHowLayout } from './layout/info/InfoHowLayout'
 import { InfowwwLayout } from './layout/info/InfowwwLayout'
 import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
 import { InfoFontLayout } from './layout/info/InfoFontLayout'
-import { ComingSoon } from './layout/ComingSoon'
+import { ComingSoon } from './layout/common/ComingSoon'
 import { isMobile } from 'react-device-detect'
 
 const App = () => {

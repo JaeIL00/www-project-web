@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { CreditData1, CreditData2 } from '../../components/info/CreditData'
+import { useAppDispatch } from '../../store/Store'
+import { textCopyHandler, rebackHandler } from '../../store/InfoSlice'
 
 export const InfoCreditLayout = () => {
+  const dispatch = useAppDispatch()
   return (
     <InfoContainer>
       <TitleBox>
@@ -45,8 +48,8 @@ export const InfoCreditLayout = () => {
                   {title}
                 </Text>
                 <div>
-                  {member.map(({ name, color, url, email }) => (
-                    <Memberbox key={name}>
+                  {member.map(({ key, name, color, url, email }) => (
+                    <Memberbox key={key}>
                       <Square backColor={color} marginRight="calc(100vw * 0.93 / 100)"></Square>
                       {url ? (
                         <LinkText href={url} target="_blank" rel="noreferrer">
@@ -54,9 +57,16 @@ export const InfoCreditLayout = () => {
                         </LinkText>
                       ) : null}
                       {email ? (
-                        <button>
-                          <Text color="#000">{name}</Text>
-                        </button>
+                        <Button
+                          onClick={() => {
+                            dispatch(textCopyHandler(email))
+                            setTimeout(() => {
+                              dispatch(rebackHandler())
+                            }, 3000)
+                          }}
+                        >
+                          {name}
+                        </Button>
                       ) : null}
                       {!url && !email ? <Text color="#000">{name}</Text> : null}
                     </Memberbox>
@@ -73,22 +83,33 @@ export const InfoCreditLayout = () => {
                 </Text>
                 <div style={{ display: 'flex' }}>
                   <div>
-                    {member.map(({ name, color, url, email }) => (
-                      <Memberbox key={name}>
+                    {member.map(({ key, name, color, url, email }) => (
+                      <Memberbox key={key}>
                         <Square backColor={color} marginRight="calc(100vw * 0.93 / 100)"></Square>
                         {url ? (
                           <LinkText href={url} target="_blank" rel="noreferrer">
                             {name}
                           </LinkText>
                         ) : null}
-                        {email ? <Button>{name}</Button> : null}
+                        {email ? (
+                          <Button
+                            onClick={() => {
+                              dispatch(textCopyHandler(email))
+                              setTimeout(() => {
+                                dispatch(rebackHandler())
+                              }, 3000)
+                            }}
+                          >
+                            {name}
+                          </Button>
+                        ) : null}
                         {!url && !email ? <Text color="#000">{name}</Text> : null}
                       </Memberbox>
                     ))}
                   </div>
                   <div>
-                    {member.map(({ part }) => (
-                      <Partbox key={part}>
+                    {member.map(({ part }, index) => (
+                      <Partbox key={index}>
                         {part && (
                           <Text color="var(--black-100)" marginLeft="calc(100vw * 1.71 / 100)">
                             {part}
@@ -118,7 +139,7 @@ export const InfoCreditLayout = () => {
   )
 }
 
-interface StyleProps {
+interface styleTypes {
   backColor?: string
   display?: string
   paddingBottom?: string
@@ -131,6 +152,7 @@ interface StyleProps {
 }
 const InfoContainer = styled.div`
   margin: 0 3.12rem;
+}
 `
 const TitleBox = styled.div`
   display: flex;
@@ -145,12 +167,12 @@ const ContentsBox = styled.div`
   display: flex;
   padding: 7.4vh 0;
 `
-const RoleList = styled.div<StyleProps>`
+const RoleList = styled.div<styleTypes>`
   display: flex;
   align-items: center;
   margin-bottom: ${({ marginBottom }) => marginBottom};
 `
-const Square = styled.div<StyleProps>`
+const Square = styled.div<styleTypes>`
   background-color: ${({ backColor }) => backColor};
   width: 1.75vh;
   height: 1.75vh;
@@ -159,7 +181,7 @@ const Square = styled.div<StyleProps>`
 const MembersBox = styled.div`
   flex-grow: 1;
 `
-const DirectorBox = styled.div<StyleProps>`
+const DirectorBox = styled.div<styleTypes>`
   text-align: center;
   margin-bottom: 3.51vh;
 `
@@ -187,13 +209,14 @@ const Partbox = styled.div`
   padding: 1.6vh 0;
 `
 const Button = styled.button`
-  background: transparent;
+  background: none;
+  margin-left: -0.3vw;
   font-size: 1.48vh;
   &:hover {
     color: var(--main2-green);
   }
 `
-const Text = styled.span<StyleProps>`
+const Text = styled.span<styleTypes>`
   display: ${({ display }) => (display ? display : 'block')};
   padding-bottom: ${({ paddingBottom }) => paddingBottom};
   margin-left: ${({ marginLeft }) => marginLeft};

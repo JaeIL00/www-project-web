@@ -3,18 +3,21 @@ export const CreditData1 = [
     title: 'Project manager',
     member: [
       {
+        key: 'a',
         name: 'DISP',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/dispuni',
         email: ''
       },
       {
+        key: 'b',
         name: 'Management All',
         color: 'var(--serve-blue)',
         url: '',
         email: ''
       },
       {
+        key: 'c',
         name: 'Artist All',
         color: 'var(--assist-green)',
         url: '',
@@ -26,6 +29,7 @@ export const CreditData1 = [
     title: 'Brand design',
     member: [
       {
+        key: 'd',
         name: 'DISP',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/dispuni',
@@ -37,12 +41,14 @@ export const CreditData1 = [
     title: '3D Graphic design',
     member: [
       {
+        key: 'e',
         name: 'Mery',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/mery9711',
         email: ''
       },
       {
+        key: 'f',
         name: 'kwonasart',
         color: 'var(--serve-blue)',
         url: 'https://linktr.ee/askwonart',
@@ -54,12 +60,14 @@ export const CreditData1 = [
     title: '2D Graphic design',
     member: [
       {
+        key: 'g',
         name: 'Si yeon',
         color: 'var(--lead-orange)',
         url: '',
         email: 'syeons2@naver.com'
       },
       {
+        key: 'h',
         name: 'yu jin',
         color: 'var(--serve-blue)',
         url: 'https://linktr.ee/_iamyooj',
@@ -71,12 +79,14 @@ export const CreditData1 = [
     title: 'Motion design',
     member: [
       {
+        key: 'i',
         name: 'YANZI',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/yanzi_',
         email: ''
       },
       {
+        key: 'j',
         name: 'Mery',
         color: 'var(--serve-blue)',
         url: 'https://linktr.ee/mery9711',
@@ -88,12 +98,14 @@ export const CreditData1 = [
     title: 'Editorial design',
     member: [
       {
+        key: 'k',
         name: 'yu jin',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/_iamyooj',
         email: ''
       },
       {
+        key: 'l',
         name: 'Si yeon',
         color: 'var(--serve-blue)',
         url: '',
@@ -108,6 +120,7 @@ export const CreditData2 = [
     title: 'VMD',
     member: [
       {
+        key: 'n',
         name: 'Nam Yeonwoo',
         color: 'var(--lead-orange)',
         url: '',
@@ -115,6 +128,7 @@ export const CreditData2 = [
         email: ''
       },
       {
+        key: 'm',
         name: 'Management All',
         color: 'var(--assist-green)',
         url: '',
@@ -127,6 +141,7 @@ export const CreditData2 = [
     title: 'MD',
     member: [
       {
+        key: 'o',
         name: 'Si yeon',
         color: 'var(--lead-orange)',
         url: '',
@@ -139,6 +154,7 @@ export const CreditData2 = [
     title: 'UIUX',
     member: [
       {
+        key: 'p',
         name: 'kwonasart',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/askwonart',
@@ -146,6 +162,7 @@ export const CreditData2 = [
         email: ''
       },
       {
+        key: 'q',
         name: 'DISP',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/dispuni',
@@ -158,6 +175,7 @@ export const CreditData2 = [
     title: 'Frontend',
     member: [
       {
+        key: 'r',
         name: 'Ryn',
         color: 'var(--lead-orange)',
         url: 'https://linktr.ee/whilini',
@@ -165,6 +183,7 @@ export const CreditData2 = [
         email: ''
       },
       {
+        key: 's',
         name: 'SeungHun Byeon',
         color: 'var(--serve-blue)',
         url: 'https://github.com/SeungHun6450',
@@ -172,6 +191,7 @@ export const CreditData2 = [
         email: ''
       },
       {
+        key: 't',
         name: 'Jae IL',
         color: 'var(--serve-blue)',
         url: 'https://github.com/JaeIL00',
@@ -184,6 +204,7 @@ export const CreditData2 = [
     title: 'Backend',
     member: [
       {
+        key: 'u',
         name: 'Jaecheol Jeong',
         color: 'var(--lead-orange)',
         url: '',
@@ -191,6 +212,7 @@ export const CreditData2 = [
         email: ''
       },
       {
+        key: 'v',
         name: 'ash',
         color: 'var(--serve-blue)',
         url: '',
@@ -203,6 +225,7 @@ export const CreditData2 = [
     title: 'Staff',
     member: [
       {
+        key: 'w',
         name: 'All',
         color: 'var(--lead-orange)',
         url: '',
