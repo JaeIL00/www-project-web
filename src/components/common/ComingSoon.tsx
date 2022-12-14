@@ -24,6 +24,7 @@ export const ComingSoon = () => {
     element.style.position = 'absolute'
     element.style.left = Math.floor(Math.random() * viewportWidth) + 'px'
     element.style.top = Math.floor(Math.random() * viewportHeight) + 'px'
+    element.style.cursor = 'grab'
     element.style.animation = 'create-img 2s ease-in'
     element.onmousedown = (event) => startDrag(event)
     interactive.current?.appendChild(element)
