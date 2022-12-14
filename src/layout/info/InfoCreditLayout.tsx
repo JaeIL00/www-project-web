@@ -1,20 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const team = [
-  {
-    title: 'Project manager',
-    lead: 'DISP',
-    serve: 'Management All',
-    assist: 'Artist All',
-    margin: '6.12rem'
-  },
-  { title: 'Brand design', lead: 'DISP', margin: '6rem' },
-  { title: '3D Graphic design', lead: 'Mery', serve: 'kwonasart', margin: '7.18rem' },
-  { title: '2D Graphic design', lead: 'Si yeon', serve: 'yu jin', margin: '7.12rem' },
-  { title: 'Motion design', lead: 'YANZI', serve: 'Mery', margin: '7.93rem' },
-  { title: 'Editorial design', lead: 'yu jin', serve: 'Si yeon', margin: '0' }
-]
+import { CreditData1, CreditData2 } from '../../components/info/CreditData'
 
 export const InfoCreditLayout = () => {
   return (
@@ -23,144 +9,100 @@ export const InfoCreditLayout = () => {
         <TitleText>CREDIT</TitleText>
       </TitleBox>
       <ContentsBox>
-        <ContentsInnerBox>
-          <RoleList marginBottom="1.06rem">
+        <div style={{ width: 'calc(14.58vw - 6.24rem)' }}>
+          <RoleList marginBottom="calc(100vh * 1.57 / 100)">
             <Square backColor="var(--lead-orange)"></Square>
             <Text marginLeft="1.87rem" color="#707070">
               Lead
             </Text>
           </RoleList>
-          <RoleList marginBottom="1.06rem">
+          <RoleList marginBottom="calc(100vh * 1.57 / 100)">
             <Square backColor="var(--serve-blue)"></Square>
             <Text marginLeft="1.87rem" color="#707070">
               Serve
             </Text>
           </RoleList>
-          <RoleList marginBottom="1.06rem">
+          <RoleList>
             <Square backColor="var(--assist-green)"></Square>
             <Text marginLeft="1.87rem" color="#707070">
               Assist
             </Text>
           </RoleList>
-        </ContentsInnerBox>
+        </div>
         <MembersBox>
           <DirectorBox>
             <Text display="inline" color="#707070">
               Director
             </Text>
-            <Text display="inline" marginLeft="2rem">
+            <Text display="inline" marginLeft="calc(100vw * 1.66 / 100)">
               DISP
             </Text>
           </DirectorBox>
           <TeamsBox>
-            {team.map((item) => (
-              <TeamList key={item.title} marginRight={item.margin}>
-                <Text color="#707070" marginBottom="2.25rem">
-                  {item.title}
+            {CreditData1.map(({ title, member }) => (
+              <div key={title}>
+                <Text color="#707070" paddingBottom="calc(100vh * 3.33 / 100)">
+                  {title}
                 </Text>
-                <RoleList marginBottom="1.87rem">
-                  <Square backColor="var(--lead-orange)"></Square>
-                  <Text marginLeft="1.12rem">{item.lead}</Text>
-                </RoleList>
-                {item.serve && (
-                  <RoleList marginBottom="1.87rem">
-                    <Square backColor="var(--serve-blue)"></Square>
-                    <Text marginLeft="1.12rem">{item.serve}</Text>
-                  </RoleList>
-                )}
-                {item.assist && (
-                  <RoleList>
-                    <Square backColor="var(--assist-green)"></Square>
-                    <Text marginLeft="1.12rem">{item.assist}</Text>
-                  </RoleList>
-                )}
-              </TeamList>
+                <div>
+                  {member.map(({ name, color, url, email }) => (
+                    <Memberbox key={name}>
+                      <Square backColor={color} marginRight="calc(100vw * 0.93 / 100)"></Square>
+                      {url ? (
+                        <LinkText href={url} target="_blank" rel="noreferrer">
+                          {name}
+                        </LinkText>
+                      ) : null}
+                      {email ? (
+                        <button>
+                          <Text color="#000">{name}</Text>
+                        </button>
+                      ) : null}
+                      {!url && !email ? <Text color="#000">{name}</Text> : null}
+                    </Memberbox>
+                  ))}
+                </div>
+              </div>
             ))}
           </TeamsBox>
           <TeamsBox>
-            <TeamList marginRight="6.12rem">
-              <Text color="#707070" marginBottom="2.25rem">
-                VMD
-              </Text>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">Nam Yeonwoo</Text>
-              </RoleList>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--serve-blue)"></Square>
-                <Text marginLeft="1.12rem">Management All</Text>
-              </RoleList>
-            </TeamList>
-            <TeamList marginRight="7.37rem">
-              <Text color="#707070" marginBottom="2.25rem">
-                MD
-              </Text>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">DISP</Text>
-              </RoleList>
-            </TeamList>
-            <TeamList marginRight="3.25rem">
-              <Text color="#707070" marginBottom="2.25rem">
-                UIUX
-              </Text>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">kwonasart</Text>
-                <Text display="inline" marginLeft="2.06rem" color="var(--black-100)">
-                  Mobile
+            {CreditData2.map(({ title, member }) => (
+              <div key={title}>
+                <Text color="#707070" paddingBottom="calc(100vh * 3.33 / 100)">
+                  {title}
                 </Text>
-              </RoleList>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">DISP</Text>
-                <Text display="inline" marginLeft="4.62rem" color="var(--black-100)">
-                  Web
-                </Text>
-              </RoleList>
-            </TeamList>
-            <TeamList marginRight="5.31rem">
-              <Text color="#707070" marginBottom="2.25rem">
-                Frontend
-              </Text>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">Ryn</Text>
-              </RoleList>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--serve-blue)"></Square>
-                <Text marginLeft="1.12rem">SeungHun Byeon</Text>
-              </RoleList>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--serve-blue)"></Square>
-                <Text marginLeft="1.12rem">Jae IL</Text>
-              </RoleList>
-            </TeamList>
-            <TeamList marginRight="4.93rem">
-              <Text color="#707070" marginBottom="2.25rem">
-                Backend
-              </Text>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">Jaecheol Jeong</Text>
-              </RoleList>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--serve-blue)"></Square>
-                <Text marginLeft="1.12rem">ash</Text>
-              </RoleList>
-            </TeamList>
-            <TeamList>
-              <Text color="#707070" marginBottom="2.25rem">
-                Staff
-              </Text>
-              <RoleList marginBottom="1.87rem">
-                <Square backColor="var(--lead-orange)"></Square>
-                <Text marginLeft="1.12rem">All</Text>
-              </RoleList>
-            </TeamList>
+                <div style={{ display: 'flex' }}>
+                  <div>
+                    {member.map(({ name, color, url, email }) => (
+                      <Memberbox key={name}>
+                        <Square backColor={color} marginRight="calc(100vw * 0.93 / 100)"></Square>
+                        {url ? (
+                          <LinkText href={url} target="_blank" rel="noreferrer">
+                            {name}
+                          </LinkText>
+                        ) : null}
+                        {email ? <Button>{name}</Button> : null}
+                        {!url && !email ? <Text color="#000">{name}</Text> : null}
+                      </Memberbox>
+                    ))}
+                  </div>
+                  <div>
+                    {member.map(({ part }) => (
+                      <Partbox key={part}>
+                        {part && (
+                          <Text color="var(--black-100)" marginLeft="calc(100vw * 1.71 / 100)">
+                            {part}
+                          </Text>
+                        )}
+                      </Partbox>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </TeamsBox>
         </MembersBox>
-        <ContentsInnerBox>
+        <div style={{ width: 'calc(14.58vw - 6.24rem)', textAlign: 'right' }}>
           <Text color="var(--black-200)">
             WWW
             <br />
@@ -170,7 +112,7 @@ export const InfoCreditLayout = () => {
             <br />
             12th
           </Text>
-        </ContentsInnerBox>
+        </div>
       </ContentsBox>
     </InfoContainer>
   )
@@ -179,6 +121,7 @@ export const InfoCreditLayout = () => {
 interface StyleProps {
   backColor?: string
   display?: string
+  paddingBottom?: string
   marginRight?: string
   marginLeft?: string
   marginBottom?: string
@@ -192,18 +135,15 @@ const InfoContainer = styled.div`
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: 2.37rem 0;
+  padding: 3.51vh 0;
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
-  font-size: 3.12rem;
+  font-size: 4.62vh;
 `
 const ContentsBox = styled.div`
   display: flex;
-  padding: 5rem 0;
-`
-const ContentsInnerBox = styled.div`
-  width: 6.25rem;
+  padding: 7.4vh 0;
 `
 const RoleList = styled.div<StyleProps>`
   display: flex;
@@ -212,29 +152,52 @@ const RoleList = styled.div<StyleProps>`
 `
 const Square = styled.div<StyleProps>`
   background-color: ${({ backColor }) => backColor};
-  width: 1.18rem;
-  height: 1.18rem;
+  width: 1.75vh;
+  height: 1.75vh;
+  margin-right: ${({ marginRight }) => marginRight};
 `
 const MembersBox = styled.div`
   flex-grow: 1;
 `
 const DirectorBox = styled.div<StyleProps>`
   text-align: center;
-  margin-bottom: 3.6rem;
+  margin-bottom: 3.51vh;
 `
 const TeamsBox = styled.div`
-  display: flex;
-  margin: 0 8.12rem;
-  padding: 3.56rem 2rem 3.43rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0 2vw;
+  padding: 5.27vh 2.03vw 5.09vh 3.03vw;
   border-top: 1px solid var(--black-100);
 `
-const TeamList = styled.div<StyleProps>`
-  margin-right: ${({ marginRight }) => marginRight};
+const Memberbox = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 1.38vh 0;
+`
+const LinkText = styled.a`
+  display: block;
+  font-size: 1.48vh;
+  color: #000;
+  &:hover {
+    color: var(--main2-green);
+  }
+`
+const Partbox = styled.div`
+  padding: 1.6vh 0;
+`
+const Button = styled.button`
+  background: transparent;
+  font-size: 1.48vh;
+  &:hover {
+    color: var(--main2-green);
+  }
 `
 const Text = styled.span<StyleProps>`
   display: ${({ display }) => (display ? display : 'block')};
+  padding-bottom: ${({ paddingBottom }) => paddingBottom};
   margin-left: ${({ marginLeft }) => marginLeft};
   margin-bottom: ${({ marginBottom }) => marginBottom};
-  font-size: 1rem;
+  font-size: 1.48vh;
   color: ${({ color }) => (color ? color : '#000')};
 `

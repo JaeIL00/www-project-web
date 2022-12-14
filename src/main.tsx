@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   a {
+    font-family: Pretendard;
     color: var(--black-300);
     text-decoration: none;
   }
@@ -30,6 +31,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    font-family: Pretendard;
     border: none;
     cursor: pointer;
   }
