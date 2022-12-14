@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 import { ArtistPage } from './pages/ArtistPage'
 import { ArtworkPage } from './pages/ArtworkPage'
