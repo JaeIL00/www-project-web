@@ -10,7 +10,7 @@ export const InfoFontLayout = () => {
       </TitleBox>
       <ContentsBox>
         <ExampleBox>
-          <ExampleFont marginBottom="6.68rem" color="var(--main1-blue)">
+          <ExampleFont marginBottom="9.9vh" color="var(--main1-blue)">
             ABCDEFGHIJKLMN
             <br />
             <br />
@@ -29,7 +29,7 @@ export const InfoFontLayout = () => {
             <br />
             FREE DOWNLOAD
           </SubTitle>
-          <Text weight="700" marginTop="5.37rem">
+          <Text weight="700" marginTop="15.27vh">
             전시 기념 자체제작 폰트 www를 무료 배포합니다
           </Text>
           <Text marginTop="2.4rem">
@@ -41,18 +41,15 @@ export const InfoFontLayout = () => {
           </Text>
           <Text weight="700">FontCopyrightⓒDISP</Text>
           <DownloadBox>
-            <Button backColor="var(--black-300)">
-              <DownloadLink href="" download>
-                WWW TTF
-              </DownloadLink>
-              <img src={arrow} alt="오른쪽화살아이콘" style={{ margin: 'auto 0' }} />
-            </Button>
-            <Button backColor="var(--main1-blue)">
-              <DownloadLink href="" download>
-                WWW OTF
-              </DownloadLink>
-              <img src={arrow} alt="오른쪽화살아이콘" />
-            </Button>
+            <DownloadLink href="/fonts/www.ttf" download backColor="var(--black-300)">
+              WWW TTF
+              <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '3.33vh' }} />
+            </DownloadLink>
+
+            <DownloadLink href="/fonts/www.otf" download backColor="var(--main1-blue)">
+              WWW OTF
+              <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '3.33vh' }} />
+            </DownloadLink>
           </DownloadBox>
         </TextBox>
       </ContentsBox>
@@ -68,22 +65,22 @@ interface StyleProps {
   color?: string
 }
 const FontContainer = styled.div`
-heigh: calc(100% - 3.12rem)
+  height: calc(100vh - 10.24rem);
   position: relative;
+  padding: 0 2.6vw;
 `
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: calc(100vh * 4.81 / 100) 0;
+  padding: 4.81vh 0;
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
-  margin-left: 1.5rem;
-  font-size: 3.12rem;
+  font-size: 4.62vh;
 `
 const ContentsBox = styled.div`
   display: flex;
-  padding: calc(100vh * 7.4 / 100) 0;
+  padding: 7.4vh 0;
 `
 const ExampleBox = styled.div`
   width: 50%;
@@ -92,7 +89,8 @@ const ExampleBox = styled.div`
 const ExampleFont = styled.strong<StyleProps>`
   display: block;
   margin-bottom: ${({ marginBottom }) => marginBottom};
-  font-size: 3.12rem;
+  font-size: 4.62vh;
+  line-height: 4.16vh;
   color: ${({ color }) => color};
 `
 const TextBox = styled.div`
@@ -100,36 +98,32 @@ const TextBox = styled.div`
 `
 const SubTitle = styled.strong<StyleProps>`
   display: block;
-  margin-bottom: calc(100vh * 15.27 / 100);
-  font-size: 2.12rem;
-  line-height: 2.81rem;
+  margin-bottom: 15.27vh;
+  font-size: 3.14vh;
+  line-height: 4.16vh;
   color: ${({ color }) => color};
 `
 const Text = styled.span<StyleProps>`
   display: block;
   margin-top: ${({ marginTop }) => marginTop};
-  font-size: 1rem;
+  font-size: 1.48vh;
   font-weight: ${({ weight }) => weight};
-  line-height: 2.2rem;
+  line-height: 3.24vh;
 `
 const DownloadBox = styled.div`
   display: flex;
   position: absolute;
-  bottom: calc(100vh * 8.33 / 100);
+  bottom: 8.33vh;
   right: 0;
 `
-const Button = styled.button<StyleProps>`
+const DownloadLink = styled.a<StyleProps>`
   background-color: ${({ backColor }) => backColor};
   display: flex;
   align-items: center;
-  padding: 0.87rem 3.12rem 0.87rem 1.37rem;
+  padding: 1.3vh 2.6vw 1.3vh 1.14vw;
+  font-size: 2.77vh;
+  color: var(--white);
   &:hover {
     background-color: var(--main2-green);
   }
-`
-const DownloadLink = styled.a`
-  margin-right: 2.25rem;
-  font-family: Pretendard;
-  font-size: calc(100vh * 2.77 / 100);
-  color: var(--white);
 `

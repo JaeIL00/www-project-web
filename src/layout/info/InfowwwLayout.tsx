@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '/assets/logo.svg'
-import demo from '/assets/demoPoster.svg'
 
 export const InfowwwLayout = () => {
   return (
-    <>
+    <Container>
       <TitleBox>
-        <img src={logo} alt="로고" style={{ width: '7.25rem' }} />
+        <img src={logo} alt="로고" style={{ width: '10.37vh' }} />
         <TitleText>EXHIBITION MARKET</TitleText>
       </TitleBox>
       <ContentsBox>
         <ImgBox>
-          <Image src={demo} alt="" />
+          <Image
+            src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/www%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%E1%84%90%E1%85%A5_%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A9%E1%86%BC+(2).jpg"
+            alt="메인 포스터"
+          />
         </ImgBox>
         <TextBox>
           <SubTitle color="var(--main1-blue)">
@@ -20,18 +22,18 @@ export const InfowwwLayout = () => {
             <br />
             OUR TEAM WWW
           </SubTitle>
-          <SubTitle marginTop="1.68rem" color="var(--black-200)">
+          <SubTitle marginTop="2.5vh" color="var(--black-200)">
             WE WANT WORTH
             <br />
             IN WORLDWIDE WEB
           </SubTitle>
 
-          <Text weight="700" marginTop="calc(100vh * 6 / 100)">
+          <Text weight="700" marginTop="6vh">
             WWW : 월드 와이드 웹
             <br />
             온라인으로만 존재하던 그들의 작품이, WWW 버그로 오프라인에 출현하다.
           </Text>
-          <Text marginTop="calc(100vh * 2.22 / 100)">
+          <Text marginTop="2.22vh">
             COVID19로 온라인으로 졸업전시를 해야했던 디자인 대학생들은
             <br />
             어느새 작가가 되어 그들의 작품을 오프라인으로 출현시킵니다.
@@ -44,7 +46,7 @@ export const InfowwwLayout = () => {
           </Text>
         </TextBox>
       </ContentsBox>
-    </>
+    </Container>
   )
 }
 
@@ -53,26 +55,30 @@ interface StyleProps {
   weight?: string
   color?: string
 }
+
+const Container = styled.div`
+  padding: 0 2.6vw;
+`
 const TitleBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: calc(100vh * 4.81 / 100) 0;
+  padding: 4.81vh 0;
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
-  margin-left: 1.5rem;
-  font-size: 3.12rem;
+  margin-left: 2.22vh;
+  font-size: 4.62vh;
 `
 const ContentsBox = styled.div`
   display: flex;
-  padding: calc(100vh * 7.4 / 100) 0;
+  padding: 7.4vh 0;
 `
 const ImgBox = styled.div`
   width: 50%;
   text-align: center;
 `
 const Image = styled.img`
-  height: calc(100vh * 55.83 / 100);
+  height: 55.83vh;
 `
 const TextBox = styled.div`
   width: 50%;
@@ -80,14 +86,14 @@ const TextBox = styled.div`
 const SubTitle = styled.strong<StyleProps>`
   display: block;
   margin-top: ${({ marginTop }) => marginTop};
-  font-size: 2.12rem;
-  line-height: 2.81rem;
+  font-size: 3.14vh;
+  line-height: 4.16vh;
   color: ${({ color }) => color};
 `
 const Text = styled.span<StyleProps>`
   display: block;
   margin-top: ${({ marginTop }) => marginTop};
-  font-size: 1rem;
+  font-size: 1.48vh;
   font-weight: ${({ weight }) => weight};
-  line-height: calc(100vh * 3.24 / 100);
+  line-height: 3.24vh;
 `
