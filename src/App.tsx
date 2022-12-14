@@ -10,8 +10,10 @@ import { InfowwwLayout } from './layout/info/InfowwwLayout'
 import { InfoCreditLayout } from './layout/info/InfoCreditLayout'
 import { InfoFontLayout } from './layout/info/InfoFontLayout'
 import { ComingSoon } from './layout/ComingSoon'
+import { isMobile } from 'react-device-detect'
 
 const App = () => {
+  if (isMobile) window.location.href = 'https://m.wwweb.kr'
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)

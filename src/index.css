@@ -14,7 +14,7 @@
   --lead-orange: #ff7f00;
   --serve-blue: #00a7ff;
   --assist-green: #28ad1d;
-  --background-white: linear-gradient(180deg, #ffffff 0%, #dfe1f5 100%);
+  --background-white: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(22, 53, 244, 0.2) 100%);
 }
 @font-face {
   font-family: 'Pretendard';
