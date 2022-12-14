@@ -41,18 +41,15 @@ export const InfoFontLayout = () => {
           </Text>
           <Text weight="700">FontCopyrightⓒDISP</Text>
           <DownloadBox>
-            <Button backColor="var(--black-300)">
-              <DownloadLink href="" download>
-                WWW TTF
-              </DownloadLink>
-              <img src={arrow} alt="오른쪽화살아이콘" style={{ margin: 'auto 0' }} />
-            </Button>
-            <Button backColor="var(--main1-blue)">
-              <DownloadLink href="" download>
-                WWW OTF
-              </DownloadLink>
-              <img src={arrow} alt="오른쪽화살아이콘" />
-            </Button>
+            <DownloadLink href="/fonts/www.ttf" download backColor="var(--black-300)">
+              WWW TTF
+              <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '3.33vh' }} />
+            </DownloadLink>
+
+            <DownloadLink href="/fonts/www.otf" download backColor="var(--main1-blue)">
+              WWW OTF
+              <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '3.33vh' }} />
+            </DownloadLink>
           </DownloadBox>
         </TextBox>
       </ContentsBox>
@@ -119,17 +116,14 @@ const DownloadBox = styled.div`
   bottom: 8.33vh;
   right: 0;
 `
-const Button = styled.button<StyleProps>`
+const DownloadLink = styled.a<StyleProps>`
   background-color: ${({ backColor }) => backColor};
   display: flex;
   align-items: center;
-  padding: 1.2vh 2.6vw 1.2vh 1.14vw;
+  padding: 1.3vh 2.6vw 1.3vh 1.14vw;
+  font-size: 2.77vh;
+  color: var(--white);
   &:hover {
     background-color: var(--main2-green);
   }
-`
-const DownloadLink = styled.a`
-  margin-right: 3.33vh;
-  font-size: 2.77vh;
-  color: var(--white);
 `
