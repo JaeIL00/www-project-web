@@ -66,7 +66,7 @@ const TitleBox = styled.div`
   border-bottom: 1px solid #000;
 `
 const TitleText = styled.strong`
-  margin-left: 1.5rem;
+  margin-left: 2.22vh;
   font-size: 4.62vh;
 `
 const ContentsBox = styled.div`
