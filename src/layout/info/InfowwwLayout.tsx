@@ -6,7 +6,7 @@ export const InfowwwLayout = () => {
   return (
     <Container>
       <TitleBox>
-        <img src={logo} alt="로고" style={{ width: '7.25rem' }} />
+        <img src={logo} alt="로고" style={{ width: '10.37vh' }} />
         <TitleText>EXHIBITION MARKET</TitleText>
       </TitleBox>
       <ContentsBox>
@@ -67,7 +67,7 @@ const TitleBox = styled.div`
 `
 const TitleText = styled.strong`
   margin-left: 1.5rem;
-  font-size: 3.12rem;
+  font-size: 4.62vh;
 `
 const ContentsBox = styled.div`
   display: flex;
