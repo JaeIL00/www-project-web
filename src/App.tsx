@@ -24,21 +24,21 @@ const App = () => {
   }, 3990)
 
   return (
-    <ComingSoon />
-    // <>
-    //   <GlobalHeader />
-    //   <Routes>
-    //     <Route path="/" element={<HomePage loading={loading} render={render} />} />
-    //     <Route path="/www" element={<InfoPage />}>
-    //       <Route path="" element={<InfowwwLayout />} />
-    //       <Route path="how" element={<InfoHowLayout />} />
-    //       <Route path="credit" element={<InfoCreditLayout />} />
-    //       <Route path="font" element={<InfoFontLayout />} />
-    //     </Route>
-    //     <Route path="/artwork" element={<ArtworkPage />} />
-    //     <Route path="/artist" element={<ArtistPage />} />
-    //   </Routes>
-    // </>
+    // <ComingSoon />
+    <>
+      <GlobalHeader />
+      <Routes>
+        <Route path="/" element={<HomePage loading={loading} render={render} />} />
+        <Route path="/www" element={<InfoPage />}>
+          <Route path="" element={<InfowwwLayout />} />
+          <Route path="how" element={<InfoHowLayout />} />
+          <Route path="credit" element={<InfoCreditLayout />} />
+          <Route path="font" element={<InfoFontLayout />} />
+        </Route>
+        <Route path="/artwork" element={<ArtworkPage />} />
+        <Route path="/artist" element={<ArtistPage />} />
+      </Routes>
+    </>
   )
 }
 
