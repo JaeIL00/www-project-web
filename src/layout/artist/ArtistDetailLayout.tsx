@@ -4,14 +4,20 @@ import xIcon from '/assets/icon-x.png'
 import shareWhite from '/assets/icon-share-white.png'
 import arrow from '/assets/arrowRight.svg'
 import { ArtistDetailTypes } from '../../components/artist/ArtistDetail'
+import { TextCopySnackLayout } from '../../layout/common/TextCopySnackLayout'
+import { useAppDispatch } from '../../store/Store'
+import { textCopyHandler, rebackHandler } from '../../store/InfoSlice'
 
 interface ArtistDetailProps {
   detail: ArtistDetailTypes
-  shareHandler: () => void
+
   isCopy: boolean
+  setWhatCopy: React.Dispatch<React.SetStateAction<string>>
+  whatCopy: string
 }
 
-export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetailProps) => {
+export const ArtistDetailLayout = ({ detail, whatCopy, isCopy, setWhatCopy }: ArtistDetailProps) => {
+  const dispatch = useAppDispatch()
   return (
     <Container>
       <InnerContainer>
@@ -42,10 +48,30 @@ export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetai
         </div>
       </InnerContainer>
       <Buttonbox>
-        <LinkText href={detail.linkTree} target="_blank" backColor="var(--black-300)">
-          CONTACT
-          <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
-        </LinkText>
+        {detail.linkTree ? (
+          <LinkText href={detail.linkTree} target="_blank" backColor="var(--black-300)">
+            CONTACT
+            <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+          </LinkText>
+        ) : (
+          <Button
+            backColor="var(--black-300)"
+            fontSize="1.56vw"
+            padding="0.72vw 2.6vw 0.72vw 1.14vw"
+            color="var(--white)"
+            hover="var(--main2-green)"
+            onClick={() => {
+              dispatch(textCopyHandler(detail.email))
+              setTimeout(() => {
+                dispatch(rebackHandler())
+              }, 3000)
+              setWhatCopy('이메일을')
+            }}
+          >
+            CONTACT
+            <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+          </Button>
+        )}
         <LinkText href={`/artwork/${detail.id}`} backColor="var(--main1-blue)">
           ARTWORK
           <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
@@ -56,18 +82,20 @@ export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetai
         top="calc(100vh * 9.35 / 100)"
         left="calc(100vw * 2.6 / 100)"
         position="absolute"
-        onClick={shareHandler}
+        onClick={() => {
+          dispatch(textCopyHandler(window.location.href))
+          setTimeout(() => {
+            dispatch(rebackHandler())
+          }, 3000)
+          setWhatCopy('링크를')
+        }}
       >
         <img src={shareWhite} alt="페이지 공유하기 버튼" />
       </Button>
-      <ClipBoardText animationName={isCopy ? 'clipboard-up' : ''} display={isCopy ? 'block' : 'none'}>
-        <Text fontSize="0.9rem" color="var(--white)">
-          링크를 클립보드에 복사했습니다.
-        </Text>
-      </ClipBoardText>
       <Button top="calc(100vh * 9.53 / 100)" right="2.73vw" position="absolute">
         <img src={xIcon} alt="이전 페이지 이동 버튼" style={{ width: 'calc(100vw * 1.3 / 100)' }} />
       </Button>
+      <TextCopySnackLayout isCopy={isCopy} word={whatCopy} />
     </Container>
   )
 }
@@ -94,7 +122,8 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   top: -6.24rem;
   overflow: hidden;
@@ -156,28 +185,19 @@ const Button = styled.button<styleTypes>`
   left: ${({ left }) => left};
   right: ${({ right }) => right};
   padding: ${({ padding }) => padding};
+  font-size: ${({ fontSize }) => fontSize};
+  color: ${({ color }) => color};
+
   &:hover {
     background-color: ${({ hover }) => hover};
   }
-`
-const ClipBoardText = styled.div<styleTypes>`
-  background-color: #181818;
-  width: 15.75rem;
-  display: ${({ display }) => display};
-  position: absolute;
-  bottom: -5rem;
-  margin: 20px;
-  padding: 12px;
-  border-radius: 10px;
-
-  animation: ${({ animationName }) => animationName} 3s ease-in-out forwards;
 `
 const LinkText = styled.a<styleTypes>`
   background-color: ${({ backColor }) => backColor};
   display: flex;
   align-items: center;
   padding: 0.72vw 2.6vw 0.72vw 1.14vw;
-  font-size: calc(100vw * 1.56 / 100);
+  font-size: 1.56vw;
   color: var(--white);
   cursor: pointer;
 

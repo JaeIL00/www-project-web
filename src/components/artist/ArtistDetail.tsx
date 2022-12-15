@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useArtistDetailQuery } from '../../api/UseApi'
 import { ArtistDetailLayout } from '../../layout/artist/ArtistDetailLayout'
+import { useAppSelector } from '../../store/Store'
 
 export interface ArtistDetailTypes {
   id: number
@@ -52,13 +53,12 @@ export const ArtistDetail = () => {
   }, [data])
 
   const [isCopy, setIsCopy] = useState(false)
-  const shareHandler = () => {
-    navigator.clipboard.writeText(window.location.href)
-    setIsCopy(true)
-    setTimeout(() => {
-      setIsCopy(false)
-    }, 3000)
-  }
+  const { isCopyState } = useAppSelector((state) => state.info)
+  useEffect(() => {
+    setIsCopy(isCopyState)
+  }, [isCopyState])
 
-  return <ArtistDetailLayout detail={detail} shareHandler={shareHandler} isCopy={isCopy} />
+  const [whatCopy, setWhatCopy] = useState('')
+
+  return <ArtistDetailLayout detail={detail} whatCopy={whatCopy} isCopy={isCopy} setWhatCopy={setWhatCopy} />
 }

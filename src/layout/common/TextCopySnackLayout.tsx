@@ -47,8 +47,8 @@ const ClipBoardText = styled.div<styleTypes>`
   position: absolute;
   bottom: -7.4vh;
   margin: 1.85vh 1.04vw;
-  padding: 1.11vh 0.62vw;
-  border-radius: 10px;
+  padding: 1vh 0.62vw;
+  border-radius: 0.3vw;
   animation: ${({ animationName }) => animationName} 3s ease-in-out forwards;
 `
 const Text = styled.span<styleTypes>`
