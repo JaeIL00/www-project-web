@@ -1,5 +1,10 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 export const ArtistPage = () => {
-  return <div>ArtistPage</div>
+  return (
+    <div style={{ position: 'relative' }}>
+      <Outlet />
+    </div>
+  )
 }
