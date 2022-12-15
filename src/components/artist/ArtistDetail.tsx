@@ -12,26 +12,44 @@ export interface ArtistDetailTypes {
   contact: string
   description: string
   bio: string
+  profileImage: string
+  type: string
+  linkTree: string
+  assets: {
+    genre: string
+    isMain: boolean
+    type: string
+    url: string
+  }[]
 }
 
 export const ArtistDetail = () => {
   const { artistId } = useParams()
   const { data } = useArtistDetailQuery(artistId)
-  const [detail, setDetail] = useState<ArtistDetailTypes[]>([
-    {
-      id: 0,
-      genre: '',
-      name: '',
-      nickname: '',
-      email: '',
-      contact: '',
-      description: '',
-      bio: ''
-    }
-  ])
+  const [detail, setDetail] = useState<ArtistDetailTypes>({
+    id: 0,
+    genre: '',
+    name: '',
+    nickname: '',
+    email: '',
+    contact: '',
+    description: '',
+    bio: '',
+    profileImage: '',
+    type: '',
+    linkTree: '',
+    assets: [
+      {
+        genre: '',
+        isMain: false,
+        type: '',
+        url: ''
+      }
+    ]
+  })
   useEffect(() => {
     if (data) setDetail(data.data)
-  }, [])
+  }, [data])
 
   const [isCopy, setIsCopy] = useState(false)
   const shareHandler = () => {

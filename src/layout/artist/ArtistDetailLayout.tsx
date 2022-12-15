@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import xIcon from '/assets/icon-x.png'
 import shareWhite from '/assets/icon-share-white.png'
 import arrow from '/assets/arrowRight.svg'
-import { Link } from 'react-router-dom'
 import { ArtistDetailTypes } from '../../components/artist/ArtistDetail'
 
 interface ArtistDetailProps {
-  detail: ArtistDetailTypes[]
+  detail: ArtistDetailTypes
   shareHandler: () => void
   isCopy: boolean
 }
@@ -17,49 +16,41 @@ export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetai
     <Container>
       <InnerContainer>
         <Profilebox>
-          <Image src={''} alt="작가 프로필 이미지" />
-          <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="700" marginBottom="0.87rem">
-            {detail[0].genre}
+          <Image src={detail.profileImage} alt="작가 프로필 이미지" />
+          <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="700" marginBottom="1.19vw">
+            {detail.genre}&nbsp;&nbsp; | &nbsp;&nbsp;{detail.type}
           </Text>
           <br />
-          <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="500">
-            {detail[0].nickname}
-          </Text>
+          {detail.nickname !== detail.name ? (
+            <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="500">
+              {detail.nickname}&nbsp;&nbsp; | &nbsp;&nbsp;{detail.name}
+            </Text>
+          ) : (
+            <Text fontSize="calc(100vw * 1.25 / 100)" fontWeight="500">
+              {detail.name}
+            </Text>
+          )}
         </Profilebox>
         <div>
           <Text fontSize="calc(100vw * 1.66 / 100)" fontWeight="700" marginBottom="2.62rem">
-            디자인하는 {detail[0].nickname}입니다
+            {detail.description ? `${detail.description}` : `디자인하는 ${detail.nickname}입니다`}
           </Text>
           <br />
           <Text fontSize="calc(100vw * 0.83 / 100)" fontWeight="500">
-            {detail[0].description}
+            {detail.bio}
           </Text>
         </div>
-        <Buttonbox>
-          <Button
-            backColor="var(--black-300)"
-            width="calc(100vw * 13.54 / 100)"
-            height="calc(100vw * 3.28 / 100)"
-            hover="var(--main2-green)"
-          >
-            <LinkText to="" download>
-              CONTACT
-            </LinkText>
-            <img src={arrow} alt="오른쪽화살아이콘" />
-          </Button>
-          <Button
-            backColor="var(--main1-blue)"
-            width="calc(100vw * 13.54 / 100)"
-            height="calc(100vw * 3.28 / 100)"
-            hover="var(--main2-green)"
-          >
-            <LinkText to="" download>
-              ARTWORK
-            </LinkText>
-            <img src={arrow} alt="오른쪽화살아이콘" />
-          </Button>
-        </Buttonbox>
       </InnerContainer>
+      <Buttonbox>
+        <LinkText href={detail.linkTree} target="_blank" backColor="var(--black-300)">
+          CONTACT
+          <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+        </LinkText>
+        <LinkText href={`/artwork/${detail.id}`} backColor="var(--main1-blue)">
+          ARTWORK
+          <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+        </LinkText>
+      </Buttonbox>
       <Button
         width="calc(100vw * 1.56 / 100)"
         top="calc(100vh * 9.35 / 100)"
@@ -74,7 +65,7 @@ export const ArtistDetailLayout = ({ detail, shareHandler, isCopy }: ArtistDetai
           링크를 클립보드에 복사했습니다.
         </Text>
       </ClipBoardText>
-      <Button top="calc(100vh * 9.53 / 100)" right="calc(100vw * 2.7 / 100)" position="absolute">
+      <Button top="calc(100vh * 9.53 / 100)" right="2.73vw" position="absolute">
         <img src={xIcon} alt="이전 페이지 이동 버튼" style={{ width: 'calc(100vw * 1.3 / 100)' }} />
       </Button>
     </Container>
@@ -126,27 +117,31 @@ const Container = styled.div`
 const InnerContainer = styled.div`
   position: relative;
   display: flex;
-  margin: 0 calc(100vw * 9.73 / 100) 0 calc(100vw * 7.96 / 100);
+  margin: 0 9.73vw 0 7.96vw;
 `
 const Profilebox = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-right: calc(100vw * 11.82 / 100);
 `
 const Image = styled.img`
-  width: calc(100vw * 26.04 / 100);
-  margin-bottom: 3.18rem;
+  width: 26.04vw;
+  margin-bottom: 2.91vw;
 `
 const Buttonbox = styled.div`
   display: flex;
   position: absolute;
-  bottom: calc(100vh * -12.03 / 100);
-  right: calc(100vw * -9.73 / 100);
+  bottom: 4.68vw;
+  right: 0;
 `
 const Text = styled.span<styleTypes>`
   display: inline-block;
   margin-bottom: ${({ marginBottom }) => marginBottom};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: ${({ fontWeight }) => fontWeight};
+  line-height: 1vw;
   color: ${({ color }) => color};
+  word-break: keep-all;
 `
 const Button = styled.button<styleTypes>`
   background-color: ${({ backColor }) => (backColor ? backColor : 'transparent')};
@@ -177,8 +172,16 @@ const ClipBoardText = styled.div<styleTypes>`
 
   animation: ${({ animationName }) => animationName} 3s ease-in-out forwards;
 `
-const LinkText = styled(Link)`
-  margin-right: 2.25rem;
+const LinkText = styled.a<styleTypes>`
+  background-color: ${({ backColor }) => backColor};
+  display: flex;
+  align-items: center;
+  padding: 0.72vw 2.6vw 0.72vw 1.14vw;
   font-size: calc(100vw * 1.56 / 100);
   color: var(--white);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--main2-green);
+  }
 `
