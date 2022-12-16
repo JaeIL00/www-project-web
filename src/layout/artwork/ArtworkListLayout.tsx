@@ -22,28 +22,28 @@ export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg, star
       {filterImg === 'visual' ? (
         <img
           src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/vidual+icon2.png"
-          alt="로고 이미지"
+          alt="비쥬얼 로고 이미지"
           style={{ width: '23.8vw' }}
         />
       ) : null}
       {filterImg === 'media' ? (
         <img
           src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/media+icon.png"
-          alt="로고 이미지"
+          alt="미디어 로고 이미지"
           style={{ width: '23.8vw' }}
         />
       ) : null}
       {filterImg === 'living' ? (
         <img
           src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/living+icon.png"
-          alt="로고 이미지"
+          alt="리빙 로고 이미지"
           style={{ width: '23.8vw' }}
         />
       ) : null}
       {filterImg === 'fashion' ? (
         <img
           src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/fashion+icon2.png"
-          alt="로고 이미지"
+          alt="패션 로고 이미지"
           style={{ width: '23.8vw' }}
         />
       ) : null}

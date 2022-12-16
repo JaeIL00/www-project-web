@@ -35,7 +35,7 @@ export const ArtworkList = () => {
           if (img.width !== 0) {
             setSize((prev) => [...prev, img.width + 'px'])
           }
-        }, 2000)
+        }, 1000)
       }
     }
   }, [resArtwork])
