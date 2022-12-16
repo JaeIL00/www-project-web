@@ -35,7 +35,7 @@ const App = () => {
   const [render, setRender] = useState(false)
   setTimeout(() => {
     setRender(true)
-  }, 3990)
+  }, 3950)
 
   return (
     // <ComingSoon />

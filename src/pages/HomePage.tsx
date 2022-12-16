@@ -9,7 +9,7 @@ interface HomeProps {
 
 export const HomePage = ({ loading, render }: HomeProps) => {
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ height: '10px', position: 'relative' }}>
       {loading ? <LoadingLayout /> : null}
       {render ? <Home /> : null}
     </div>
