@@ -71,7 +71,10 @@ export const ArtworkList = () => {
     }
   }
   useEffect(() => {
-    if (size.length === resArtwork.length) done()
+    if (size.length === resArtwork.length && !artworkPercentage[0]) {
+      console.log('ho')
+      done()
+    }
   }, [size])
 
   const [filterImg, setFilterImg] = useState('all')
