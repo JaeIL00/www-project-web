@@ -59,7 +59,7 @@ export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg, star
               onMouseDown={(event) => startDrag(event)}
               onDoubleClick={() => navigate(artist.id + '')}
             >
-              <Image src={url} alt="" precent={percentage[index]} />
+              <Image src={url.replace('.jpeg', '_1080p.jpeg')} alt="작가 대표작 이미지" precent={percentage[index]} />
               <Screen backColor={filter[index] ? 'var(--main1-lightBlue)' : 'none'}></Screen>
             </Imagebox>
           ))}
