@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from '/assets/logo.svg'
 import { ArtistTypes } from '../../components/artist/ArtistList'
 
-export const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) => {
+const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) => {
   return (
     <Container>
       <TitleBox>
@@ -14,7 +14,7 @@ export const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) =>
       <ArtistContainer>
         {allArtist.map(({ id, genre, nickname, profileImage }) => (
           <Artistbox key={id} to={id + ''}>
-            <Image src={profileImage} alt="작가 프로필 이미지" />
+            <Image src={profileImage.replace('.jpg', '_720p.jpeg')} alt="작가 프로필 이미지" />
             <HoverElement className="HoverCover">
               <Cover />
               <Infobox>
@@ -28,6 +28,7 @@ export const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) =>
     </Container>
   )
 }
+export default memo(ArtistListLayout)
 const Container = styled.div`
   padding: 0 calc(100vw * 2.6 / 100);
 `

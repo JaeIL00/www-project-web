@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { GlobalHeader } from './components/globalHeader/GlobalHeader'
 import { ArtistPage } from './pages/ArtistPage'
@@ -16,12 +16,18 @@ import { isMobile } from 'react-device-detect'
 import { useArtistListQuery, useArtworktListQuery } from './api/UseApi'
 import { ArtworkList } from './components/artwork/ArtworkList'
 import { ArtworkDetail } from './components/artwork/ArtworkDetail'
+import { useAppDispatch } from './store/Store'
+import { getArtworkReponse } from './store/ArtData'
 
 const App = () => {
   if (isMobile) window.location.href = 'https://m.wwweb.kr'
-  // 캐싱하기
+
+  const dispatch = useAppDispatch()
   const { data: artist } = useArtistListQuery()
   const { data: artwork } = useArtworktListQuery()
+  useEffect(() => {
+    if (artist && artwork) dispatch(getArtworkReponse([artwork.data, artist.data]))
+  }, [artist, artwork])
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)

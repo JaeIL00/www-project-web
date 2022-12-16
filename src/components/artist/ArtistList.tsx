@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useArtistListQuery } from '../../api/UseApi'
-import { ArtistListLayout } from '../../layout/artist/ArtistListLayout'
+import React from 'react'
+import ArtistListLayout from '../../layout/artist/ArtistListLayout'
+import { useAppSelector } from '../../store/Store'
 
 export interface ArtistTypes {
   id: number
@@ -10,18 +10,7 @@ export interface ArtistTypes {
 }
 
 export const ArtistList = () => {
-  const { data } = useArtistListQuery()
-  const [allArtist, setAllArtist] = useState<ArtistTypes[]>([
-    {
-      id: 0,
-      genre: '',
-      nickname: '',
-      profileImage: ''
-    }
-  ])
-  useEffect(() => {
-    if (data) setAllArtist(data.data)
-  }, [data])
+  const { resArtist } = useAppSelector((state) => state.artData)
 
-  return <ArtistListLayout allArtist={allArtist} />
+  return <ArtistListLayout allArtist={resArtist} />
 }
