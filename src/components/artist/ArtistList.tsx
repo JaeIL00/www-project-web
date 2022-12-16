@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArtistListLayout } from '../../layout/artist/ArtistListLayout'
+import ArtistListLayout from '../../layout/artist/ArtistListLayout'
 import { useAppSelector } from '../../store/Store'
 
 export interface ArtistTypes {
