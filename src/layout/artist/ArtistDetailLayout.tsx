@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import xIcon from '/assets/icon-x.png'
 import shareWhite from '/assets/icon-share-white.png'
-import arrow from '/assets/arrowRight.svg'
+import arrow from '/assets/icon-arrow-right.png'
 import { ArtistDetailTypes } from '../../components/artist/ArtistDetail'
 import { TextCopySnackLayout } from '../../layout/common/TextCopySnackLayout'
 import { useAppDispatch } from '../../store/Store'
-import { textCopyHandler, rebackHandler } from '../../store/InfoSlice'
+import { textCopyHandler, rebackHandler } from '../../store/CopySlice'
 
 interface ArtistDetailProps {
   detail: ArtistDetailTypes

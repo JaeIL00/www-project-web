@@ -31,3 +31,34 @@ export interface resArtistDetailTypes {
     ]
   }
 }
+export interface resArtworkListTypes {
+  data: {
+    artist: {
+      id: number
+    }
+    genre: string
+    type: string
+    url: string
+    isMain: boolean
+  }[]
+}
+export interface resArtworkDetailTypes {
+  data: {
+    title: string
+    description: string
+    artist: {
+      id: number
+      genre: string
+      nickname: string
+      profileImage: string
+    }
+    assets: [
+      {
+        genre: string
+        type: string
+        url: string
+        isMain: boolean
+      }
+    ]
+  }
+}

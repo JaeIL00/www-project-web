@@ -52,13 +52,8 @@ export const ArtistDetail = () => {
     if (data) setDetail(data.data)
   }, [data])
 
-  const [isCopy, setIsCopy] = useState(false)
   const { isCopyState } = useAppSelector((state) => state.info)
-  useEffect(() => {
-    setIsCopy(isCopyState)
-  }, [isCopyState])
-
   const [whatCopy, setWhatCopy] = useState('')
 
-  return <ArtistDetailLayout detail={detail} whatCopy={whatCopy} isCopy={isCopy} setWhatCopy={setWhatCopy} />
+  return <ArtistDetailLayout detail={detail} whatCopy={whatCopy} isCopy={isCopyState} setWhatCopy={setWhatCopy} />
 }

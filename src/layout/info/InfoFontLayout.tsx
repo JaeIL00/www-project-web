@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import arrow from '/assets/arrowRight.svg'
+import arrow from '/assets/icon-arrow-right.png'
 
 export const InfoFontLayout = () => {
   return (
