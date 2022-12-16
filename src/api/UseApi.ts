@@ -6,16 +6,16 @@ export const UseApi = createApi({
   baseQuery: fetchBaseQuery(),
   endpoints: (builder) => ({
     artistList: builder.query<resArtistListTypes, void>({
-      query: () => 'http://api.wwweb.kr/api/artists'
+      query: () => 'https://api.wwweb.kr/api/artists'
     }),
     artistDetail: builder.query<resArtistDetailTypes, string | undefined>({
-      query: (id) => `http://api.wwweb.kr/api/artists/${id}`
+      query: (id) => `https://api.wwweb.kr/api/artists/${id}`
     }),
     artworktList: builder.query<resArtworkListTypes, void>({
-      query: () => 'http://api.wwweb.kr/api/asset/all'
+      query: () => 'https://api.wwweb.kr/api/asset/all'
     }),
     artworkDetail: builder.query<resArtworkDetailTypes, string | undefined>({
-      query: (id) => `http://api.wwweb.kr/api/artworks/${id}`
+      query: (id) => `https://api.wwweb.kr/api/artworks/${id}`
     })
   })
 })
