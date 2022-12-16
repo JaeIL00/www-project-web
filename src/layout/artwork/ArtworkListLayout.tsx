@@ -9,63 +9,11 @@ interface ArtworkListLayoutProps {
   percentage: string[]
   filter: boolean[]
   filterImg: string
+  startDrag: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg }: ArtworkListLayoutProps) => {
+export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg, startDrag }: ArtworkListLayoutProps) => {
   const navigate = useNavigate()
-  interface dataPro {
-    calcImgPositionX: number
-    calcImgPositionY: number
-    eventElement: null | HTMLDivElement
-    eventzIndex: number
-  }
-  const [eventData, setEventData] = useState<dataPro>({
-    calcImgPositionX: 0,
-    calcImgPositionY: 0,
-    eventElement: null,
-    eventzIndex: 0
-  })
-
-  function getLeft(target: HTMLDivElement) {
-    return parseInt(target.style.left.replace('vw', ''))
-  }
-  function getTop(target: HTMLDivElement) {
-    return parseInt(target.style.top.replace('vh', ''))
-  }
-  // 드래그를 시작하는 함수
-  function startDrag(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    const target = event.currentTarget
-    const x = getLeft(target) - (event.clientX / window.innerWidth) * 100
-    const y = getTop(target) - (event.clientY / window.innerHeight) * 100
-    target.style.zIndex = eventData.eventzIndex + 1 + ''
-    setEventData((prev) => ({
-      calcImgPositionX: x,
-      calcImgPositionY: y,
-      eventElement: target,
-      eventzIndex: prev.eventzIndex + 1
-    }))
-  }
-  useEffect(() => {
-    if (window.event) {
-      document.onmousemove = moveDrag
-      document.onmouseup = stopDrag
-      if (window.event.preventDefault) window.event.preventDefault()
-    }
-  }, [eventData])
-
-  function moveDrag(event: MouseEvent) {
-    if (eventData.eventElement) {
-      const dmvx = (event.clientX / window.innerWidth) * 100 + eventData.calcImgPositionX
-      const dmvy = (event.clientY / window.innerHeight) * 100 + eventData.calcImgPositionY
-      eventData.eventElement.style.left = dmvx + 'vw'
-      eventData.eventElement.style.top = dmvy + 'vh'
-    }
-  }
-
-  function stopDrag() {
-    document.onmousemove = null
-    document.onmouseup = null
-  }
 
   return (
     <Contain>

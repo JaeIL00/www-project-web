@@ -14,6 +14,12 @@ export interface ArtworkTypes {
   url: string
   isMain: boolean
 }
+export interface dataPro {
+  calcImgPositionX: number
+  calcImgPositionY: number
+  eventElement: null | HTMLDivElement
+  eventzIndex: number
+}
 
 export const ArtworkList = () => {
   const { data } = useArtworktListQuery()
@@ -111,9 +117,64 @@ export const ArtworkList = () => {
     setFilterImg(filterGenre)
   }
 
+  const [eventData, setEventData] = useState<dataPro>({
+    calcImgPositionX: 0,
+    calcImgPositionY: 0,
+    eventElement: null,
+    eventzIndex: 0
+  })
+
+  const getLeft = (target: HTMLDivElement) => {
+    return parseInt(target.style.left.replace('vw', ''))
+  }
+  const getTop = (target: HTMLDivElement) => {
+    return parseInt(target.style.top.replace('vh', ''))
+  }
+  // 드래그를 시작하는 함수
+  const startDrag = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = event.currentTarget
+    const x = getLeft(target) - (event.clientX / window.innerWidth) * 100
+    const y = getTop(target) - (event.clientY / window.innerHeight) * 100
+    target.style.zIndex = eventData.eventzIndex + 1 + ''
+    setEventData((prev) => ({
+      calcImgPositionX: x,
+      calcImgPositionY: y,
+      eventElement: target,
+      eventzIndex: prev.eventzIndex + 1
+    }))
+  }
+
+  useEffect(() => {
+    if (window.event) {
+      document.onmousemove = moveDrag
+      document.onmouseup = stopDrag
+      if (window.event.preventDefault) window.event.preventDefault()
+    }
+  }, [eventData])
+
+  const moveDrag = (event: MouseEvent) => {
+    if (eventData.eventElement) {
+      const dmvx = (event.clientX / window.innerWidth) * 100 + eventData.calcImgPositionX
+      const dmvy = (event.clientY / window.innerHeight) * 100 + eventData.calcImgPositionY
+      eventData.eventElement.style.left = dmvx + 'vw'
+      eventData.eventElement.style.top = dmvy + 'vh'
+    }
+  }
+
+  const stopDrag = () => {
+    document.onmousemove = null
+    document.onmouseup = null
+  }
+
   return (
     <div style={{ position: 'relative' }}>
-      <ArtworkListLayout artwork={artwork} percentage={percentage} filter={filter} filterImg={filterImg} />
+      <ArtworkListLayout
+        artwork={artwork}
+        percentage={percentage}
+        filter={filter}
+        filterImg={filterImg}
+        startDrag={startDrag}
+      />
       <ArtworkHeaderLayout filterHandler={filterHandler} />
     </div>
   )
