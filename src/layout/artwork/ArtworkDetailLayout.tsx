@@ -4,84 +4,110 @@ import arrowRight from '/assets/icon-arrow-right.png'
 import { IconClose } from '../common/IconClose'
 import shareWhite from '/assets/icon-share-white.png'
 import { Link } from 'react-router-dom'
+import { TextCopySnackLayout } from '../../layout/common/TextCopySnackLayout'
 import { DetailTypes, AssetTypes } from '../../components/artwork/ArtworkDetail'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
 import 'swiper/css' //basic
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { useAppDispatch } from '../../store/Store'
+import { textCopyHandler, rebackHandler } from '../../store/CopySlice'
 
 interface ArtworkDetailLayoutProps {
   detail: DetailTypes
   assets: AssetTypes[]
+  isCopyState: boolean
 }
 
-export const ArtworkDetailLayout = ({ detail, assets }: ArtworkDetailLayoutProps) => {
+export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDetailLayoutProps) => {
+  const dispatch = useAppDispatch()
   return (
     <Container>
-      <InnerContainer>
-        <ArtworkSlide>
-          <Swiper
-            navigation
-            modules={[Navigation, Pagination]}
-            slidesPerView={1}
-            pagination={{
-              type: 'fraction'
-            }}
-          >
-            {assets &&
-              assets.map(({ url, type }, index) => (
-                <SwiperSlide key={index}>
-                  {type === 'image' ? (
-                    <img
-                      src={url}
-                      alt="작품 이미지"
-                      style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
-                    />
-                  ) : null}
-                  {type === 'video' ? (
-                    <video
-                      src={url}
-                      controls
-                      style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
-                    ></video>
-                  ) : null}
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        </ArtworkSlide>
-        <TextContents>
-          <Text fontSize="calc(100vw * 0.83 / 100)" marginBottom="calc(100vw * 1.14 / 100)">
-            {detail.artist.genre}&nbsp; | &nbsp;{detail.artist.nickname}
-          </Text>
-          <br />
-          <Text fontSize="calc(100vw * 1.66 / 100)" fontWeight="700" marginBottom="calc(100vw * 4.27 / 100)">
-            {detail.title}
-          </Text>
-          <br />
-          <Text fontSize="calc(100vw * 0.83 / 100)">{detail.description}</Text>
-        </TextContents>
-      </InnerContainer>
-      <Button
-        backColor="var(--main1-blue)"
-        width="calc(100vw * 13.54 / 100)"
-        height="calc(100vw * 3.28 / 100)"
-        position="absolute"
-        bottom="8.3vh"
-        right="0"
-        hover="var(--main2-green)"
-      >
-        <LinkText to="" download>
-          ARTIST
-        </LinkText>
-        <img src={arrowRight} alt="오른쪽화살아이콘" style={{ width: 'calc(100vw * 0.31 / 100)' }} />
-      </Button>
-      <Button top="5.5vw" left="calc(100vw * 2.6 / 100)" position="absolute">
-        <img src={shareWhite} alt="페이지 공유하기 버튼" style={{ width: '1.17vw' }} />
-      </Button>
-      <Button top="calc(100vh * 9.53 / 100)" right="calc(100vw * 2.7 / 100)" position="absolute">
-        <IconClose color="var(--white)" width="calc(100vw * 1.3 / 100)" />
-      </Button>
+      <Flexbox>
+        <InnerContainer>
+          <ArtworkSlide>
+            <Swiper
+              navigation
+              modules={[Navigation, Pagination]}
+              slidesPerView={1}
+              pagination={{
+                type: 'fraction'
+              }}
+            >
+              {assets &&
+                assets.map(({ url, type }, index) => (
+                  <SwiperSlide key={index}>
+                    {type === 'image' ? (
+                      <img
+                        src={url}
+                        alt="작품 이미지"
+                        style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
+                      />
+                    ) : null}
+                    {type === 'video' ? (
+                      <video
+                        src={url}
+                        controls
+                        style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
+                      ></video>
+                    ) : null}
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          </ArtworkSlide>
+          <TextContents>
+            <Text fontSize="calc(100vw * 0.83 / 100)" marginBottom="calc(100vw * 1.14 / 100)">
+              {detail.artist.genre[0].toUpperCase() + detail.artist.genre.slice(1, detail.artist.genre.length)}&nbsp; |
+              &nbsp;{detail.artist.nickname}
+            </Text>
+            <br />
+            <Text
+              fontSize="calc(100vw * 1.66 / 100)"
+              fontWeight="700"
+              lineHeight="2vw"
+              marginBottom="calc(100vw * 4.27 / 100)"
+            >
+              {detail.title}
+            </Text>
+            <br />
+            <Text fontSize="calc(100vw * 0.83 / 100)" lineHeight="1vw">
+              {detail.description}
+            </Text>
+          </TextContents>
+        </InnerContainer>
+        <Button
+          backColor="var(--main1-blue)"
+          width="calc(100vw * 13.54 / 100)"
+          height="calc(100vw * 3.28 / 100)"
+          position="absolute"
+          bottom="8.3vh"
+          right="0"
+          hover="var(--main2-green)"
+        >
+          <LinkText to="" download>
+            ARTIST
+          </LinkText>
+          <img src={arrowRight} alt="오른쪽화살아이콘" style={{ width: 'calc(100vw * 0.31 / 100)' }} />
+        </Button>
+        <Button
+          top="5.5vw"
+          left="calc(100vw * 2.6 / 100)"
+          position="absolute"
+          onClick={() => {
+            dispatch(textCopyHandler(window.location.href))
+            setTimeout(() => {
+              dispatch(rebackHandler())
+            }, 3000)
+          }}
+        >
+          <img src={shareWhite} alt="페이지 공유하기 버튼" style={{ width: '1.17vw' }} />
+        </Button>
+        <Button top="calc(100vh * 9.53 / 100)" right="calc(100vw * 2.7 / 100)" position="absolute">
+          <IconClose color="var(--white)" width="calc(100vw * 1.3 / 100)" />
+        </Button>
+      </Flexbox>
+      <TextCopySnackLayout isCopy={isCopyState} word="링크를" />
     </Container>
   )
 }
@@ -100,19 +126,25 @@ interface styleTypes {
   marginBottom?: string
   fontSize?: string
   fontWeight?: string
+  lineHeight?: string
   color?: string
   hover?: string
 }
 
 const Container = styled.div`
+  height: 100vh;
+  position: relative;
+  top: -6.24rem;
+  overflow-y: hidden;
+  z-index: 9999;
+`
+const Flexbox = styled.div`
   background: var(--black-300);
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   position: absolute;
-  top: -6.24rem;
-  z-index: 999999999;
 `
 const InnerContainer = styled.div`
   display: flex;
@@ -123,13 +155,16 @@ const ArtworkSlide = styled.div`
   position: relative;
 
   .swiper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
     margin-right: 9.5vw;
-    overflow: visible;
+    overflow-x: hidden;
   }
   .swiper-wrapper {
     width: 41.4vw;
+    height: 37.7vw;
     padding-left: 3.7vw;
-    overflow: hidden;
   }
   .swiper-button-next {
     background: url(/assets/icon-arrow-right.png) no-repeat;
@@ -156,7 +191,8 @@ const ArtworkSlide = styled.div`
   }
   .swiper-pagination {
     display: inline;
-    bottom: -1.9vw;
+    position: absolute;
+    bottom: 5.6vw;
     font-size: 0.83vw;
     color: var(--black-100);
   }
@@ -181,19 +217,21 @@ const Button = styled.button<styleTypes>`
   bottom: ${({ bottom }) => bottom};
   left: ${({ left }) => left};
   right: ${({ right }) => right};
+  z-index: 9;
 
   &:hover {
     background-color: ${({ hover }) => hover};
   }
 `
 const TextContents = styled.div`
-  margin-top: 1.66vw;
+  margin-top: 11.66vw;
 `
 const Text = styled.span<styleTypes>`
   display: inline-block;
   margin-bottom: ${({ marginBottom }) => marginBottom};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: ${({ fontWeight }) => fontWeight};
+  line-height: ${({ lineHeight }) => lineHeight};
   color: ${({ color }) => (color ? color : 'var(--white)')};
   word-break: keep-all;
 `

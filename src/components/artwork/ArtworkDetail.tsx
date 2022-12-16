@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { ArtworkDetailLayout } from '../../layout/artwork/ArtworkDetailLayout'
 import { useArtworkDetailQuery } from '../../api/UseApi'
 import { useParams } from 'react-router-dom'
+import { useAppSelector } from '../../store/Store'
 
 export interface DetailTypes {
   title: string
@@ -71,5 +72,7 @@ export const ArtworkDetail = () => {
     }
   }, [data])
 
-  return <ArtworkDetailLayout detail={detail} assets={assets} />
+  const { isCopyState } = useAppSelector((state) => state.info)
+
+  return <ArtworkDetailLayout detail={detail} assets={assets} isCopyState={isCopyState} />
 }

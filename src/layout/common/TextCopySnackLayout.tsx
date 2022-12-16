@@ -42,7 +42,7 @@ const Container = styled.div`
 `
 const ClipBoardText = styled.div<styleTypes>`
   background-color: #181818;
-  width: 11vw;
+  width: 12vw;
   display: ${({ display }) => display};
   position: absolute;
   bottom: -7.4vh;
@@ -50,6 +50,7 @@ const ClipBoardText = styled.div<styleTypes>`
   padding: 1vh 0.62vw;
   border-radius: 0.3vw;
   animation: ${({ animationName }) => animationName} 3s ease-in-out forwards;
+  z-index: 999999999;
 `
 const Text = styled.span<styleTypes>`
   display: inline-block;

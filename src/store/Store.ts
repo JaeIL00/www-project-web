@@ -3,12 +3,12 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { UseApi } from '../api/UseApi'
 import { artworkReducer } from './Artwork'
-import { infoReducer } from './InfoSlice'
+import { copyReducer } from './CopySlice'
 
 export const Store = configureStore({
   reducer: {
     [UseApi.reducerPath]: UseApi.reducer,
-    info: infoReducer,
+    info: copyReducer,
     artwork: artworkReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(UseApi.middleware)

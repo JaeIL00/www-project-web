@@ -4,8 +4,8 @@ const initialState = {
   isCopyState: false
 }
 
-export const InfoSlice = createSlice({
-  name: 'info',
+export const CopySlice = createSlice({
+  name: 'copyText',
   initialState,
   reducers: {
     textCopyHandler: (state, action) => {
@@ -18,6 +18,6 @@ export const InfoSlice = createSlice({
   }
 })
 
-export const { textCopyHandler, rebackHandler } = InfoSlice.actions
+export const { textCopyHandler, rebackHandler } = CopySlice.actions
 
-export const infoReducer = InfoSlice.reducer
+export const copyReducer = CopySlice.reducer

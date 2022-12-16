@@ -62,28 +62,28 @@ export const ArtworkList = () => {
     for (let i = 0; i < size.length; i++) {
       switch (true) {
         case parseInt(size[i]) < 1200:
-          dispatch(getImagePercent('8'))
+          dispatch(getImagePercent('7'))
           break
         case parseInt(size[i]) < 2000:
-          dispatch(getImagePercent('9'))
-          break
-        case parseInt(size[i]) < 3000:
-          dispatch(getImagePercent('9'))
-          break
-        case parseInt(size[i]) < 4000:
           dispatch(getImagePercent('8'))
           break
+        case parseInt(size[i]) < 3000:
+          dispatch(getImagePercent('8'))
+          break
+        case parseInt(size[i]) < 4000:
+          dispatch(getImagePercent('7'))
+          break
         case parseInt(size[i]) < 5000:
-          dispatch(getImagePercent('6'))
+          dispatch(getImagePercent('5'))
           break
         case parseInt(size[i]) < 6000:
           dispatch(getImagePercent('6'))
           break
         case parseInt(size[i]) < 7000:
-          dispatch(getImagePercent('7'))
+          dispatch(getImagePercent('6'))
           break
         default:
-          dispatch(getImagePercent('10'))
+          dispatch(getImagePercent('9'))
           break
       }
     }
@@ -100,7 +100,6 @@ export const ArtworkList = () => {
       else
         setFilter((prev) => {
           const next = prev.map((item) => (item = false))
-          // console.log(next)
           return next
         })
     })

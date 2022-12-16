@@ -25,6 +25,6 @@ const Container = styled.div`
 const Button = styled.button`
   background-color: transparent;
   margin-right: 4.27vw;
-  font-size: 0.83vw;
+  font-size: 1.48vh;
   color: var(--black-300);
 `

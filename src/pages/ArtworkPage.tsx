@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 export const ArtworkPage = () => {
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ height: ' 10px', position: 'relative' }}>
       <Outlet />
     </div>
   )
