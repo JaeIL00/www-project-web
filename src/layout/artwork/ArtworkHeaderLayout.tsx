@@ -3,16 +3,42 @@ import styled from 'styled-components'
 
 interface ArtworkHeaderLayoutProps {
   filterHandler: (genre: string) => void
+  filterImg: string
 }
 
-export const ArtworkHeaderLayout = ({ filterHandler }: ArtworkHeaderLayoutProps) => {
+export const ArtworkHeaderLayout = ({ filterHandler, filterImg }: ArtworkHeaderLayoutProps) => {
   return (
     <Container>
-      <Button onClick={() => filterHandler('all')}>#ALL</Button>
-      <Button onClick={() => filterHandler('visual')}>#VISUAL</Button>
-      <Button onClick={() => filterHandler('media')}>#MEDIA</Button>
-      <Button onClick={() => filterHandler('living')}>#LIVING</Button>
-      <Button onClick={() => filterHandler('fashion')}>#FASHION</Button>
+      <Button
+        color={filterImg === 'all' ? 'var(--main2-green)' : 'var(--black-300)'}
+        onClick={() => filterHandler('all')}
+      >
+        #ALL
+      </Button>
+      <Button
+        color={filterImg === 'visual' ? 'var(--main2-green)' : 'var(--black-300)'}
+        onClick={() => filterHandler('visual')}
+      >
+        #VISUAL
+      </Button>
+      <Button
+        color={filterImg === 'media' ? 'var(--main2-green)' : 'var(--black-300)'}
+        onClick={() => filterHandler('media')}
+      >
+        #MEDIA
+      </Button>
+      <Button
+        color={filterImg === 'living' ? 'var(--main2-green)' : 'var(--black-300)'}
+        onClick={() => filterHandler('living')}
+      >
+        #LIVING
+      </Button>
+      <Button
+        color={filterImg === 'fashion' ? 'var(--main2-green)' : 'var(--black-300)'}
+        onClick={() => filterHandler('fashion')}
+      >
+        #FASHION
+      </Button>
     </Container>
   )
 }
@@ -22,9 +48,9 @@ const Container = styled.div`
   margin: 1.25vw 2.5vw;
   z-index: 9999;
 `
-const Button = styled.button`
+const Button = styled.button<{ color: string }>`
   background-color: transparent;
   margin-right: 4.27vw;
   font-size: 1.48vh;
-  color: var(--black-300);
+  color: ${({ color }) => color};
 `

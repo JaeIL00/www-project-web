@@ -156,7 +156,7 @@ export const ArtworkList = () => {
         filterImg={filterImg}
         startDrag={startDrag}
       />
-      <ArtworkHeaderLayout filterHandler={filterHandler} />
+      <ArtworkHeaderLayout filterHandler={filterHandler} filterImg={filterImg} />
     </div>
   )
 }
