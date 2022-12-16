@@ -15,7 +15,7 @@ export const LoadingLayout = () => {
   )
 }
 const Container = styled.div`
-  background: var(--background-white);
+  background: linear-gradient(180deg, #fff, #d2d8fe 100%);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -23,7 +23,7 @@ const Container = styled.div`
   align-items: center;
   position: absolute;
   top: -6.24rem;
-  z-index: 99999;
+  z-index: 9999;
 `
 const Contents = styled.div`
   display: flex;

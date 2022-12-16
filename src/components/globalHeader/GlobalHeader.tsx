@@ -26,7 +26,7 @@ export const GlobalHeader = () => {
   }, [pathname.split('/')[1]])
 
   return (
-    <div style={{ position: 'relative', zIndex: '9999' }}>
+    <div style={{ position: 'relative' }}>
       <HomeClickBanner />
       <GlobalHeaderLayout urlPath={urlPath} active={active} />
     </div>
