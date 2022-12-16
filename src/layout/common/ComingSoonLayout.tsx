@@ -52,9 +52,7 @@ export const ComingSoonLayout = ({
         </VContainer>
       ) : (
         <Container>
-          <Interactivebox ref={interactive}>
-            <span style={{ position: 'absolute', margin: '2vh' }}>www를 잡아서 로고 이미지에 넣어주세요</span>
-          </Interactivebox>
+          <Interactivebox ref={interactive}></Interactivebox>
           <Loadingbox>
             <Bar width={limit + '%'} transition={limit >= 100 ? '6s' : '1s'}></Bar>
           </Loadingbox>
@@ -80,6 +78,9 @@ export const ComingSoonLayout = ({
             <strong style={{ fontSize: 'calc(100vw * 1.87 / 100)' }}>COMING SOON</strong>
             <br />
             <span style={{ fontSize: 'calc(100vw * 0.83 / 100)' }}>12/17 SAT OPEN</span>
+            <span style={{ fontSize: '0.8vw', opacity: '.3', marginTop: '1vh' }}>
+              www를 잡아서 로고 이미지에 넣어주세요
+            </span>
           </Contents>
         </Container>
       )}
