@@ -33,6 +33,9 @@ export interface resArtistDetailTypes {
 }
 export interface resArtworkListTypes {
   data: {
+    artist: {
+      id: number
+    }
     genre: string
     type: string
     url: string

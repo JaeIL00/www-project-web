@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { ArtworkTypes } from '../../components/artwork/ArtworkList'
+import { position } from '../../components/artwork/ArtworkPosition'
 
 interface ArtworkListLayoutProps {
   artwork: ArtworkTypes[]
   percentage: string[]
+  filter: boolean[]
+  filterImg: string
 }
 
-export const ArtworkListLayout = ({ artwork, percentage }: ArtworkListLayoutProps) => {
+export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg }: ArtworkListLayoutProps) => {
+  const navigate = useNavigate()
   interface dataPro {
     calcImgPositionX: number
     calcImgPositionY: number
-    eventElement: null | HTMLImageElement
+    eventElement: null | HTMLDivElement
     eventzIndex: number
   }
   const [eventData, setEventData] = useState<dataPro>({
@@ -20,130 +25,15 @@ export const ArtworkListLayout = ({ artwork, percentage }: ArtworkListLayoutProp
     eventElement: null,
     eventzIndex: 0
   })
-  // 이미지 초기 위치
-  const position = [
-    // 기괴 포스터
-    {
-      x1: '35.3vw',
-      y1: '10.9vh'
-    },
-    // 빨간 고양이
-    {
-      x1: '45.1vw',
-      y1: '4.6vh'
-    },
-    // 비닐 포스터
-    {
-      x1: '55.9vw',
-      y1: '14.1vh'
-    },
-    // 보틀 패키지
-    {
-      x1: '79.1vw',
-      y1: '37.1vh'
-    },
-    //해변가 일러스트
-    {
-      x1: '25vw',
-      y1: '20.7vh'
-    },
-    // 소풍
-    {
-      x1: '56.1vw',
-      y1: '54.6vh'
-    },
-    // 청바지
-    {
-      x1: '50.4vw',
-      y1: '33.8vh'
-    },
-    // 서양모델
-    {
-      x1: '31.8vw',
-      y1: '35.7vh'
-    },
-    // 페르소나
-    {
-      x1: '20.8vw',
-      y1: '52.3vh'
-    },
-    // 놀이터
-    {
-      x1: '9.4vw',
-      y1: '38.6vh'
-    },
-    // 보라 일러스트
-    {
-      x1: '45vw',
-      y1: '68.9vh'
-    },
-    // 새로 꽃병
-    {
-      x1: '70vw',
-      y1: '33.9vh'
-    },
-    // 가로 꽃병
-    {
-      x1: '40.4vw',
-      y1: '55vh'
-    },
-    // 지갑
-    {
-      x1: '65.5vw',
-      y1: '51.8vh'
-    },
-    // 보라 일러스트
-    {
-      x1: '59.3vw',
-      y1: '32.5vh'
-    },
-    // 노란 일러스트
-    {
-      x1: '21vw',
-      y1: '33.6vh'
-    },
-    // 칵테일 일러스트
-    {
-      x1: '42.1vw',
-      y1: '29.4vh'
-    },
-    // 뚠뚠
-    {
-      x1: '76.1vw',
-      y1: '51.8vh'
-    },
-    // 겹겹 포스터
-    {
-      x1: '31.5vw',
-      y1: '57.5vh'
-    },
-    // 팝 일러스트
-    {
-      x1: '66.7vw',
-      y1: '21.6vh'
-    },
-    {
-      x1: '9px',
-      y1: '27px'
-    },
-    {
-      x1: '1200px',
-      y1: '700px'
-    },
-    {
-      x1: '1200px',
-      y1: '700px'
-    }
-  ]
 
-  function getLeft(target: HTMLImageElement) {
+  function getLeft(target: HTMLDivElement) {
     return parseInt(target.style.left.replace('vw', ''))
   }
-  function getTop(target: HTMLImageElement) {
+  function getTop(target: HTMLDivElement) {
     return parseInt(target.style.top.replace('vh', ''))
   }
   // 드래그를 시작하는 함수
-  function startDrag(event: React.MouseEvent<HTMLImageElement, MouseEvent>) {
+  function startDrag(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const target = event.currentTarget
     const x = getLeft(target) - (event.clientX / window.innerWidth) * 100
     const y = getTop(target) - (event.clientY / window.innerHeight) * 100
@@ -180,26 +70,62 @@ export const ArtworkListLayout = ({ artwork, percentage }: ArtworkListLayoutProp
   return (
     <Contain>
       <Bluebox></Bluebox>
-      <img src="/assets/logo.svg" alt="로고 이미지" style={{ width: '23.8vw' }} />
+      {filterImg === 'all' ? <img src="/assets/logo.svg" alt="로고 이미지" style={{ width: '23.8vw' }} /> : null}
+      {filterImg === 'visual' ? (
+        <img
+          src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/vidual+icon2.png"
+          alt="로고 이미지"
+          style={{ width: '23.8vw' }}
+        />
+      ) : null}
+      {filterImg === 'media' ? (
+        <img
+          src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/media+icon.png"
+          alt="로고 이미지"
+          style={{ width: '23.8vw' }}
+        />
+      ) : null}
+      {filterImg === 'living' ? (
+        <img
+          src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/living+icon.png"
+          alt="로고 이미지"
+          style={{ width: '23.8vw' }}
+        />
+      ) : null}
+      {filterImg === 'fashion' ? (
+        <img
+          src="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/3D/fashion+icon2.png"
+          alt="로고 이미지"
+          style={{ width: '23.8vw' }}
+        />
+      ) : null}
       <Bluebox></Bluebox>
-      <Emptybox></Emptybox>
+      <Guide>작가의 작품을 보려면 더블클릭 하세요!</Guide>
       {percentage[0] ? (
         <>
-          {artwork.map(({ url }, index) => (
-            <Imagee
-              key={url}
-              src={url}
-              alt=""
-              style={{ left: `${position[index].x1}`, top: `${position[index].y1}` }}
+          {artwork.map(({ url, artist }, index) => (
+            <Imagebox
+              key={artist.id}
               precent={percentage[index]}
+              style={{ left: `${position[index].x1}`, top: `${position[index].y1}` }}
               onMouseDown={(event) => startDrag(event)}
-            />
+              onDoubleClick={() => navigate(artist.id + '')}
+            >
+              <Image src={url} alt="" precent={percentage[index]} />
+              <Screen backColor={filter[index] ? 'var(--main1-lightBlue)' : 'none'}></Screen>
+            </Imagebox>
           ))}
         </>
       ) : null}
     </Contain>
   )
 }
+
+interface StyleTypes {
+  precent?: string
+  backColor?: string
+}
+
 const Contain = styled.div`
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(22, 53, 244, 0.1) 100%);
   width: 90.8vw;
@@ -211,19 +137,30 @@ const Contain = styled.div`
   padding: 0 4.6vw;
   overflow: hidden;
 `
-const Emptybox = styled.div`
-  background-color: transparent;
-  height: 100%;
-  position: absolute;
-  top: 0;
-`
 const Bluebox = styled.div`
   background-color: var(--main1-blue);
   width: 1vw;
   height: 1vw;
 `
-const Imagee = styled.img<{ precent: string }>`
+const Guide = styled.span`
+  position: absolute;
+  bottom: 2vw;
+  right: 3vw;
+  font-size: 0.8vw;
+  opacity: 0.6;
+`
+const Imagebox = styled.div<StyleTypes>`
   width: ${({ precent }) => precent + 'vw'};
   position: absolute;
   cursor: pointer;
+`
+const Image = styled.img<StyleTypes>`
+  width: ${({ precent }) => precent + 'vw'};
+`
+const Screen = styled.div<StyleTypes>`
+  background-color: ${({ backColor }) => backColor};
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
 `
