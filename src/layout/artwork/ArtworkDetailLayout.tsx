@@ -72,7 +72,7 @@ export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDeta
               {detail.title}
             </Text>
             <br />
-            <Text fontSize="calc(100vw * 0.83 / 100)" lineHeight="1vw">
+            <Text fontSize="calc(100vw * 0.83 / 100)" lineHeight="1.2vw">
               {detail.description}
             </Text>
           </TextContents>
@@ -86,9 +86,7 @@ export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDeta
           right="0"
           hover="var(--main2-green)"
         >
-          <LinkText to="" download>
-            ARTIST
-          </LinkText>
+          <LinkText to={`/artist/${detail.artist.id}`}>ARTIST</LinkText>
           <img src={arrowRight} alt="오른쪽화살아이콘" style={{ width: 'calc(100vw * 0.31 / 100)' }} />
         </Button>
         <Button
