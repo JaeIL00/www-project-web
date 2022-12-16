@@ -13,14 +13,15 @@ import { ArtistList } from './components/artist/ArtistList'
 import { ArtistDetail } from './components/artist/ArtistDetail'
 import { ComingSoon } from './components/common/ComingSoon'
 import { isMobile } from 'react-device-detect'
-import { useArtistListQuery } from './api/UseApi'
+import { useArtistListQuery, useArtworktListQuery } from './api/UseApi'
 import { ArtworkList } from './components/artwork/ArtworkList'
 import { ArtworkDetail } from './components/artwork/ArtworkDetail'
 
 const App = () => {
   if (isMobile) window.location.href = 'https://m.wwweb.kr'
   // 캐싱하기
-  const { data } = useArtistListQuery()
+  const { data: artist } = useArtistListQuery()
+  const { data: artwork } = useArtworktListQuery()
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)

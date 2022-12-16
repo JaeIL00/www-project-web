@@ -31,3 +31,11 @@ export interface resArtistDetailTypes {
     ]
   }
 }
+export interface resArtworkListTypes {
+  data: {
+    genre: string
+    type: string
+    url: string
+    isMain: boolean
+  }[]
+}
