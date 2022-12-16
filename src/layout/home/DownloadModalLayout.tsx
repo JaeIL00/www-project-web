@@ -41,7 +41,10 @@ export const DownloadModalLayout = ({ setBookButton }: DownloadProps) => {
                 Cancel
               </Button>
               <Button backColor="linear-gradient(0deg, #258BFA 0%, #67AFF7 100%)" color="var(--white)">
-                <a href="" download>
+                <a
+                  href="https://www-web-assets.s3.ap-northeast-2.amazonaws.com/common/www+%EB%8F%84%EB%A1%9D.pdf"
+                  download
+                >
                   Download
                 </a>
               </Button>
