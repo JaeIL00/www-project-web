@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import arrowRight from '/assets/icon-arrow-right.png'
 import { IconClose } from '../common/IconClose'
 import shareWhite from '/assets/icon-share-white.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { TextCopySnackLayout } from '../../layout/common/TextCopySnackLayout'
 import { DetailTypes, AssetTypes } from '../../components/artwork/ArtworkDetail'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -22,6 +22,7 @@ interface ArtworkDetailLayoutProps {
 
 export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDetailLayoutProps) => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   return (
     <Container>
       <Flexbox>
@@ -38,28 +39,28 @@ export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDeta
               {assets &&
                 assets.map(({ url, type }, index) => (
                   <SwiperSlide key={index}>
-                    {type === 'image' ? (
-                      <img
-                        src={url}
-                        alt="작품 이미지"
-                        style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
-                      />
-                    ) : null}
                     {type === 'video' ? (
                       <video
                         src={url}
                         controls
                         style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
                       ></video>
-                    ) : null}
+                    ) : (
+                      <img
+                        src={url}
+                        alt="작품 이미지"
+                        style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
+                      />
+                    )}
                   </SwiperSlide>
                 ))}
             </Swiper>
           </ArtworkSlide>
           <TextContents>
             <Text fontSize="calc(100vw * 0.83 / 100)" marginBottom="calc(100vw * 1.14 / 100)">
-              {detail.artist.genre[0].toUpperCase() + detail.artist.genre.slice(1, detail.artist.genre.length)}&nbsp; |
-              &nbsp;{detail.artist.nickname}
+              {detail.artist.genre &&
+                detail.artist.genre[0].toUpperCase() + detail.artist.genre.slice(1, detail.artist.genre.length)}
+              &nbsp; | &nbsp;{detail.artist.nickname}
             </Text>
             <br />
             <Text
@@ -103,7 +104,12 @@ export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDeta
         >
           <img src={shareWhite} alt="페이지 공유하기 버튼" style={{ width: '1.17vw' }} />
         </Button>
-        <Button top="calc(100vh * 9.53 / 100)" right="calc(100vw * 2.7 / 100)" position="absolute">
+        <Button
+          top="calc(100vh * 9.53 / 100)"
+          right="calc(100vw * 2.7 / 100)"
+          position="absolute"
+          onClick={() => navigate('/artwork')}
+        >
           <IconClose color="var(--white)" width="calc(100vw * 1.3 / 100)" />
         </Button>
       </Flexbox>
