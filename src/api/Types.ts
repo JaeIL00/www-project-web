@@ -42,3 +42,23 @@ export interface resArtworkListTypes {
     isMain: boolean
   }[]
 }
+export interface resArtworkDetailTypes {
+  data: {
+    title: string
+    description: string
+    artist: {
+      id: number
+      genre: string
+      nickname: string
+      profileImage: string
+    }
+    assets: [
+      {
+        genre: string
+        type: string
+        url: string
+        isMain: boolean
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useArtworktListQuery } from '../../api/UseApi'
 import { ArtworkHeaderLayout } from '../../layout/artwork/ArtworkHeaderLayout'
 import { ArtworkListLayout } from '../../layout/artwork/ArtworkListLayout'
@@ -40,7 +40,7 @@ export const ArtworkList = () => {
   const [size, setSize] = useState<string[]>([])
   const [filter, setFilter] = useState<boolean[]>([])
 
-  useEffect(() => {
+  useMemo(() => {
     if (data) setArtwork(data.data)
   }, [data])
   useEffect(() => {

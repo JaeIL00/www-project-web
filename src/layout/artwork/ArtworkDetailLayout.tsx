@@ -1,76 +1,83 @@
 import React from 'react'
 import styled from 'styled-components'
 import arrowRight from '/assets/icon-arrow-right.png'
-import arrowLeft from '/assets/icon-arrow-left.png'
 import { IconClose } from '../common/IconClose'
 import shareWhite from '/assets/icon-share-white.png'
 import { Link } from 'react-router-dom'
+import { DetailTypes, AssetTypes } from '../../components/artwork/ArtworkDetail'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper'
+import 'swiper/css' //basic
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
-export const ArtworkDetailLayout = () => {
+interface ArtworkDetailLayoutProps {
+  detail: DetailTypes
+  assets: AssetTypes[]
+}
+
+export const ArtworkDetailLayout = ({ detail, assets }: ArtworkDetailLayoutProps) => {
   return (
     <Container>
       <InnerContainer>
         <ArtworkSlide>
-          <Button>
-            <img src={arrowLeft} alt="" style={{ width: 'calc(100vw * 0.98 / 100)' }} />
-          </Button>
-          <Artworkbox>
-            <img src="" alt="작품 이미지" style={{ width: 'inherit', height: 'inherit', objectFit: 'contain' }} />
-            <GuideImg>
-              <Text fontSize="calc(100vw * 0.83 / 100)">1</Text>
-              <Text fontSize="calc(100vw * 0.83 / 100)" color="var(--black-100)">
-                &nbsp;&nbsp; / &nbsp;10
-              </Text>
-            </GuideImg>
-          </Artworkbox>
-          <Button>
-            <img src={arrowRight} alt="" style={{ width: 'calc(100vw * 0.98 / 100)' }} />
-          </Button>
+          <Swiper
+            navigation
+            modules={[Navigation, Pagination]}
+            slidesPerView={1}
+            pagination={{
+              type: 'fraction'
+            }}
+          >
+            {assets &&
+              assets.map(({ url, type }, index) => (
+                <SwiperSlide key={index}>
+                  {type === 'image' ? (
+                    <img
+                      src={url}
+                      alt="작품 이미지"
+                      style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
+                    />
+                  ) : null}
+                  {type === 'video' ? (
+                    <video
+                      src={url}
+                      controls
+                      style={{ width: '37.7vw', height: '37.7vw', objectFit: 'contain' }}
+                    ></video>
+                  ) : null}
+                </SwiperSlide>
+              ))}
+          </Swiper>
         </ArtworkSlide>
         <TextContents>
           <Text fontSize="calc(100vw * 0.83 / 100)" marginBottom="calc(100vw * 1.14 / 100)">
-            {/* Media design I PUNI{' '} */}
+            {detail.artist.genre}&nbsp; | &nbsp;{detail.artist.nickname}
           </Text>
           <br />
           <Text fontSize="calc(100vw * 1.66 / 100)" fontWeight="700" marginBottom="calc(100vw * 4.27 / 100)">
-            {/* pink vacance Series */}
+            {detail.title}
           </Text>
           <br />
-          <Text fontSize="calc(100vw * 0.83 / 100)">
-            {/* pink vacances는 milk 시리즈 일러스트의 첫번째 챕터입니다. 어려운 상황속에서도 마음을 진정시켜주던 바닷가에서
-            모든장면을 하나하나 담아보려 했어요. 가만히 바다를 바라보고, 튜브를 타고 놀기도 하며 수영장에서 다이빙도
-            해보고 노점에서 음료를 사먹고 실수로 떨어뜨리면서 잠깐이나마 자유를 느낍니다. 이 그림을 받아보는 모든이가
-            부드러운 감성을 느꼈으면 좋겠습니다. pink vacances는 milk 시리즈 일러스트의 첫번째 챕터입니다. 어려운
-            상황속에서도 마음을 진정시켜주던 바닷가에서 모든장면을 하나하나 담아보려 했어요. 가만히 바다를 바라보고,
-            튜브를 타고 놀기도 하며 수영장에서 다이빙도 해보고 노점에서 음료를 사먹고 실수로 떨어뜨리면서 잠깐이나마
-            자유를 느낍니다. 이 그림을 받아보는 모든이가 부드러운 감성을 느꼈으면 좋겠습니다.pink vacances는 milk 시리즈
-            일러스트의 첫번째 챕터입니다. 어려운 상황속에서도 마음을 진정시켜주던 바닷가에서 모든장면을 하나하나
-            담아보려 했어요. 가만히 바다를 바라보고, 튜브를 타고 놀기도 하며 수영장에서 다이빙도 해보고 노점에서 음료를
-            사먹고 실수로 떨어뜨리면서 잠깐이나마 자유를 느낍니다. 이 그림을 받아보는 모든이가 부드러운 감성을 느꼈으면
-            좋겠습니다. */}
-          </Text>
+          <Text fontSize="calc(100vw * 0.83 / 100)">{detail.description}</Text>
         </TextContents>
-        <Buttonbox>
-          <Button
-            backColor="var(--main1-blue)"
-            width="calc(100vw * 13.54 / 100)"
-            height="calc(100vw * 3.28 / 100)"
-            hover="var(--main2-green)"
-          >
-            <LinkText to="" download>
-              ARTIST
-            </LinkText>
-            <img src={arrowRight} alt="오른쪽화살아이콘" style={{ width: 'calc(100vw * 0.31 / 100)' }} />
-          </Button>
-        </Buttonbox>
       </InnerContainer>
       <Button
-        width="calc(100vw * 1.56 / 100)"
-        top="calc(100vh * 9.35 / 100)"
-        left="calc(100vw * 2.6 / 100)"
+        backColor="var(--main1-blue)"
+        width="calc(100vw * 13.54 / 100)"
+        height="calc(100vw * 3.28 / 100)"
         position="absolute"
+        bottom="8.3vh"
+        right="0"
+        hover="var(--main2-green)"
       >
-        <img src={shareWhite} alt="페이지 공유하기 버튼" />
+        <LinkText to="" download>
+          ARTIST
+        </LinkText>
+        <img src={arrowRight} alt="오른쪽화살아이콘" style={{ width: 'calc(100vw * 0.31 / 100)' }} />
+      </Button>
+      <Button top="5.5vw" left="calc(100vw * 2.6 / 100)" position="absolute">
+        <img src={shareWhite} alt="페이지 공유하기 버튼" style={{ width: '1.17vw' }} />
       </Button>
       <Button top="calc(100vh * 9.53 / 100)" right="calc(100vw * 2.7 / 100)" position="absolute">
         <IconClose color="var(--white)" width="calc(100vw * 1.3 / 100)" />
@@ -105,32 +112,67 @@ const Container = styled.div`
   align-items: center;
   position: absolute;
   top: -6.24rem;
+  z-index: 999999999;
 `
 const InnerContainer = styled.div`
   display: flex;
   position: relative;
-  margin: 0 calc(100vw * 16 / 100) 0 calc(100vw * 2.6 / 100);
+  margin: 0 16vw 0 2.6vw;
 `
 const ArtworkSlide = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: calc(100vw * 9.53 / 100);
-`
-const Artworkbox = styled.div`
-  width: calc(100vw * 37.7 / 100);
-  height: calc(100vw * 37.7 / 100);
   position: relative;
-  margin: 0 calc(100vw * 2.76 / 100);
-`
-const Buttonbox = styled.div`
-  display: flex;
-  position: absolute;
-  bottom: calc(100vh * -6.57 / 100);
-  right: calc(100vw * -16 / 100);
+
+  .swiper {
+    margin-right: 9.5vw;
+    overflow: visible;
+  }
+  .swiper-wrapper {
+    width: 41.4vw;
+    padding-left: 3.7vw;
+    overflow: hidden;
+  }
+  .swiper-button-next {
+    background: url(/assets/icon-arrow-right.png) no-repeat;
+    background-size: 0.98vw auto;
+    background-position: center;
+    margin-left: 2.7vw;
+  }
+
+  .swiper-button-prev {
+    background: url(/assets/icon-arrow-left.png) no-repeat;
+    background-size: 0.98vw auto;
+    background-position: center;
+    left: 0;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
+  }
+  .swiper-pagination-fraction {
+    width: auto;
+    left: auto;
+    right: 3.75vw;
+  }
+  .swiper-pagination {
+    display: inline;
+    bottom: -1.9vw;
+    font-size: 0.83vw;
+    color: var(--black-100);
+  }
+
+  .swiper-pagination-current {
+    margin-right: 0.3vw;
+    color: var(--white);
+  }
+  .swiper-pagination-total {
+    margin-left: 0.3vw;
+    color: var(--black-100);
+  }
 `
 const Button = styled.button<styleTypes>`
   background-color: ${({ backColor }) => (backColor ? backColor : 'transparent')};
-  width: ${({ width }) => width};
+  width: ${({ width }) => (width ? width : 'auto')};
   height: ${({ height }) => height};
   display: flex;
   align-items: center;
@@ -144,13 +186,8 @@ const Button = styled.button<styleTypes>`
     background-color: ${({ hover }) => hover};
   }
 `
-const GuideImg = styled.div`
-  position: absolute;
-  right: 0;
-  margin-top: calc(100vw * 1.92 / 100);
-`
 const TextContents = styled.div`
-  margin-top: calc(100vw * 1.66 / 100);
+  margin-top: 1.66vw;
 `
 const Text = styled.span<styleTypes>`
   display: inline-block;
@@ -161,7 +198,7 @@ const Text = styled.span<styleTypes>`
   word-break: keep-all;
 `
 const LinkText = styled(Link)`
-  margin: 0 calc(100vw * 4.32 / 100) 0 calc(100vw * 1.14 / 100);
-  font-size: calc(100vw * 1.56 / 100);
+  margin: 0 4.32vw 0 1.14vw;
+  font-size: 1.56vw;
   color: var(--white);
 `
