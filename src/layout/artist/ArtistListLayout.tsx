@@ -14,7 +14,7 @@ export const ArtistListLayout = ({ allArtist }: { allArtist: ArtistTypes[] }) =>
       <ArtistContainer>
         {allArtist.map(({ id, genre, nickname, profileImage }) => (
           <Artistbox key={id} to={id + ''}>
-            <Image src={profileImage.replace('.jpg', '_720p.jpg')} alt="작가 프로필 이미지" />
+            <Image src={profileImage.replace('.jpg', '_720p.jpeg')} alt="작가 프로필 이미지" />
             <HoverElement className="HoverCover">
               <Cover />
               <Infobox>

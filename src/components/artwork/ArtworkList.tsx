@@ -1,8 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { useArtworktListQuery } from '../../api/UseApi'
+import React, { useEffect, useState } from 'react'
 import { ArtworkHeaderLayout } from '../../layout/artwork/ArtworkHeaderLayout'
 import { ArtworkListLayout } from '../../layout/artwork/ArtworkListLayout'
-import { getImagePercent } from '../../store/Artwork'
+import { getImagePercent } from '../../store/ArtData'
 import { useAppDispatch, useAppSelector } from '../../store/Store'
 
 export interface ArtworkTypes {
@@ -22,33 +21,16 @@ export interface dataPro {
 }
 
 export const ArtworkList = () => {
-  const { data } = useArtworktListQuery()
-  const [artwork, setArtwork] = useState<ArtworkTypes[]>([
-    {
-      artist: {
-        id: 0
-      },
-      genre: '',
-      type: '',
-      url: '',
-      isMain: false
-    }
-  ])
-
   const dispatch = useAppDispatch()
-  const { percentage } = useAppSelector((state) => state.artwork)
+  const { resArtwork, artworkPercentage } = useAppSelector((state) => state.artData)
   const [size, setSize] = useState<string[]>([])
   const [filter, setFilter] = useState<boolean[]>([])
-
-  useMemo(() => {
-    if (data) setArtwork(data.data)
-  }, [data])
   useEffect(() => {
-    if (artwork[0].url && !percentage[0]) {
-      for (let i = 0; i < artwork.length; i++) {
+    if (resArtwork[0].url && !artworkPercentage[0]) {
+      for (let i = 0; i < resArtwork.length; i++) {
         setFilter((prev) => [...prev, false])
         const img = new Image()
-        img.src = artwork[i].url
+        img.src = resArtwork[i].url
         setTimeout(() => {
           if (img.width !== 0) {
             setSize((prev) => [...prev, img.width + 'px'])
@@ -56,7 +38,7 @@ export const ArtworkList = () => {
         }, 2000)
       }
     }
-  }, [artwork])
+  }, [resArtwork])
 
   const done = () => {
     for (let i = 0; i < size.length; i++) {
@@ -89,13 +71,13 @@ export const ArtworkList = () => {
     }
   }
   useEffect(() => {
-    if (size.length === artwork.length) done()
+    if (size.length === resArtwork.length) done()
   }, [size])
 
   const [filterImg, setFilterImg] = useState('all')
   const filterHandler = (filterGenre: string) => {
     const indexArray = [] as number[]
-    artwork.forEach((item: ArtworkTypes, index: number) => {
+    resArtwork.forEach((item: ArtworkTypes, index: number) => {
       if (item.genre === filterGenre) indexArray.push(index)
       else
         setFilter((prev) => {
@@ -168,8 +150,8 @@ export const ArtworkList = () => {
   return (
     <div style={{ position: 'relative' }}>
       <ArtworkListLayout
-        artwork={artwork}
-        percentage={percentage}
+        artwork={resArtwork}
+        percentage={artworkPercentage}
         filter={filter}
         filterImg={filterImg}
         startDrag={startDrag}
