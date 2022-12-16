@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import xIcon from '/assets/icon-x.png'
 import shareWhite from '/assets/icon-share-white.png'
-import arrow from '/assets/arrowRight.svg'
+import arrow from '/assets/icon-arrow-right.png'
 import { ArtistDetailTypes } from '../../components/artist/ArtistDetail'
 import { TextCopySnackLayout } from '../../layout/common/TextCopySnackLayout'
 import { useAppDispatch } from '../../store/Store'
-import { textCopyHandler, rebackHandler } from '../../store/InfoSlice'
+import { textCopyHandler, rebackHandler } from '../../store/CopySlice'
+import { useNavigate } from 'react-router-dom'
 
 interface ArtistDetailProps {
   detail: ArtistDetailTypes
@@ -18,6 +19,7 @@ interface ArtistDetailProps {
 
 export const ArtistDetailLayout = ({ detail, whatCopy, isCopy, setWhatCopy }: ArtistDetailProps) => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   return (
     <Container>
       <InnerContainer>
@@ -51,7 +53,7 @@ export const ArtistDetailLayout = ({ detail, whatCopy, isCopy, setWhatCopy }: Ar
         {detail.linkTree ? (
           <LinkText href={detail.linkTree} target="_blank" backColor="var(--black-300)">
             CONTACT
-            <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+            <img src={arrow} alt="오른쪽화살아이콘" style={{ width: '0.4vw', marginLeft: '2.39vw' }} />
           </LinkText>
         ) : (
           <Button
@@ -69,12 +71,12 @@ export const ArtistDetailLayout = ({ detail, whatCopy, isCopy, setWhatCopy }: Ar
             }}
           >
             CONTACT
-            <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+            <img src={arrow} alt="오른쪽화살아이콘" style={{ width: '0.4vw', marginLeft: '2.39vw' }} />
           </Button>
         )}
         <LinkText href={`/artwork/${detail.id}`} backColor="var(--main1-blue)">
           ARTWORK
-          <img src={arrow} alt="오른쪽화살아이콘" style={{ marginLeft: '2.39vw' }} />
+          <img src={arrow} alt="오른쪽화살아이콘" style={{ width: '0.4vw', marginLeft: '2.39vw' }} />
         </LinkText>
       </Buttonbox>
       <Button
@@ -92,7 +94,7 @@ export const ArtistDetailLayout = ({ detail, whatCopy, isCopy, setWhatCopy }: Ar
       >
         <img src={shareWhite} alt="페이지 공유하기 버튼" />
       </Button>
-      <Button top="calc(100vh * 9.53 / 100)" right="2.73vw" position="absolute">
+      <Button top="calc(100vh * 9.53 / 100)" right="2.73vw" position="absolute" onClick={() => navigate('/artist')}>
         <img src={xIcon} alt="이전 페이지 이동 버튼" style={{ width: 'calc(100vw * 1.3 / 100)' }} />
       </Button>
       <TextCopySnackLayout isCopy={isCopy} word={whatCopy} />
@@ -127,6 +129,7 @@ const Container = styled.div`
   position: absolute;
   top: -6.24rem;
   overflow: hidden;
+  z-index: 9999;
 
   @keyframes clipboard-up {
     0% {
@@ -168,7 +171,7 @@ const Text = styled.span<styleTypes>`
   margin-bottom: ${({ marginBottom }) => marginBottom};
   font-size: ${({ fontSize }) => fontSize};
   font-weight: ${({ fontWeight }) => fontWeight};
-  line-height: 1vw;
+  line-height: 1.2vw;
   color: ${({ color }) => color};
   word-break: keep-all;
 `

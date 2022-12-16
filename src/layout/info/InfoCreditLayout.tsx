@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { CreditData1, CreditData2 } from '../../components/info/CreditData'
 import { useAppDispatch } from '../../store/Store'
-import { textCopyHandler, rebackHandler } from '../../store/InfoSlice'
+import { textCopyHandler, rebackHandler } from '../../store/CopySlice'
 
 export const InfoCreditLayout = () => {
   const dispatch = useAppDispatch()
