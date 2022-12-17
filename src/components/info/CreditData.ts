@@ -210,14 +210,6 @@ export const CreditData2 = [
         url: '',
         part: '',
         email: ''
-      },
-      {
-        key: 'v',
-        name: 'ash',
-        color: 'var(--serve-blue)',
-        url: '',
-        part: '',
-        email: ''
       }
     ]
   },
