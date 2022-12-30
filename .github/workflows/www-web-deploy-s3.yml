@@ -6,7 +6,7 @@ name: WWW Frontend Github Action Pipeline
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   publish-aws-s3:
