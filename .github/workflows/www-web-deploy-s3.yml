@@ -6,7 +6,7 @@ name: WWW Frontend Github Action Pipeline
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   publish-aws-s3:
@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
-
+            
       - name: Create Environment File
         env:
           KAKAO_MAP_KEY: ${{ secrets.KAKAO_MAP_KEY }}
@@ -67,3 +67,4 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id E37FOS401R4E40 \
             --paths "/*"
+
