@@ -32,7 +32,7 @@ jobs:
         run: |
           echo $KAKAO_MAP_KEY >> .env
           cat .env
-          
+
       - name: Install Dependencies # 의존성 설치
         run: yarn install
 

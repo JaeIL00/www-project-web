@@ -96,7 +96,7 @@ export const ArtistDetailLayout = ({ detail, whatCopy, isCopy, setWhatCopy }: Ar
           >
             <img src={shareWhite} alt="페이지 공유하기 버튼" />
           </Button>
-          <Button top="calc(100vh * 9.53 / 100)" right="2.73vw" position="absolute" onClick={() => navigate('/artist')}>
+          <Button top="calc(100vh * 9.53 / 100)" right="2.73vw" position="absolute" onClick={() => navigate(-1)}>
             <img src={xIcon} alt="이전 페이지 이동 버튼" style={{ width: 'calc(100vw * 1.3 / 100)' }} />
           </Button>
           <TextCopySnackLayout isCopy={isCopy} word={whatCopy} />
