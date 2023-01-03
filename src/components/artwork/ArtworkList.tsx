@@ -26,7 +26,7 @@ export const ArtworkList = () => {
   const [size, setSize] = useState<string[]>([])
   const [filter, setFilter] = useState<boolean[]>([])
   useEffect(() => {
-    if (resArtwork[0].url && !artworkPercentage[0]) {
+    if (resArtwork[0].url) {
       for (let i = 0; i < resArtwork.length; i++) {
         setFilter((prev) => [...prev, false])
         const img = new Image()
