@@ -106,7 +106,7 @@ export const ArtworkDetailLayout = ({ detail, assets, isCopyState }: ArtworkDeta
           top="calc(100vh * 9.53 / 100)"
           right="calc(100vw * 2.7 / 100)"
           position="absolute"
-          onClick={() => navigate('/artwork')}
+          onClick={() => navigate(-1)}
         >
           <IconClose color="var(--white)" width="calc(100vw * 1.3 / 100)" />
         </Button>
