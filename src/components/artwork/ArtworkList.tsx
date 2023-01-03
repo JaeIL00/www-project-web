@@ -29,16 +29,19 @@ export const ArtworkList = () => {
     if (resArtwork[0].url) {
       for (let i = 0; i < resArtwork.length; i++) {
         setFilter((prev) => [...prev, false])
-        const img = new Image()
-        img.src = resArtwork[i].url
-        setTimeout(() => {
-          if (img.width !== 0) {
-            setSize((prev) => [...prev, img.width + 'px'])
-          }
-        }, 1000)
+        artworkPercentage[0] ? null : getImageSize(i)
       }
     }
   }, [resArtwork])
+  const getImageSize = (index: number) => {
+    const img = new Image()
+    img.src = resArtwork[index].url
+    setTimeout(() => {
+      if (img.width !== 0) {
+        setSize((prev) => [...prev, img.width + 'px'])
+      }
+    }, 1000)
+  }
 
   const done = () => {
     for (let i = 0; i < size.length; i++) {
