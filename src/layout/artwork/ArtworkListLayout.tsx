@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { ArtworkTypes } from '../../components/artwork/ArtworkList'
 import { position } from '../../components/artwork/ArtworkPosition'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface ArtworkListLayoutProps {
   artwork: ArtworkTypes[]
@@ -14,7 +16,7 @@ interface ArtworkListLayoutProps {
 
 export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg, startDrag }: ArtworkListLayoutProps) => {
   const navigate = useNavigate()
-
+	
   return (
     <Contain>
       <Bluebox></Bluebox>
@@ -59,8 +61,8 @@ export const ArtworkListLayout = ({ artwork, percentage, filter, filterImg, star
               onMouseDown={(event) => startDrag(event)}
               onDoubleClick={() => navigate(artist.id + '')}
             >
-              <Image src={url.replace('.jpeg', '_1080p.jpeg')} alt="작가 대표작 이미지" precent={percentage[index]} />
-              <Screen backColor={filter[index] ? 'var(--main1-lightBlue)' : 'none'}></Screen>
+              <Image src={url.replace('.jpeg', '_1080p.jpeg')} alt="작가 대표작 이미지" precent={percentage[index]} effect="blur"  />
+              <Screen backColor={filter[index] ? 'var(--main1-lightBlue)' : 'none'} />
             </Imagebox>
           ))}
         </>
@@ -102,7 +104,7 @@ const Imagebox = styled.div<StyleTypes>`
   position: absolute;
   cursor: pointer;
 `
-const Image = styled.img<StyleTypes>`
+const Image = styled(LazyLoadImage)<StyleTypes>`
   width: ${({ precent }) => precent + 'vw'};
 `
 const Screen = styled.div<StyleTypes>`

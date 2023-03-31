@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { ArtworkHeaderLayout } from '../../layout/artwork/ArtworkHeaderLayout'
 import { ArtworkListLayout } from '../../layout/artwork/ArtworkListLayout'
 import { getImagePercent } from '../../store/ArtData'
@@ -122,7 +122,7 @@ export const ArtworkList = () => {
     }))
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (window.event) {
       document.onmousemove = moveDrag
       document.onmouseup = stopDrag
