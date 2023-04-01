@@ -20,7 +20,7 @@ import { useAppDispatch } from './store/Store'
 import { getArtworkReponse } from './store/ArtData'
 
 const App = () => {
-  if (isMobile) window.location.href = 'https://m.wwweb.kr'
+  // if (isMobile) window.location.href = 'https://m.wwweb.kr'
 
   const dispatch = useAppDispatch()
   const { data: artist } = useArtistListQuery()
